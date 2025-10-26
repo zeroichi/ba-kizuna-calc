@@ -1,0 +1,255 @@
+# 学校
+schools:
+  - id: abydos
+    name: アビドス高等学校
+  - id: arius
+    name: アリウス分校
+  - id: valkyrie
+    name: ヴァルキューレ警察学校
+  - id: kronos
+    name: クロノススクール
+  - id: gehenna
+    name: ゲヘナ学園
+  - id: shanhaijing
+    name: 山海経高級中学校
+  - id: trinity
+    name: トリニティ総合学園
+  - id: highlander
+    name: ハイランダー鉄道学園
+  - id: hyakkiyako
+    name: 百鬼夜行連合学院
+  - id: millennium
+    name: ミレニアムサイエンススクール
+  - id: redwinter
+    name: レッドウィンター連邦学園
+  - id: federation
+    name: 連邦生徒会
+  - id: wildhunt
+    name: ワイルドハント芸術学院
+  - id: srt
+    name: SRT特殊学園
+  - id: other
+    name: その他
+
+# 贈り物
+gifts:
+  - id: wavecat
+    name: ウェーブキャットの枕
+    type: normal
+  - id: peroro
+    name: ペロロの腹筋ローラー
+    type: normal
+  - id: apod
+    name: エーポッドプロ
+    type: normal
+  - id: book-love
+    name: 禁断の愛～許されないからこそ美しく～
+    type: normal
+  - id: book-magazine
+    name: ゲームマガジン「ヒットガールズ」
+    type: normal
+  - id: gloss
+    name: チェリーローズカラーのグロス
+    type: normal
+  - id: bb-cream
+    name: お肌を透明にするBBクリーム
+    type: normal
+  - id: military-cream
+    name: ミリタリー用カモフラージュクリーム3種セット
+    type: normal
+  - id: cookie
+    name: 高級なクッキーセット
+    type: normal
+  - id: book-gun
+    name: 『銃 可愛い 青春』
+    type: normal
+  - id: telescope
+    name: 天体望遠鏡
+    type: normal
+  - id: gamegirl-color
+    name: ゲームガールカラー復刻版
+    type: normal
+  - id: mx-ration
+    name: MX-レーションC型デザート風味
+    type: normal
+  - id: maccha-lemonade
+    name: 抹茶味の瓶ラムネ
+    type: normal
+  - id: pillow
+    name: ゼリーズの枕
+    type: normal
+  - id: book-detective
+    name: 跳躍探偵ウサギ～霧に包まれた温泉での滑落～
+    type: normal
+  - id: o-fit
+    name: O-フィット
+    type: normal
+  - id: treasure-map
+    name: 埋蔵金の地図
+    type: normal
+  - id: glasses
+    name: コスプレ用ぐるぐるメガネ
+    type: normal
+  - id: puzzle-box
+    name: 世界で最も無駄な絡繰りボックス
+    type: normal
+  - id: teddy-bear
+    name: リボンのついた熊のぬいぐるみ
+    type: normal
+  - id: movie-ticket
+    name: 映画の前売りペアチケット
+    type: normal
+  - id: paints-set
+    name: 30色の絵の具セット
+    type: normal
+  - id: book-poetry
+    name: 古典の詩集
+    type: normal
+  - id: tableware
+    name: 可愛い食器セット
+    type: normal
+  - id: cube-puzzle
+    name: 頭脳開発キューブパズル
+    type: normal
+  - id: whole-cake
+    name: 大きなホールケーキ
+    type: normal
+  - id: buffet-ticket
+    name: ハイクラスビュッフェ招待券
+    type: normal
+  - id: plant-pot
+    name: 食虫植物の植木鉢
+    type: normal
+  - id: high-pot
+    name: 高級そうな欲望のつぼ
+    type: normal
+  - id: music-box
+    name: ぜんまい式オルゴール
+    type: normal
+  - id: handkerchief
+    name: 刺繍付きのハンカチ
+    type: normal
+  - id: encyclopedia
+    name: 百科事典
+    type: normal
+  - id: supplement
+    name: ザ・サプリメント
+    type: normal
+  - id: float-ring
+    name: 夏模様の浮き輪
+    type: normal
+  - id: lace-pillow
+    name: レースの枕
+    type: high
+  - id: book-street
+    name: ストリートオブヤンキー1巻
+    type: high
+  - id: perfume
+    name: サミュエラ「ザ・ビヨンド」
+    type: high
+  - id: egg-craft
+    name: レトロな卵の工芸品
+    type: high
+  - id: parfait
+    name: ミルフィーユの正統派パフェ
+    type: high
+  - id: aeebook
+    name: エイ～ブックレア
+    type: high
+  - id: comb
+    name: おしゃれなくし
+    type: high
+  - id: vitamin-jelly
+    name: 栄養満載の総合ビタミンゼリー
+    type: high
+  - id: bonsai
+    name: 最高級の楓の盆栽
+    type: high
+  - id: sewing-set
+    name: 裁縫セット
+    type: high
+  - id: music-ticket
+    name: 音楽演奏会入場券
+    type: high
+  - id: dumbbell
+    name: 1日3回ダンベルセット
+    type: high
+  - id: board-game
+    name: ボードゲーム「ザ・人生」
+    type: high
+  - id: beautiful-bouquet
+    name: 美しい花束
+    type: high-all
+  - id: shiny-bouquet
+    name: きらめきの花束
+    type: normal-all
+  - id: miku-card
+    name: 初音ミクのフォトカード
+    type: normal-all
+  - id: refresh-bouquet
+    name: さわやかな花束
+    type: high-all
+  - id: gift-select-box
+    name: 贈り物選択ボックス
+    type: normal-all
+
+# 生徒
+students:
+  - name: アイリ
+    fullName: 栗村アイリ
+    schoolId: trinity
+    variants:
+      - id: kurimura-airi
+        name: ""
+      - id: kurimura-airi-band
+        name: バンド
+  - name: アオバ
+    fullName: 内海アオバ
+    schoolId: highlander
+    variants:
+      - id: utsumi-aoba
+        name: ""
+  - name: アカネ
+    fullName: 室笠アカネ
+    schoolId: millennium
+    variants:
+      - id: murokasa-akane
+        name: ""
+      - id: murokasa-akane-bunny
+        name: バニーガール
+  - name: アカリ
+    fullName: 鰐渕アカリ
+    schoolId: gehenna
+    variants:
+      - id: wanibuchi-akari
+        name: ""
+      - id: wanibuchi-akari-newyear
+        name: 正月
+  - name: アコ
+    fullName: 天雨アコ
+    schoolId: gehenna
+    variants:
+      - id: amau-ako
+        name: ""
+        favoriteGiftIds:
+          - treasure-map
+          - puzzle-box
+          - high-pot
+          - music-box
+          - encyclopedia
+          - egg-craft
+        superFavoriteGiftIds:
+          - supplement
+      - id: amau-ako-dress
+        name: ドレス
+        favoriteGiftIds:
+          - treasure-map
+          - puzzle-box
+          - high-pot
+          - music-box
+          - encyclopedia
+          - egg-craft
+        superFavoriteGiftIds:
+          - book-detective
+          - supplement
+          - vitamin-jelly
