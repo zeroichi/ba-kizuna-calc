@@ -22,12 +22,12 @@ export interface StudentVariant {
   id: StudentVariantId
   /** 衣装名。通常衣装の場合は空文字列 */
   name: string
-  /** 通常贈り物の効果中・高級贈り物の効果大 */
-  favoriteGiftIds: GiftId[]
-  /** 通常贈り物の効果大・高級贈り物の効果特大 */
-  superFavoriteGiftIds: GiftId[]
-  /** 通常贈り物の効果特大 ※水着ハナコ・正月ムツキのみ */
-  ultraFavoriteGiftIds: GiftId[]
+  /** 効果中の贈り物 ※通常の高級贈り物は除く */
+  favoriteGiftIds?: GiftId[]
+  /** 効果大の贈り物 */
+  superFavoriteGiftIds?: GiftId[]
+  /** 効果特大の贈り物 ※通常贈り物では水着ハナコ・正月ムツキのみ */
+  ultraFavoriteGiftIds?: GiftId[]
 }
 
 /** 生徒 */
@@ -53,3 +53,6 @@ export interface MasterData {
 export interface BondExpTable {
   bondExpTable: number[]
 }
+
+/** 贈り物の効果(生徒の反応) 小・中・大・特大 */
+export type GiftEffectivity = "normal" | "favorite" | "super" | "ultra"

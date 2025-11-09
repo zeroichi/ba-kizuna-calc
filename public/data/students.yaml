@@ -237,9 +237,9 @@ students:
           - high-pot
           - music-box
           - encyclopedia
-          - egg-craft
         superFavoriteGiftIds:
           - supplement
+          - egg-craft
       - id: amau-ako-dress
         name: ドレス
         favoriteGiftIds:
@@ -248,8 +248,9 @@ students:
           - high-pot
           - music-box
           - encyclopedia
-          - egg-craft
         superFavoriteGiftIds:
           - book-detective
           - supplement
+          - egg-craft
+        ultraFavoriteGiftIds:
           - vitamin-jelly

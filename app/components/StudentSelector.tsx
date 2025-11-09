@@ -1,3 +1,5 @@
+'use client'
+
 import { Student, StudentVariantId } from "@/types/master"
 import { ReactNode, useCallback, useMemo } from "react"
 import Select, { SingleValue } from "react-select"
@@ -23,6 +25,6 @@ export const StudentSelector = (props: StudentSelectorProps) => {
     })
   }, [props.students])
   return <>
-    <Select className="w-64 inline-block" options={options} onChange={(v) => props.onChange?.(v?.value)}></Select>
+    <Select className="w-64 inline-block" options={options} isSearchable onChange={(v) => props.onChange?.(v?.value)}></Select>
   </>
 }
