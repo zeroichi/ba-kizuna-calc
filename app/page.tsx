@@ -43,6 +43,17 @@ export default function Home() {
     if (student == undefined) {
       return undefined
     }
+    if (gift.id == "gift-select-box") {
+      // 贈り物選択ボックスの場合、該当生徒の通常贈り物反応のうち、一番大きいものに合わせる
+      if ((student.ultraFavoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
+        return "ultra"
+      } else if ((student.superFavoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
+        return "super"
+      } else if ((student.favoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
+        return "favorite"
+      }
+      return "normal"
+    }
     if ((student.ultraFavoriteGiftIds ?? []).includes(gift.id)) {
       // console.log(`${gift.id} => ultra`)
       return "ultra"
@@ -54,7 +65,7 @@ export default function Home() {
       return "favorite"
     }
     return "normal"
-  }, [studentMap, selectedStudent])
+  }, [studentMap, selectedStudent, giftMap])
 
   function onGiftCountChange(id: GiftId, newValue: number) {
     giftCountMap.set(id, isNaN(newValue) ? 0 : newValue)
@@ -104,7 +115,7 @@ export default function Home() {
 
     const expectedExp = currentExp + totalExp
     // console.log("期待の絆経験値:", expectedExp)
-    if(bondExpTable?.bondExpTable == undefined) return undefined
+    if (bondExpTable?.bondExpTable == undefined) return undefined
 
     return bondExpTable.bondExpTable.findLastIndex((v) => v <= expectedExp) + 1
   }, [bondExpMap, bondExpTable, currentBondLevel, totalExp])
