@@ -10,6 +10,7 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import { Gift, GiftId, StudentVariant, StudentVariantId } from "@/types/master";
 import { useCallback, useMemo, useState } from "react";
 import { getEffectivity } from "@/utils/utils";
+import Link from "next/link";
 
 export default function Home() {
   const { data: masterData, isLoading: masterDataIsLoading } = useMasterData()
@@ -173,6 +174,13 @@ export default function Home() {
         {errorMessage && <div className="my-4 p-4 border-2 border-red-200 rounded-lg bg-red-50 text-red-600">
           {errorMessage}
         </div>}
+        <div className="mt-8 pt-4 border-t-2 border-red-200 w-full">
+          Contact: @zeroichi
+          &nbsp;
+          <Link className="text-blue-600" href="https://x.com/zeroichi">X (Twitter)</Link>
+          &nbsp;/&nbsp;
+          <Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc">GitHub</Link>
+        </div>
       </main>
     </div>
   );
