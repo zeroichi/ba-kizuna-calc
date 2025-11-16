@@ -3,6 +3,7 @@ import { Gift, GiftEffectivity, GiftId } from "@/types/master"
 import { getEffectivity, getEffectivityId } from "@/utils/utils"
 import { Tooltip } from "@mui/material"
 import Image from 'next/image'
+import { ChangeEventHandler, useState } from "react"
 export interface GiftCountFormProps {
   /** 贈り物情報 */
   gift: Gift
@@ -10,12 +11,19 @@ export interface GiftCountFormProps {
   onChange?: (id: GiftId, newValue: number) => void
   /** 効果: 小、中、大、特大 (生徒ごとに変える。指定しない場合は通常=小、高級=中扱い) */
   effectivity?: GiftEffectivity
+  /** 初期値(保存から復元した場合など) */
+  initialValue?: number
 }
 
 export const GiftCountForm = (props: GiftCountFormProps) => {
-  // const typeText = props.gift.type in ["high", "high-all"] ? "高級" : "通常"
-
+  const [current, setCurrent] = useState(props.initialValue ?? 0)
   const [effectivity, exp] = getEffectivity(props.gift, props.effectivity)
+
+  const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const newValue = parseInt(e.target.value)
+    props.onChange?.(props.gift.id, newValue)
+    setCurrent(newValue)
+  }
 
   return <div className="border-1 border-gray-400 rounded-lg p-2 text-sm">
     <div className="flex flex-row">
@@ -31,6 +39,6 @@ export const GiftCountForm = (props: GiftCountFormProps) => {
     {/* <span className="text-xs border-1 border-gray-200 bg-gray-200 rounded-md p-1">({typeText}, 効果{effectivity}, {exp})</span><br /> */}
     ×
     <input type="number" placeholder="0" className="w-15 px-1 border border-gray-200 rounded-lg"
-      onChange={(e) => props.onChange?.(props.gift.id, parseInt(e.target.value))} />
+      value={current} onChange={handleOnChange} />
   </div>
 }
