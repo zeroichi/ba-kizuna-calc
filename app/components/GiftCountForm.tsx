@@ -16,13 +16,19 @@ export interface GiftCountFormProps {
 }
 
 export const GiftCountForm = (props: GiftCountFormProps) => {
-  const [current, setCurrent] = useState(props.initialValue ?? 0)
+  const [current, setCurrent] = useState(props.initialValue?.toString() ?? "0")
   const [effectivity, exp] = getEffectivity(props.gift, props.effectivity)
+  const [hasError, setError] = useState(false)
 
   const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const newValue = parseInt(e.target.value)
+    if (isNaN(newValue)) {
+      setError(true)
+    } else {
+      setError(false)
+    }
     props.onChange?.(props.gift.id, newValue)
-    setCurrent(newValue)
+    setCurrent(e.target.value)
   }
 
   return <div className="border-1 border-gray-400 rounded-lg p-2 text-sm">
@@ -38,7 +44,7 @@ export const GiftCountForm = (props: GiftCountFormProps) => {
     {/* <span className="text-xs">{props.gift.name}</span><br /> */}
     {/* <span className="text-xs border-1 border-gray-200 bg-gray-200 rounded-md p-1">({typeText}, 効果{effectivity}, {exp})</span><br /> */}
     ×
-    <input type="number" placeholder="0" className="w-15 px-1 border border-gray-200 rounded-lg"
+    <input type="number" placeholder="0" className={`w-15 px-1 border ${hasError ? "border-red-900" : "border-gray-200"} rounded-lg`}
       value={current} onChange={handleOnChange} />
   </div>
 }

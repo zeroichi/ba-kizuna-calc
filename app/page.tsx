@@ -22,7 +22,7 @@ export default function Home() {
   const { data: bondExpTable } = useBondExpTable()
   const [persistData, setPersistData] = useLocalPersistence<PersistData>(PERSIST_KEY)
   const [giftCountMap, setGiftCountMap] = useState(new Map<GiftId, number>(Object.entries(persistData?.giftCountMap ?? [])))
-  const [selectedStudent, setSelectedStudent] = useState(undefined as StudentVariantId | undefined)
+  const [selectedStudent, setSelectedStudent] = useState(persistData?.selectedStudentId)
   /** 絆レベル入力のエラー */
   const [errorMessage, setErrorMessage] = useState("")
   const [currentBondLevel, setCurrentBondLevel] = useState(persistData?.currentBondLevel ?? 1)
@@ -80,12 +80,13 @@ export default function Home() {
     const newMap = new Map(giftCountMap)
     setGiftCountMap(newMap) // hookのdeps更新検知のためMapを再作成
     console.log(id, newMap)
-    setPersistData({ giftCountMap: Object.fromEntries(newMap), currentBondLevel: currentBondLevel })
+    setPersistData({ giftCountMap: Object.fromEntries(newMap), currentBondLevel: currentBondLevel, selectedStudentId: selectedStudent })
   }
 
   function onSelectedStudentChange(id?: StudentVariantId) {
     // console.log("selected student:", id, studentMap.get(id ?? "")?.name)
     setSelectedStudent(id)
+    setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentBondLevel, selectedStudentId: id })
   }
 
   const totalExp = useMemo(() =>
@@ -111,7 +112,7 @@ export default function Home() {
     } else {
       setErrorMessage("")
       setCurrentBondLevel(currentLevel)
-      setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentLevel })
+      setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentLevel, selectedStudentId: selectedStudent })
     }
   }
 
@@ -141,7 +142,7 @@ export default function Home() {
           </p>
           {/* 生徒の選択 */}
           <div id="student-selector" className="my-2">
-            生徒を選択: <StudentSelector students={masterData?.students ?? []} onChange={onSelectedStudentChange} />
+            生徒を選択: <StudentSelector students={masterData?.students ?? []} onChange={onSelectedStudentChange} initialValue={persistData?.selectedStudentId} />
           </div>
           {/* 贈り物の数を入力するフォーム */}
           {/* grid-cols-5 gap-2 */}
@@ -151,7 +152,11 @@ export default function Home() {
             )}
           </div>
           <div id="gift-total-score" className="my-4 text-sm">
-            贈り物で得られる絆経験値: {totalExp}
+            現在の絆レベルの経験値 {bondExpMap.get(currentBondLevel) ?? "-"}
+            &nbsp;&nbsp;+&nbsp;&nbsp;
+            贈り物で得られる絆経験値 {totalExp}
+            &nbsp;&nbsp;=&nbsp;&nbsp;
+            総絆経験値 {bondExpMap.get(currentBondLevel) != undefined ? ((bondExpMap.get(currentBondLevel) ?? 0) + totalExp) : "-"} 
           </div>
           {/* 現在の絆レベルと、アイテムで到達できる絆レベルを表示 */}
           <div id="bond-level-indicator" className="flex items-baseline gap-8 w-full justify-center">
@@ -186,6 +191,7 @@ export default function Home() {
             {errorMessage}
           </div>}
           <div className="mt-8 pt-4 border-t-2 border-red-200 w-full">
+            ※ブラウザにのみデータを保存しています。ブラウザのキャッシュ等をクリアすると値は初期化されます。<br />
             Contact: @zeroichi
             &nbsp;
             <Link className="text-blue-600" href="https://x.com/zeroichi">X (Twitter)</Link>
