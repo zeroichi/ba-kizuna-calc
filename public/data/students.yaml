@@ -195,62 +195,3183 @@ gifts:
 
 # 生徒
 students:
-  - name: アイリ
-    fullName: 栗村アイリ
-    schoolId: trinity
-    variants:
-      - id: kurimura-airi
-        name: ""
-      - id: kurimura-airi-band
-        name: バンド
-  - name: アオバ
-    fullName: 内海アオバ
-    schoolId: highlander
-    variants:
-      - id: utsumi-aoba
-        name: ""
-  - name: アカネ
-    fullName: 室笠アカネ
-    schoolId: millennium
-    variants:
-      - id: murokasa-akane
-        name: ""
-      - id: murokasa-akane-bunny
-        name: バニーガール
-  - name: アカリ
-    fullName: 鰐渕アカリ
-    schoolId: gehenna
-    variants:
-      - id: wanibuchi-akari
-        name: ""
-      - id: wanibuchi-akari-newyear
-        name: 正月
-  - name: アコ
-    fullName: 天雨アコ
-    schoolId: gehenna
-    variants:
-      - id: amau-ako
-        name: ""
-        favoriteGiftIds:
-          - treasure-map
-          - puzzle-box
-          - high-pot
-          - music-box
-          - encyclopedia
-        superFavoriteGiftIds:
-          - supplement
-          - egg-craft
-      - id: amau-ako-dress
-        name: ドレス
-        favoriteGiftIds:
-          - treasure-map
-          - puzzle-box
-          - high-pot
-          - music-box
-          - encyclopedia
-        superFavoriteGiftIds:
-          - book-detective
-          - supplement
-          - egg-craft
-        ultraFavoriteGiftIds:
-          - vitamin-jelly
+- name: アイリ
+  fullName: アイリ
+  schoolId: trinity
+  variants:
+  - id: airi
+    name: ''
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: airi-band
+    name: バンド
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - handkerchief
+    superFavoriteGiftIds:
+    - cookie
+    - whole-cake
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: アオバ
+  fullName: アオバ
+  schoolId: highlander
+  variants:
+  - id: aoba
+    name: ''
+    favoriteGiftIds:
+    - movie-ticket
+    - tableware
+    - supplement
+    superFavoriteGiftIds:
+    - buffet-ticket
+    - vitamin-jelly
+    - music-ticket
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: アカネ
+  fullName: アカネ
+  schoolId: millennium
+  variants:
+  - id: akane
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - tableware
+    - sewing-set
+    ultraFavoriteGiftIds: []
+  - id: akane-bunny
+    name: バニーガール
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - tableware
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: アカリ
+  fullName: アカリ
+  schoolId: gehenna
+  variants:
+  - id: akari
+    name: ''
+    favoriteGiftIds:
+    - whole-cake
+    superFavoriteGiftIds:
+    - buffet-ticket
+    ultraFavoriteGiftIds:
+    - parfait
+  - id: akari-newyear
+    name: 正月
+    favoriteGiftIds:
+    - whole-cake
+    superFavoriteGiftIds:
+    - buffet-ticket
+    ultraFavoriteGiftIds:
+    - parfait
+- name: アコ
+  fullName: アコ
+  schoolId: gehenna
+  variants:
+  - id: ako
+    name: ''
+    favoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    - music-box
+    - encyclopedia
+    superFavoriteGiftIds:
+    - supplement
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: ako-dress
+    name: ドレス
+    favoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    - music-box
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-detective
+    - supplement
+    - egg-craft
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: アズサ
+  fullName: アズサ
+  schoolId: trinity
+  variants:
+  - id: azusa
+    name: ''
+    favoriteGiftIds:
+    - wavecat
+    - peroro
+    - handkerchief
+    superFavoriteGiftIds:
+    - teddy-bear
+    - comb
+    ultraFavoriteGiftIds: []
+  - id: azusa-swim
+    name: 水着
+    favoriteGiftIds:
+    - wavecat
+    - peroro
+    superFavoriteGiftIds:
+    - teddy-bear
+    - float-ring
+    ultraFavoriteGiftIds:
+    - comb
+- name: アスナ
+  fullName: アスナ
+  schoolId: millennium
+  variants:
+  - id: asuna
+    name: ''
+    favoriteGiftIds:
+    - bb-cream
+    - military-cream
+    superFavoriteGiftIds:
+    - gloss
+    - perfume
+    ultraFavoriteGiftIds:
+    - parfait
+  - id: asuna-bunny
+    name: バニーガール
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    superFavoriteGiftIds:
+    - whole-cake
+    - parfait
+    ultraFavoriteGiftIds:
+    - perfume
+  - id: asuna-uniform
+    name: 制服
+    favoriteGiftIds:
+    - military-cream
+    superFavoriteGiftIds:
+    - gloss
+    - bb-cream
+    ultraFavoriteGiftIds:
+    - perfume
+- name: アツコ
+  fullName: アツコ
+  schoolId: arius
+  variants:
+  - id: atsuko
+    name: ''
+    favoriteGiftIds:
+    - supplement
+    superFavoriteGiftIds:
+    - encyclopedia
+    ultraFavoriteGiftIds:
+    - board-game
+  - id: atsuko-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - glasses
+    - plant-pot
+    - high-pot
+    - supplement
+    superFavoriteGiftIds:
+    - book-poetry
+    - encyclopedia
+    - float-ring
+    - book-street
+    ultraFavoriteGiftIds:
+    - board-game
+- name: アヤネ
+  fullName: アヤネ
+  schoolId: abydos
+  variants:
+  - id: ayane
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-gun
+    - book-street
+    ultraFavoriteGiftIds: []
+  - id: ayane-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-gun
+    - float-ring
+    - book-street
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: アリス
+  fullName: アリス
+  schoolId: millennium
+  variants:
+  - id: arisu
+    name: ''
+    favoriteGiftIds:
+    - gamegirl-color
+    - o-fit
+    superFavoriteGiftIds:
+    - book-magazine
+    ultraFavoriteGiftIds:
+    - board-game
+  - id: arisu-maid
+    name: メイド
+    favoriteGiftIds:
+    - telescope
+    - gamegirl-color
+    - o-fit
+    - glasses
+    - teddy-bear
+    - paints-set
+    - handkerchief
+    superFavoriteGiftIds:
+    - book-magazine
+    - cube-puzzle
+    ultraFavoriteGiftIds:
+    - comb
+    - board-game
+- name: アル
+  fullName: アル
+  schoolId: gehenna
+  variants:
+  - id: aru
+    name: ''
+    favoriteGiftIds:
+    - puzzle-box
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - glasses
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: aru-newyear
+    name: 正月
+    favoriteGiftIds:
+    - puzzle-box
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - glasses
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: aru-dress
+    name: ドレス
+    favoriteGiftIds:
+    - music-box
+    superFavoriteGiftIds:
+    - glasses
+    - puzzle-box
+    - high-pot
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: イオリ
+  fullName: イオリ
+  schoolId: gehenna
+  variants:
+  - id: iori
+    name: ''
+    favoriteGiftIds:
+    - military-cream
+    - cookie
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - mx-ration
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: iori-swim
+    name: 水着
+    favoriteGiftIds:
+    - military-cream
+    - cookie
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - mx-ration
+    - float-ring
+    - parfait
+    ultraFavoriteGiftIds: []
+- name: イズナ
+  fullName: イズナ
+  schoolId: hyakkiyako
+  variants:
+  - id: izuna
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - handkerchief
+    - comb
+    ultraFavoriteGiftIds: []
+  - id: izuna-swim
+    name: 水着
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - handkerchief
+    - float-ring
+    - comb
+    ultraFavoriteGiftIds: []
+- name: イズミ
+  fullName: イズミ
+  schoolId: gehenna
+  variants:
+  - id: izumi
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - whole-cake
+    superFavoriteGiftIds:
+    - maccha-lemonade
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: izumi-swim
+    name: 水着
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - whole-cake
+    superFavoriteGiftIds:
+    - maccha-lemonade
+    - float-ring
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: izumi-newyear
+    name: 正月
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - whole-cake
+    superFavoriteGiftIds:
+    - maccha-lemonade
+    - parfait
+    ultraFavoriteGiftIds: []
+- name: イチカ
+  fullName: イチカ
+  schoolId: trinity
+  variants:
+  - id: ichika
+    name: ''
+    favoriteGiftIds:
+    - apod
+    - bb-cream
+    - military-cream
+    - gamegirl-color
+    - handkerchief
+    superFavoriteGiftIds:
+    - gloss
+    - aeebook
+    - comb
+    ultraFavoriteGiftIds:
+    - perfume
+  - id: ichika-swim
+    name: 水着
+    favoriteGiftIds:
+    - apod
+    - bb-cream
+    - military-cream
+    - gamegirl-color
+    superFavoriteGiftIds:
+    - gloss
+    - float-ring
+    - aeebook
+    ultraFavoriteGiftIds:
+    - perfume
+- name: イブキ
+  fullName: イブキ
+  schoolId: gehenna
+  variants:
+  - id: ibuki
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - mx-ration
+    - maccha-lemonade
+    - glasses
+    - cube-puzzle
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - teddy-bear
+    - paints-set
+    ultraFavoriteGiftIds:
+    - parfait
+    - board-game
+- name: イロハ
+  fullName: イロハ
+  schoolId: gehenna
+  variants:
+  - id: iroha
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-gun
+    - gamegirl-color
+    - book-detective
+    - o-fit
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-magazine
+    - book-street
+    ultraFavoriteGiftIds: []
+- name: ウイ
+  fullName: ウイ
+  schoolId: trinity
+  variants:
+  - id: ui
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-gun
+    - book-poetry
+    - book-street
+    ultraFavoriteGiftIds:
+    - egg-craft
+  - id: ui-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-gun
+    - treasure-map
+    - book-poetry
+    - float-ring
+    ultraFavoriteGiftIds:
+    - book-street
+- name: ウタハ
+  fullName: ウタハ
+  schoolId: millennium
+  variants:
+  - id: utaha
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - telescope
+    ultraFavoriteGiftIds:
+    - aeebook
+  - id: utaha-cheer
+    name: 応援団
+    favoriteGiftIds:
+    - apod
+    - gamegirl-color
+    superFavoriteGiftIds:
+    - telescope
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: ウミカ
+  fullName: ウミカ
+  schoolId: hyakkiyako
+  variants:
+  - id: umika
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - glasses
+    ultraFavoriteGiftIds:
+    - board-game
+- name: エイミ
+  fullName: エイミ
+  schoolId: millennium
+  variants:
+  - id: eimi
+    name: ''
+    favoriteGiftIds:
+    - apod
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    superFavoriteGiftIds:
+    - music-box
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: eimi-swim
+    name: 水着
+    favoriteGiftIds:
+    - apod
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    superFavoriteGiftIds:
+    - music-box
+    - float-ring
+    - egg-craft
+    ultraFavoriteGiftIds: []
+- name: エリ
+  fullName: エリ
+  schoolId: wildhunt
+  variants:
+  - id: eri
+    name: ''
+    favoriteGiftIds:
+    - puzzle-box
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - treasure-map
+    - paints-set
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: カエデ
+  fullName: カエデ
+  schoolId: hyakkiyako
+  variants:
+  - id: kaede
+    name: ''
+    favoriteGiftIds:
+    - book-magazine
+    - telescope
+    - gamegirl-color
+    - o-fit
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - glasses
+    - board-game
+    ultraFavoriteGiftIds: []
+- name: カズサ
+  fullName: カズサ
+  schoolId: trinity
+  variants:
+  - id: kazusa
+    name: ''
+    favoriteGiftIds:
+    - gloss
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: kazusa-band
+    name: バンド
+    favoriteGiftIds:
+    - apod
+    - mx-ration
+    - maccha-lemonade
+    - music-box
+    superFavoriteGiftIds:
+    - cookie
+    - whole-cake
+    ultraFavoriteGiftIds:
+    - parfait
+- name: カスミ
+  fullName: カスミ
+  schoolId: gehenna
+  variants:
+  - id: kasumi
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - puzzle-box
+    superFavoriteGiftIds:
+    - treasure-map
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: カノエ
+  fullName: カノエ
+  schoolId: wildhunt
+  variants:
+  - id: kanoe
+    name: ''
+    favoriteGiftIds:
+    - book-magazine
+    - book-gun
+    - book-detective
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - apod
+    - book-love
+    - book-street
+    ultraFavoriteGiftIds:
+    - perfume
+- name: カホ
+  fullName: カホ
+  schoolId: hyakkiyako
+  variants:
+  - id: kaho
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-poetry
+    ultraFavoriteGiftIds:
+    - book-street
+- name: カヨコ
+  fullName: カヨコ
+  schoolId: gehenna
+  variants:
+  - id: kayoko
+    name: ''
+    favoriteGiftIds:
+    - gamegirl-color
+    - music-box
+    superFavoriteGiftIds:
+    - apod
+    - aeebook
+    ultraFavoriteGiftIds: []
+  - id: kayoko-newyear
+    name: 正月
+    favoriteGiftIds:
+    - gamegirl-color
+    - music-box
+    superFavoriteGiftIds:
+    - apod
+    - handkerchief
+    - aeebook
+    - comb
+    ultraFavoriteGiftIds:
+    - music-ticket
+  - id: kayoko-dress
+    name: ドレス
+    favoriteGiftIds:
+    - gamegirl-color
+    superFavoriteGiftIds:
+    - apod
+    - music-box
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: カリン
+  fullName: カリン
+  schoolId: millennium
+  variants:
+  - id: karin
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - cube-puzzle
+    ultraFavoriteGiftIds:
+    - sewing-set
+  - id: karin-uniform
+    name: 制服
+    favoriteGiftIds:
+    - book-love
+    - handkerchief
+    superFavoriteGiftIds:
+    - tableware
+    ultraFavoriteGiftIds:
+    - sewing-set
+  - id: karin-bunny
+    name: バニーガール
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - teddy-bear
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: カンナ
+  fullName: カンナ
+  schoolId: valkyrie
+  variants:
+  - id: kanna
+    name: ''
+    favoriteGiftIds:
+    - encyclopedia
+    superFavoriteGiftIds:
+    - supplement
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+  - id: kanna-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-detective
+    - float-ring
+    ultraFavoriteGiftIds:
+    - book-street
+- name: キキョウ
+  fullName: キキョウ
+  schoolId: hyakkiyako
+  variants:
+  - id: kikyou
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - supplement
+    superFavoriteGiftIds:
+    - book-gun
+    - book-detective
+    - book-poetry
+    - encyclopedia
+    ultraFavoriteGiftIds:
+    - book-street
+  - id: kikyou-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - book-poetry
+    - supplement
+    superFavoriteGiftIds:
+    - book-gun
+    - encyclopedia
+    - float-ring
+    ultraFavoriteGiftIds:
+    - book-street
+- name: キサキ
+  fullName: キサキ
+  schoolId: shanhaijing
+  variants:
+  - id: kisaki
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - glasses
+    - book-poetry
+    - plant-pot
+    - high-pot
+    - encyclopedia
+    superFavoriteGiftIds:
+    - tableware
+    - book-street
+    ultraFavoriteGiftIds:
+    - bonsai
+- name: キララ
+  fullName: キララ
+  schoolId: gehenna
+  variants:
+  - id: kirara
+    name: ''
+    favoriteGiftIds:
+    - military-cream
+    - handkerchief
+    superFavoriteGiftIds:
+    - gloss
+    - bb-cream
+    ultraFavoriteGiftIds:
+    - comb
+- name: キリノ
+  fullName: キリノ
+  schoolId: valkyrie
+  variants:
+  - id: kirino
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    superFavoriteGiftIds:
+    - handkerchief
+    ultraFavoriteGiftIds:
+    - parfait
+  - id: kirino-swim
+    name: 水着
+    favoriteGiftIds:
+    - peroro
+    - cookie
+    superFavoriteGiftIds:
+    - o-fit
+    - float-ring
+    ultraFavoriteGiftIds:
+    - dumbbell
+- name: ココナ
+  fullName: ココナ
+  schoolId: shanhaijing
+  variants:
+  - id: kokona
+    name: ''
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    ultraFavoriteGiftIds:
+    - parfait
+- name: コタマ
+  fullName: コタマ
+  schoolId: millennium
+  variants:
+  - id: kotama
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - glasses
+    - paints-set
+    - cube-puzzle
+    superFavoriteGiftIds:
+    - teddy-bear
+    - board-game
+    ultraFavoriteGiftIds: []
+  - id: kotama-camp
+    name: キャンプ
+    favoriteGiftIds:
+    - telescope
+    - glasses
+    - paints-set
+    - cube-puzzle
+    superFavoriteGiftIds:
+    - teddy-bear
+    - board-game
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: コトリ
+  fullName: コトリ
+  schoolId: millennium
+  variants:
+  - id: kotori
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - book-poetry
+    - supplement
+    superFavoriteGiftIds:
+    - encyclopedia
+    - book-street
+    ultraFavoriteGiftIds:
+    - aeebook
+  - id: kotori-cheer
+    name: 応援団
+    favoriteGiftIds:
+    - peroro
+    - o-fit
+    - cube-puzzle
+    - supplement
+    superFavoriteGiftIds:
+    - encyclopedia
+    ultraFavoriteGiftIds:
+    - dumbbell
+- name: コハル
+  fullName: コハル
+  schoolId: trinity
+  variants:
+  - id: koharu
+    name: ''
+    favoriteGiftIds:
+    - bb-cream
+    - military-cream
+    - book-detective
+    superFavoriteGiftIds:
+    - book-love
+    - gloss
+    - perfume
+    ultraFavoriteGiftIds: []
+  - id: koharu-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-gun
+    superFavoriteGiftIds:
+    - book-love
+    - float-ring
+    ultraFavoriteGiftIds:
+    - perfume
+- name: コユキ
+  fullName: コユキ
+  schoolId: millennium
+  variants:
+  - id: koyuki
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - glasses
+    - teddy-bear
+    - paints-set
+    superFavoriteGiftIds:
+    - puzzle-box
+    - cube-puzzle
+    ultraFavoriteGiftIds:
+    - board-game
+- name: サオリ
+  fullName: サオリ
+  schoolId: arius
+  variants:
+  - id: saori
+    name: ''
+    favoriteGiftIds:
+    - military-cream
+    superFavoriteGiftIds:
+    - gloss
+    - bb-cream
+    - perfume
+    ultraFavoriteGiftIds: []
+  - id: saori-swim
+    name: 水着
+    favoriteGiftIds:
+    - mx-ration
+    superFavoriteGiftIds:
+    - gloss
+    - bb-cream
+    - military-cream
+    - float-ring
+    - perfume
+    ultraFavoriteGiftIds:
+    - comb
+  - id: saori-dress
+    name: ドレス
+    favoriteGiftIds:
+    - bb-cream
+    - military-cream
+    - handkerchief
+    superFavoriteGiftIds:
+    - gloss
+    - perfume
+    ultraFavoriteGiftIds:
+    - comb
+- name: サキ
+  fullName: サキ
+  schoolId: srt
+  variants:
+  - id: saki
+    name: ''
+    favoriteGiftIds:
+    - mx-ration
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    - music-box
+    - encyclopedia
+    - supplement
+    superFavoriteGiftIds:
+    - military-cream
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: saki-swim
+    name: 水着
+    favoriteGiftIds:
+    - mx-ration
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    - music-box
+    - encyclopedia
+    - supplement
+    superFavoriteGiftIds:
+    - military-cream
+    - float-ring
+    - egg-craft
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: サクラコ
+  fullName: サクラコ
+  schoolId: trinity
+  variants:
+  - id: sakurako
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    superFavoriteGiftIds:
+    - whole-cake
+    ultraFavoriteGiftIds:
+    - parfait
+  - id: sakurako-idol
+    name: アイドル
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - glasses
+    - puzzle-box
+    - book-poetry
+    - plant-pot
+    - high-pot
+    - encyclopedia
+    superFavoriteGiftIds:
+    - supplement
+    - book-street
+    ultraFavoriteGiftIds:
+    - parfait
+- name: サツキ
+  fullName: サツキ
+  schoolId: gehenna
+  variants:
+  - id: satsuki
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - puzzle-box
+    - book-poetry
+    - supplement
+    superFavoriteGiftIds:
+    - encyclopedia
+    - book-street
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: サヤ
+  fullName: サヤ
+  schoolId: shanhaijing
+  variants:
+  - id: saya
+    name: ''
+    favoriteGiftIds:
+    - encyclopedia
+    superFavoriteGiftIds:
+    - supplement
+    - vitamin-jelly
+    ultraFavoriteGiftIds: []
+  - id: saya-private
+    name: 私服
+    favoriteGiftIds:
+    - cookie
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - glasses
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: シグレ
+  fullName: シグレ
+  schoolId: redwinter
+  variants:
+  - id: shigure
+    name: ''
+    favoriteGiftIds:
+    - encyclopedia
+    superFavoriteGiftIds:
+    - supplement
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+  - id: shigure-hotspring
+    name: 温泉
+    favoriteGiftIds:
+    - encyclopedia
+    superFavoriteGiftIds:
+    - supplement
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: シズコ
+  fullName: シズコ
+  schoolId: hyakkiyako
+  variants:
+  - id: shizuko
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - supplement
+    - vitamin-jelly
+    ultraFavoriteGiftIds: []
+  - id: shizuko-swim
+    name: 水着
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - supplement
+    - float-ring
+    - vitamin-jelly
+    ultraFavoriteGiftIds: []
+- name: シミコ
+  fullName: シミコ
+  schoolId: trinity
+  variants:
+  - id: shimiko
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-detective
+    - book-street
+    ultraFavoriteGiftIds: []
+- name: ジュリ
+  fullName: ジュリ
+  schoolId: gehenna
+  variants:
+  - id: juri
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - paints-set
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+  - id: juri-parttime
+    name: アルバイト
+    favoriteGiftIds:
+    - gloss
+    - tableware
+    superFavoriteGiftIds:
+    - handkerchief
+    ultraFavoriteGiftIds:
+    - parfait
+- name: シュン
+  fullName: シュン
+  schoolId: shanhaijing
+  variants:
+  - id: shun
+    name: ''
+    favoriteGiftIds:
+    - gloss
+    - military-cream
+    superFavoriteGiftIds:
+    - bb-cream
+    - perfume
+    ultraFavoriteGiftIds: []
+  - id: shun-child
+    name: 幼女
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - teddy-bear
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - parfait
+    ultraFavoriteGiftIds: []
+- name: ジュンコ
+  fullName: ジュンコ
+  schoolId: gehenna
+  variants:
+  - id: junko
+    name: ''
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: jukno-newyear
+    name: 正月
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    ultraFavoriteGiftIds:
+    - parfait
+- name: シロコ
+  fullName: シロコ
+  schoolId: abydos
+  variants:
+  - id: shiroko
+    name: ''
+    favoriteGiftIds:
+    - o-fit
+    superFavoriteGiftIds:
+    - peroro
+    - dumbbell
+    ultraFavoriteGiftIds: []
+  - id: shiroko-riding
+    name: ライディング
+    favoriteGiftIds:
+    - peroro
+    - o-fit
+    superFavoriteGiftIds:
+    - treasure-map
+    - dumbbell
+    ultraFavoriteGiftIds: []
+  - id: shiroko-swim
+    name: 水着
+    favoriteGiftIds:
+    - o-fit
+    superFavoriteGiftIds:
+    - peroro
+    - float-ring
+    ultraFavoriteGiftIds:
+    - dumbbell
+- name: シロコ＊テラー
+  fullName: シロコ＊テラー
+  schoolId: abydos
+  variants:
+  - id: shiroko-terror
+    name: ''
+    favoriteGiftIds:
+    - o-fit
+    superFavoriteGiftIds:
+    - peroro
+    - dumbbell
+    ultraFavoriteGiftIds: []
+- name: スズミ
+  fullName: スズミ
+  schoolId: trinity
+  variants:
+  - id: suzumi
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - teddy-bear
+    ultraFavoriteGiftIds:
+    - music-ticket
+  - id: suzumi-magical
+    name: マジカル
+    favoriteGiftIds:
+    - wavecat
+    - gloss
+    - military-cream
+    - gamegirl-color
+    - pillow
+    - music-box
+    superFavoriteGiftIds:
+    - apod
+    - bb-cream
+    - lace-pillow
+    - perfume
+    - aeebook
+    ultraFavoriteGiftIds:
+    - comb
+- name: スバル
+  fullName: スバル
+  schoolId: arius
+  variants:
+  - id: subaru
+    name: ''
+    favoriteGiftIds:
+    - apod
+    - gloss
+    - military-cream
+    - mx-ration
+    - puzzle-box
+    - high-pot
+    superFavoriteGiftIds:
+    - treasure-map
+    - whole-cake
+    - music-box
+    - egg-craft
+    ultraFavoriteGiftIds:
+    - music-ticket
+- name: スミレ
+  fullName: スミレ
+  schoolId: millennium
+  variants:
+  - id: sumire
+    name: ''
+    favoriteGiftIds:
+    - peroro
+    superFavoriteGiftIds:
+    - o-fit
+    - dumbbell
+    ultraFavoriteGiftIds: []
+  - id: sumire-parttime
+    name: アルバイト
+    favoriteGiftIds:
+    - peroro
+    - supplement
+    superFavoriteGiftIds:
+    - o-fit
+    - dumbbell
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: セイア
+  fullName: セイア
+  schoolId: trinity
+  variants:
+  - id: seia
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - glasses
+    - plant-pot
+    - high-pot
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-poetry
+    ultraFavoriteGiftIds:
+    - book-street
+  - id: seia-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - glasses
+    - book-poetry
+    - plant-pot
+    - high-pot
+    - encyclopedia
+    superFavoriteGiftIds:
+    - gamegirl-color
+    - float-ring
+    - book-street
+    ultraFavoriteGiftIds:
+    - board-game
+- name: セナ
+  fullName: セナ
+  schoolId: gehenna
+  variants:
+  - id: sena
+    name: ''
+    favoriteGiftIds:
+    - pillow
+    - encyclopedia
+    - supplement
+    superFavoriteGiftIds:
+    - wavecat
+    - lace-pillow
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+  - id: sena-private
+    name: 私服
+    favoriteGiftIds:
+    - glasses
+    - plant-pot
+    - high-pot
+    - encyclopedia
+    superFavoriteGiftIds:
+    - supplement
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: セリカ
+  fullName: セリカ
+  schoolId: abydos
+  variants:
+  - id: serika
+    name: ''
+    favoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - music-box
+    superFavoriteGiftIds:
+    - high-pot
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: serika-newyear
+    name: 正月
+    favoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - music-box
+    superFavoriteGiftIds:
+    - high-pot
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: serika-swim
+    name: 水着
+    favoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - music-box
+    - handkerchief
+    superFavoriteGiftIds:
+    - high-pot
+    - float-ring
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: セリナ
+  fullName: セリナ
+  schoolId: trinity
+  variants:
+  - id: serina
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - pillow
+    ultraFavoriteGiftIds:
+    - perfume
+    - vitamin-jelly
+  - id: serina-xmas
+    name: クリスマス
+    favoriteGiftIds:
+    - wavecat
+    - supplement
+    superFavoriteGiftIds:
+    - pillow
+    - vitamin-jelly
+    ultraFavoriteGiftIds:
+    - lace-pillow
+- name: チアキ
+  fullName: チアキ
+  schoolId: gehenna
+  variants:
+  - id: chiaki
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - puzzle-box
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-poetry
+    - book-street
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: チェリノ
+  fullName: チェリノ
+  schoolId: redwinter
+  variants:
+  - id: cherino
+    name: ''
+    favoriteGiftIds:
+    - treasure-map
+    - glasses
+    - puzzle-box
+    - whole-cake
+    - plant-pot
+    - music-box
+    superFavoriteGiftIds:
+    - high-pot
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: cherino-hotspring
+    name: 温泉
+    favoriteGiftIds:
+    - glasses
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - treasure-map
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: チセ
+  fullName: チセ
+  schoolId: hyakkiyako
+  variants:
+  - id: chise
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-poetry
+    - book-street
+    ultraFavoriteGiftIds: []
+  - id: chise-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-poetry
+    - float-ring
+    - book-street
+    ultraFavoriteGiftIds: []
+- name: チナツ
+  fullName: チナツ
+  schoolId: gehenna
+  variants:
+  - id: chinatsu
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-gun
+    - book-street
+    ultraFavoriteGiftIds:
+    - egg-craft
+  - id: chinatsu-hotspring
+    name: 温泉
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - treasure-map
+    - puzzle-box
+    - book-poetry
+    - high-pot
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-gun
+    - music-box
+    - book-street
+    - egg-craft
+    ultraFavoriteGiftIds: []
+- name: チヒロ
+  fullName: チヒロ
+  schoolId: millennium
+  variants:
+  - id: chihiro
+    name: ''
+    favoriteGiftIds:
+    - gamegirl-color
+    - music-box
+    superFavoriteGiftIds:
+    - apod
+    - aeebook
+    ultraFavoriteGiftIds: []
+- name: ツクヨ
+  fullName: ツクヨ
+  schoolId: hyakkiyako
+  variants:
+  - id: tsukuyo
+    name: ''
+    favoriteGiftIds:
+    - glasses
+    - high-pot
+    superFavoriteGiftIds:
+    - plant-pot
+    - bonsai
+    ultraFavoriteGiftIds: []
+- name: ツバキ
+  fullName: ツバキ
+  schoolId: hyakkiyako
+  variants:
+  - id: tsubaki
+    name: ''
+    favoriteGiftIds:
+    - pillow
+    superFavoriteGiftIds:
+    - wavecat
+    - lace-pillow
+    ultraFavoriteGiftIds:
+    - bonsai
+  - id: tsubaki-guide
+    name: ガイド
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - pillow
+    - book-detective
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - wavecat
+    - book-street
+    ultraFavoriteGiftIds:
+    - lace-pillow
+- name: ツルギ
+  fullName: ツルギ
+  schoolId: trinity
+  variants:
+  - id: tsurugi
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - book-love
+    ultraFavoriteGiftIds:
+    - comb
+  - id: tsurugi-swim
+    name: 水着
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - book-love
+    - float-ring
+    ultraFavoriteGiftIds:
+    - comb
+- name: トキ
+  fullName: トキ
+  schoolId: millennium
+  variants:
+  - id: toki
+    name: ''
+    favoriteGiftIds:
+    - o-fit
+    - encyclopedia
+    - supplement
+    superFavoriteGiftIds:
+    - peroro
+    ultraFavoriteGiftIds:
+    - dumbbell
+  - id: toki-bunny
+    name: バニーガール
+    favoriteGiftIds:
+    - o-fit
+    - encyclopedia
+    - supplement
+    superFavoriteGiftIds:
+    - peroro
+    ultraFavoriteGiftIds:
+    - sewing-set
+    - dumbbell
+- name: トモエ
+  fullName: トモエ
+  schoolId: redwinter
+  variants:
+  - id: tomoe
+    name: ''
+    favoriteGiftIds:
+    - book-gun
+    - handkerchief
+    superFavoriteGiftIds:
+    - book-poetry
+    ultraFavoriteGiftIds:
+    - egg-craft
+  - id: tomoe-qipao
+    name: チーパオ
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - book-poetry
+    - handkerchief
+    - encyclopedia
+    superFavoriteGiftIds:
+    - gloss
+    ultraFavoriteGiftIds:
+    - perfume
+- name: ナギサ
+  fullName: ナギサ
+  schoolId: trinity
+  variants:
+  - id: nagisa
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    superFavoriteGiftIds:
+    - music-box
+    ultraFavoriteGiftIds:
+    - egg-craft
+  - id: nagisa-swim
+    name: 水着
+    favoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - military-cream
+    - float-ring
+    - egg-craft
+    ultraFavoriteGiftIds:
+    - lace-pillow
+- name: ナグサ
+  fullName: ナグサ
+  schoolId: trinity
+  variants:
+  - id: nagusa
+    name: ''
+    favoriteGiftIds:
+    - bb-cream
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    - handkerchief
+    superFavoriteGiftIds:
+    - book-poetry
+    - parfait
+    ultraFavoriteGiftIds:
+    - comb
+- name: ナツ
+  fullName: ナツ
+  schoolId: trinity
+  variants:
+  - id: natsu
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - treasure-map
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: natsu-band
+    name: バンド
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - treasure-map
+    superFavoriteGiftIds:
+    - cookie
+    - whole-cake
+    ultraFavoriteGiftIds:
+    - parfait
+- name: ニヤ
+  fullName: ニヤ
+  schoolId: hyakkiyako
+  variants:
+  - id: niya
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - treasure-map
+    - puzzle-box
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - music-box
+    superFavoriteGiftIds:
+    - book-love
+    - glasses
+    - high-pot
+    - egg-craft
+    - board-game
+    ultraFavoriteGiftIds:
+    - bonsai
+- name: ネル
+  fullName: ネル
+  schoolId: millennium
+  variants:
+  - id: neru
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    superFavoriteGiftIds:
+    - glasses
+    - board-game
+    ultraFavoriteGiftIds: []
+  - id: neru-uniform
+    name: 制服
+    favoriteGiftIds:
+    - book-magazine
+    - telescope
+    - gamegirl-color
+    - o-fit
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - glasses
+    ultraFavoriteGiftIds:
+    - board-game
+  - id: neru-bunny
+    name: バニーガール
+    favoriteGiftIds:
+    - book-magazine
+    - o-fit
+    superFavoriteGiftIds:
+    - gamegirl-color
+    ultraFavoriteGiftIds:
+    - board-game
+- name: ノア
+  fullName: ノア
+  schoolId: millennium
+  variants:
+  - id: noa
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-poetry
+    - book-street
+    ultraFavoriteGiftIds: []
+  - id: noa-pajama
+    name: パジャマ
+    favoriteGiftIds:
+    - wavecat
+    - book-love
+    - book-magazine
+    - gloss
+    - bb-cream
+    - military-cream
+    - book-gun
+    - pillow
+    - book-detective
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-poetry
+    - book-street
+    - perfume
+    ultraFavoriteGiftIds:
+    - lace-pillow
+- name: ノゾミ
+  fullName: ノゾミ
+  schoolId: highlander
+  variants:
+  - id: nozomi
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - treasure-map
+    - puzzle-box
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - glasses
+    - egg-craft
+    ultraFavoriteGiftIds:
+    - board-game
+- name: ノドカ
+  fullName: ノドカ
+  schoolId: redwinter
+  variants:
+  - id: nodoka
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - telescope
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: nodoka-hotspring
+    name: 温泉
+    favoriteGiftIds:
+    - cookie
+    - telescope
+    - mx-ration
+    - maccha-lemonade
+    - movie-ticket
+    - whole-cake
+    superFavoriteGiftIds:
+    - buffet-ticket
+    - parfait
+    - music-ticket
+    ultraFavoriteGiftIds: []
+- name: ノノミ
+  fullName: ノノミ
+  schoolId: abydos
+  variants:
+  - id: nonomi
+    name: ''
+    favoriteGiftIds:
+    - bb-cream
+    - military-cream
+    superFavoriteGiftIds:
+    - gloss
+    - perfume
+    ultraFavoriteGiftIds: []
+  - id: nonomi-swim
+    name: 水着
+    favoriteGiftIds:
+    - bb-cream
+    - military-cream
+    superFavoriteGiftIds:
+    - gloss
+    - float-ring
+    - perfume
+    ultraFavoriteGiftIds: []
+- name: ハスミ
+  fullName: ハスミ
+  schoolId: trinity
+  variants:
+  - id: hasumi
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - buffet-ticket
+    superFavoriteGiftIds:
+    - whole-cake
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: hasumi-gym
+    name: 体操服
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - buffet-ticket
+    superFavoriteGiftIds:
+    - whole-cake
+    ultraFavoriteGiftIds:
+    - parfait
+  - id: hasumi-swim
+    name: 水着
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - buffet-ticket
+    superFavoriteGiftIds:
+    - whole-cake
+    - float-ring
+    ultraFavoriteGiftIds:
+    - parfait
+- name: ハナエ
+  fullName: ハナエ
+  schoolId: trinity
+  variants:
+  - id: hanae
+    name: ''
+    favoriteGiftIds:
+    - gloss
+    - military-cream
+    superFavoriteGiftIds:
+    - bb-cream
+    - perfume
+    ultraFavoriteGiftIds: []
+  - id: hanae-xmas
+    name: クリスマス
+    favoriteGiftIds:
+    - peroro
+    - supplement
+    superFavoriteGiftIds:
+    - o-fit
+    - vitamin-jelly
+    ultraFavoriteGiftIds:
+    - dumbbell
+- name: ハナコ
+  fullName: ハナコ
+  schoolId: trinity
+  variants:
+  - id: hanako
+    name: ''
+    favoriteGiftIds:
+    - book-magazine
+    - book-gun
+    - book-detective
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-love
+    - puzzle-box
+    - book-street
+    ultraFavoriteGiftIds: []
+  - id: hanako-swim
+    name: 水着
+    favoriteGiftIds:
+    - gloss
+    - military-cream
+    - handkerchief
+    superFavoriteGiftIds:
+    - float-ring
+    - perfume
+    ultraFavoriteGiftIds:
+    - bb-cream
+    - comb
+- name: ハルカ
+  fullName: ハルカ
+  schoolId: gehenna
+  variants:
+  - id: haruka
+    name: ''
+    favoriteGiftIds:
+    - glasses
+    - high-pot
+    superFavoriteGiftIds:
+    - plant-pot
+    - bonsai
+    ultraFavoriteGiftIds: []
+  - id: haruka-newyear
+    name: 正月
+    favoriteGiftIds:
+    - glasses
+    - high-pot
+    superFavoriteGiftIds:
+    - plant-pot
+    ultraFavoriteGiftIds:
+    - bonsai
+- name: ハルナ
+  fullName: ハルナ
+  schoolId: gehenna
+  variants:
+  - id: haruna
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - handkerchief
+    ultraFavoriteGiftIds:
+    - music-ticket
+  - id: haruna-newyear
+    name: 正月
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - cookie
+    - handkerchief
+    ultraFavoriteGiftIds:
+    - music-ticket
+  - id: haruna-gym
+    name: 体操服
+    favoriteGiftIds:
+    - peroro
+    - mx-ration
+    - maccha-lemonade
+    - o-fit
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - dumbbell
+    ultraFavoriteGiftIds:
+    - parfait
+- name: ハレ
+  fullName: ハレ
+  schoolId: millennium
+  variants:
+  - id: hare
+    name: ''
+    favoriteGiftIds:
+    - gamegirl-color
+    - o-fit
+    superFavoriteGiftIds:
+    - book-magazine
+    ultraFavoriteGiftIds:
+    - aeebook
+  - id: hare-camp
+    name: キャンプ
+    favoriteGiftIds:
+    - gamegirl-color
+    - o-fit
+    superFavoriteGiftIds:
+    - book-magazine
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: ヒカリ
+  fullName: ヒカリ
+  schoolId: highlander
+  variants:
+  - id: hikari
+    name: ''
+    favoriteGiftIds:
+    - book-magazine
+    - gamegirl-color
+    - mx-ration
+    - maccha-lemonade
+    - o-fit
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    ultraFavoriteGiftIds:
+    - parfait
+- name: ヒナ
+  fullName: ヒナ
+  schoolId: gehenna
+  variants:
+  - id: hina
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - puzzle-box
+    ultraFavoriteGiftIds:
+    - perfume
+  - id: hina-swim
+    name: 水着
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - puzzle-box
+    - float-ring
+    ultraFavoriteGiftIds:
+    - perfume
+  - id: hina-dress
+    name: ドレス
+    favoriteGiftIds:
+    - buffet-ticket
+    superFavoriteGiftIds:
+    - puzzle-box
+    - movie-ticket
+    ultraFavoriteGiftIds:
+    - music-ticket
+- name: ヒナタ
+  fullName: ヒナタ
+  schoolId: trinity
+  variants:
+  - id: hinata
+    name: ''
+    favoriteGiftIds:
+    - handkerchief
+    superFavoriteGiftIds:
+    - plant-pot
+    - bonsai
+    ultraFavoriteGiftIds:
+    - sewing-set
+  - id: hinata-swim
+    name: 水着
+    favoriteGiftIds:
+    - handkerchief
+    superFavoriteGiftIds:
+    - tableware
+    - float-ring
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: ヒビキ
+  fullName: ヒビキ
+  schoolId: millennium
+  variants:
+  - id: hibiki
+    name: ''
+    favoriteGiftIds:
+    - gamegirl-color
+    superFavoriteGiftIds:
+    - apod
+    - aeebook
+    ultraFavoriteGiftIds: []
+  - id: hibiki-cheer
+    name: 応援団
+    favoriteGiftIds:
+    - gamegirl-color
+    - tableware
+    - music-box
+    superFavoriteGiftIds:
+    - apod
+    - aeebook
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: ヒフミ
+  fullName: ヒフミ
+  schoolId: trinity
+  variants:
+  - id: hifumi
+    name: ''
+    favoriteGiftIds:
+    - wavecat
+    superFavoriteGiftIds:
+    - peroro
+    ultraFavoriteGiftIds:
+    - perfume
+  - id: hifumi-swim
+    name: 水着
+    favoriteGiftIds:
+    - wavecat
+    superFavoriteGiftIds:
+    - peroro
+    - float-ring
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: ヒマリ
+  fullName: ヒマリ
+  schoolId: millennium
+  variants:
+  - id: himari
+    name: ''
+    favoriteGiftIds:
+    - treasure-map
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - puzzle-box
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: ヒヨリ
+  fullName: ヒヨリ
+  schoolId: arius
+  variants:
+  - id: hiyori
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - tableware
+    - sewing-set
+    ultraFavoriteGiftIds: []
+  - id: hiyori-swim
+    name: 水着
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - buffet-ticket
+    superFavoriteGiftIds:
+    - book-love
+    - whole-cake
+    - float-ring
+    ultraFavoriteGiftIds:
+    - parfait
+- name: フィーナ
+  fullName: フィーナ
+  schoolId: hyakkiyako
+  variants:
+  - id: fina
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - movie-ticket
+    ultraFavoriteGiftIds:
+    - sewing-set
+  - id: fina-guide
+    name: ガイド
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - book-poetry
+    - buffet-ticket
+    - encyclopedia
+    superFavoriteGiftIds:
+    - movie-ticket
+    - music-ticket
+    ultraFavoriteGiftIds:
+    - book-street
+- name: フウカ
+  fullName: フウカ
+  schoolId: gehenna
+  variants:
+  - id: fuuka
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - tableware
+    - sewing-set
+    ultraFavoriteGiftIds: []
+  - id: fuuka-newyear
+    name: 正月
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - tableware
+    - supplement
+    - sewing-set
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: フブキ
+  fullName: フブキ
+  schoolId: valkyrie
+  variants:
+  - id: fubuki
+    name: ''
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: fubuki-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-magazine
+    - gamegirl-color
+    - mx-ration
+    - o-fit
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - maccha-lemonade
+    - float-ring
+    ultraFavoriteGiftIds:
+    - parfait
+- name: フユ
+  fullName: フユ
+  schoolId: wildhunt
+  variants:
+  - id: fuyu
+    name: ''
+    favoriteGiftIds:
+    - gloss
+    - bb-cream
+    - military-cream
+    superFavoriteGiftIds:
+    - movie-ticket
+    ultraFavoriteGiftIds:
+    - perfume
+- name: ホシノ
+  fullName: ホシノ
+  schoolId: abydos
+  variants:
+  - id: hoshino
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - treasure-map
+    ultraFavoriteGiftIds:
+    - lace-pillow
+    - egg-craft
+  - id: hoshino-swim
+    name: 水着
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - treasure-map
+    - float-ring
+    ultraFavoriteGiftIds:
+    - lace-pillow
+    - egg-craft
+  - id: hoshino-battle
+    name: 臨戦
+    favoriteGiftIds:
+    - puzzle-box
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - military-cream
+    - mx-ration
+    - treasure-map
+    - egg-craft
+    ultraFavoriteGiftIds:
+    - lace-pillow
+- name: マキ
+  fullName: マキ
+  schoolId: millennium
+  variants:
+  - id: maki
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - glasses
+    - teddy-bear
+    - cube-puzzle
+    superFavoriteGiftIds:
+    - paints-set
+    - board-game
+    ultraFavoriteGiftIds: []
+  - id: maki-camp
+    name: キャンプ
+    favoriteGiftIds:
+    - apod
+    - plant-pot
+    - music-box
+    superFavoriteGiftIds:
+    - gamegirl-color
+    - paints-set
+    - aeebook
+    ultraFavoriteGiftIds:
+    - comb
+- name: マコト
+  fullName: マコト
+  schoolId: gehenna
+  variants:
+  - id: makoto
+    name: ''
+    favoriteGiftIds:
+    - glasses
+    - plant-pot
+    - music-box
+    superFavoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: マシロ
+  fullName: マシロ
+  schoolId: trinity
+  variants:
+  - id: mashiro
+    name: ''
+    favoriteGiftIds:
+    - mx-ration
+    superFavoriteGiftIds:
+    - military-cream
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+  - id: mashiro-swim
+    name: 水着
+    favoriteGiftIds:
+    - military-cream
+    superFavoriteGiftIds:
+    - mx-ration
+    - float-ring
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: マリー
+  fullName: マリー
+  schoolId: trinity
+  variants:
+  - id: marie
+    name: ''
+    favoriteGiftIds:
+    - plant-pot
+    superFavoriteGiftIds:
+    - handkerchief
+    - bonsai
+    ultraFavoriteGiftIds: []
+  - id: marie-gym
+    name: 体操服
+    favoriteGiftIds:
+    - plant-pot
+    superFavoriteGiftIds:
+    - handkerchief
+    - bonsai
+    ultraFavoriteGiftIds:
+    - comb
+  - id: marie-idol
+    name: アイドル
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - tableware
+    - handkerchief
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: マリナ
+  fullName: マリナ
+  schoolId: redwinter
+  variants:
+  - id: marina
+    name: ''
+    favoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - teddy-bear
+    - egg-craft
+    ultraFavoriteGiftIds: []
+  - id: marina-qipao
+    name: チーパオ
+    favoriteGiftIds:
+    - telescope
+    - treasure-map
+    - glasses
+    - puzzle-box
+    - paints-set
+    - cube-puzzle
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - teddy-bear
+    - egg-craft
+    - board-game
+    ultraFavoriteGiftIds:
+    - comb
+- name: ミカ
+  fullName: ミカ
+  schoolId: trinity
+  variants:
+  - id: mika
+    name: ''
+    favoriteGiftIds:
+    - gloss
+    - military-cream
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - bb-cream
+    - perfume
+    ultraFavoriteGiftIds:
+    - parfait
+  - id: mika-swim
+    name: 水着
+    favoriteGiftIds:
+    - bb-cream
+    - military-cream
+    superFavoriteGiftIds:
+    - gloss
+    - float-ring
+    - perfume
+    ultraFavoriteGiftIds:
+    - comb
+- name: ミサキ
+  fullName: ミサキ
+  schoolId: arius
+  variants:
+  - id: misaki
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - teddy-bear
+    ultraFavoriteGiftIds:
+    - lace-pillow
+  - id: misaki-swim
+    name: 水着
+    favoriteGiftIds:
+    - handkerchief
+    superFavoriteGiftIds:
+    - teddy-bear
+    - float-ring
+    ultraFavoriteGiftIds:
+    - comb
+- name: ミチル
+  fullName: ミチル
+  schoolId: hyakkiyako
+  variants:
+  - id: michiru
+    name: ''
+    favoriteGiftIds:
+    - puzzle-box
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - treasure-map
+    - egg-craft
+    ultraFavoriteGiftIds: []
+- name: ミドリ
+  fullName: ミドリ
+  schoolId: millennium
+  variants:
+  - id: midori
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - pillow
+    ultraFavoriteGiftIds:
+    - board-game
+  - id: midori-maid
+    name: メイド
+    favoriteGiftIds:
+    - book-magazine
+    - gamegirl-color
+    - o-fit
+    superFavoriteGiftIds:
+    - tableware
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: ミナ
+  fullName: ミナ
+  schoolId: shanhaijing
+  variants:
+  - id: mina
+    name: ''
+    favoriteGiftIds:
+    - treasure-map
+    - glasses
+    - puzzle-box
+    - plant-pot
+    superFavoriteGiftIds:
+    - high-pot
+    - music-box
+    ultraFavoriteGiftIds:
+    - egg-craft
+- name: ミネ
+  fullName: ミネ
+  schoolId: trinity
+  variants:
+  - id: mine
+    name: ''
+    favoriteGiftIds:
+    - bb-cream
+    - military-cream
+    superFavoriteGiftIds:
+    - gloss
+    ultraFavoriteGiftIds:
+    - perfume
+  - id: mine-idol
+    name: アイドル
+    favoriteGiftIds:
+    - peroro
+    - bb-cream
+    - military-cream
+    superFavoriteGiftIds:
+    - wavecat
+    - gloss
+    - teddy-bear
+    - perfume
+    ultraFavoriteGiftIds:
+    - comb
+- name: ミノリ
+  fullName: ミノリ
+  schoolId: redwinter
+  variants:
+  - id: minori
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - book-poetry
+    - supplement
+    superFavoriteGiftIds:
+    - book-gun
+    - encyclopedia
+    - book-street
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
+- name: ミモリ
+  fullName: ミモリ
+  schoolId: hyakkiyako
+  variants:
+  - id: mimori
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - tableware
+    - handkerchief
+    - comb
+    - sewing-set
+    ultraFavoriteGiftIds: []
+  - id: mimori-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - gloss
+    - bb-cream
+    - military-cream
+    - book-gun
+    - book-detective
+    - tableware
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-poetry
+    - float-ring
+    - book-street
+    - perfume
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: ミヤコ
+  fullName: ミヤコ
+  schoolId: srt
+  variants:
+  - id: miyako
+    name: ''
+    favoriteGiftIds:
+    - military-cream
+    - mx-ration
+    superFavoriteGiftIds:
+    - book-gun
+    ultraFavoriteGiftIds:
+    - aeebook
+  - id: miyako-swim
+    name: 水着
+    favoriteGiftIds:
+    - military-cream
+    - mx-ration
+    superFavoriteGiftIds:
+    - book-gun
+    - float-ring
+    ultraFavoriteGiftIds:
+    - lace-pillow
+- name: ミユ
+  fullName: ミユ
+  schoolId: srt
+  variants:
+  - id: miyu
+    name: ''
+    favoriteGiftIds:
+    - military-cream
+    - mx-ration
+    superFavoriteGiftIds:
+    - handkerchief
+    ultraFavoriteGiftIds:
+    - comb
+  - id: miyu-swim
+    name: 水着
+    favoriteGiftIds:
+    - military-cream
+    - mx-ration
+    superFavoriteGiftIds:
+    - handkerchief
+    - float-ring
+    ultraFavoriteGiftIds:
+    - comb
+- name: ミヨ
+  fullName: ミヨ
+  schoolId: wildhunt
+  variants:
+  - id: miyo
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - treasure-map
+    - puzzle-box
+    - book-poetry
+    - high-pot
+    - music-box
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-detective
+    - egg-craft
+    ultraFavoriteGiftIds:
+    - book-street
+- name: ムツキ
+  fullName: ムツキ
+  schoolId: gehenna
+  variants:
+  - id: mutsuki
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - board-game
+    ultraFavoriteGiftIds:
+    - glasses
+  - id: mutsuki-newyear
+    name: 正月
+    favoriteGiftIds:
+    - telescope
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - glasses
+    - board-game
+    ultraFavoriteGiftIds: []
+- name: メグ
+  fullName: メグ
+  schoolId: gehenna
+  variants:
+  - id: megu
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - glasses
+    ultraFavoriteGiftIds:
+    - board-game
+- name: メル
+  fullName: メル
+  schoolId: redwinter
+  variants:
+  - id: meru
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - telescope
+    - book-detective
+    - glasses
+    - teddy-bear
+    - book-poetry
+    - cube-puzzle
+    - encyclopedia
+    superFavoriteGiftIds:
+    - paints-set
+    - book-street
+    ultraFavoriteGiftIds:
+    - board-game
+- name: モエ
+  fullName: モエ
+  schoolId: srt
+  variants:
+  - id: moe
+    name: ''
+    favoriteGiftIds:
+    - military-cream
+    - gamegirl-color
+    - mx-ration
+    superFavoriteGiftIds:
+    - apod
+    - aeebook
+    ultraFavoriteGiftIds: []
+  - id: moe-swim
+    name: 水着
+    favoriteGiftIds:
+    - apod
+    - military-cream
+    - gamegirl-color
+    - mx-ration
+    - glasses
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - float-ring
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: モミジ
+  fullName: モミジ
+  schoolId: redwinter
+  variants:
+  - id: momiji
+    name: ''
+    favoriteGiftIds:
+    - book-magazine
+    - gloss
+    - book-gun
+    - book-detective
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-love
+    ultraFavoriteGiftIds:
+    - book-street
+- name: モモイ
+  fullName: モモイ
+  schoolId: millennium
+  variants:
+  - id: momoi
+    name: ''
+    favoriteGiftIds:
+    - book-magazine
+    - o-fit
+    superFavoriteGiftIds:
+    - gamegirl-color
+    ultraFavoriteGiftIds:
+    - board-game
+  - id: momoi-maid
+    name: メイド
+    favoriteGiftIds:
+    - wavecat
+    - book-magazine
+    - pillow
+    - o-fit
+    superFavoriteGiftIds:
+    - gamegirl-color
+    - lace-pillow
+    ultraFavoriteGiftIds:
+    - board-game
+- name: ユウカ
+  fullName: ユウカ
+  schoolId: millennium
+  variants:
+  - id: yuuka
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - cube-puzzle
+    ultraFavoriteGiftIds:
+    - aeebook
+    - vitamin-jelly
+  - id: yuuka-gym
+    name: 体操服
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - cube-puzzle
+    ultraFavoriteGiftIds: []
+  - id: yuuka-pajama
+    name: パジャマ
+    favoriteGiftIds:
+    - apod
+    - gloss
+    - bb-cream
+    - military-cream
+    - gamegirl-color
+    - pillow
+    superFavoriteGiftIds:
+    - wavecat
+    - perfume
+    - aeebook
+    ultraFavoriteGiftIds:
+    - lace-pillow
+- name: ユカリ
+  fullName: ユカリ
+  schoolId: hyakkiyako
+  variants:
+  - id: yukari
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - handkerchief
+    - parfait
+    ultraFavoriteGiftIds:
+    - comb
+  - id: yukari-swim
+    name: 水着
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - handkerchief
+    - float-ring
+    - parfait
+    ultraFavoriteGiftIds:
+    - comb
+- name: ユズ
+  fullName: ユズ
+  schoolId: millennium
+  variants:
+  - id: yuzu
+    name: ''
+    favoriteGiftIds:
+    - apod
+    - book-magazine
+    - o-fit
+    superFavoriteGiftIds:
+    - gamegirl-color
+    - aeebook
+    ultraFavoriteGiftIds: []
+  - id: yuzu-maid
+    name: メイド
+    favoriteGiftIds:
+    - apod
+    - book-magazine
+    - o-fit
+    superFavoriteGiftIds:
+    - gamegirl-color
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: ヨシミ
+  fullName: ヨシミ
+  schoolId: trinity
+  variants:
+  - id: yoshimi
+    name: ''
+    favoriteGiftIds:
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    superFavoriteGiftIds:
+    - cookie
+    - parfait
+    ultraFavoriteGiftIds: []
+  - id: yoshimi-band
+    name: バンド
+    favoriteGiftIds:
+    - gloss
+    - mx-ration
+    - maccha-lemonade
+    superFavoriteGiftIds:
+    - cookie
+    - whole-cake
+    ultraFavoriteGiftIds:
+    - parfait
+- name: ラブ
+  fullName: ラブ
+  schoolId: trinity
+  variants:
+  - id: rabu
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - mx-ration
+    - maccha-lemonade
+    - o-fit
+    - treasure-map
+    - puzzle-box
+    - whole-cake
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - peroro
+    - egg-craft
+    - parfait
+    ultraFavoriteGiftIds:
+    - dumbbell
+- name: リオ
+  fullName: リオ
+  schoolId: millennium
+  variants:
+  - id: rio
+    name: ''
+    favoriteGiftIds:
+    - apod
+    - gamegirl-color
+    - glasses
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - telescope
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: リツ
+  fullName: リツ
+  schoolId: wildhunt
+  variants:
+  - id: ritsu
+    name: ''
+    favoriteGiftIds:
+    - telescope
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - glasses
+    - board-game
+    ultraFavoriteGiftIds:
+    - bonsai
+- name: ルミ
+  fullName: ルミ
+  schoolId: shanhaijing
+  variants:
+  - id: rumi
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - tableware
+    - handkerchief
+    ultraFavoriteGiftIds:
+    - comb
+- name: レイ
+  fullName: レイ
+  schoolId: millennium
+  variants:
+  - id: rei
+    name: ''
+    favoriteGiftIds:
+    - apod
+    - gamegirl-color
+    - treasure-map
+    superFavoriteGiftIds: []
+    ultraFavoriteGiftIds:
+    - aeebook
+- name: レイサ
+  fullName: レイサ
+  schoolId: trinity
+  variants:
+  - id: reisa
+    name: ''
+    favoriteGiftIds:
+    - cookie
+    - gamegirl-color
+    - mx-ration
+    - maccha-lemonade
+    - whole-cake
+    - music-box
+    superFavoriteGiftIds:
+    - apod
+    - aeebook
+    ultraFavoriteGiftIds:
+    - parfait
+  - id: reisa-magical
+    name: マジカル
+    favoriteGiftIds:
+    - book-love
+    - cookie
+    - book-gun
+    - telescope
+    - gamegirl-color
+    - mx-ration
+    - maccha-lemonade
+    - book-detective
+    - o-fit
+    - glasses
+    - teddy-bear
+    - paints-set
+    - book-poetry
+    - cube-puzzle
+    - whole-cake
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-magazine
+    - parfait
+    - board-game
+    ultraFavoriteGiftIds:
+    - book-street
+- name: レイジョ
+  fullName: レイジョ
+  schoolId: shanhaijing
+  variants:
+  - id: reijo
+    name: ''
+    favoriteGiftIds:
+    - peroro
+    - o-fit
+    - treasure-map
+    superFavoriteGiftIds:
+    - supplement
+    ultraFavoriteGiftIds:
+    - dumbbell
+- name: レンゲ
+  fullName: レンゲ
+  schoolId: hyakkiyako
+  variants:
+  - id: renge
+    name: ''
+    favoriteGiftIds:
+    - buffet-ticket
+    superFavoriteGiftIds:
+    - book-love
+    - movie-ticket
+    - tableware
+    - music-ticket
+    ultraFavoriteGiftIds:
+    - sewing-set
+  - id: renge-swim
+    name: 水着
+    favoriteGiftIds:
+    - book-magazine
+    - book-gun
+    - book-detective
+    - book-poetry
+    - tableware
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-love
+    - float-ring
+    - book-street
+    ultraFavoriteGiftIds:
+    - sewing-set
+- name: ワカモ
+  fullName: ワカモ
+  schoolId: hyakkiyako
+  variants:
+  - id: wakamo
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - teddy-bear
+    ultraFavoriteGiftIds:
+    - comb
+  - id: wakamo-swim
+    name: 水着
+    favoriteGiftIds: []
+    superFavoriteGiftIds:
+    - teddy-bear
+    - float-ring
+    ultraFavoriteGiftIds:
+    - comb
+- name: 初音ミク
+  fullName: 初音ミク
+  schoolId: other
+  variants:
+  - id: hatsune-miku
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds: []
+    ultraFavoriteGiftIds: []
+- name: 御坂美琴
+  fullName: 御坂美琴
+  schoolId: other
+  variants:
+  - id: misaka-mikoto
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds: []
+    ultraFavoriteGiftIds: []
+- name: 食蜂操祈
+  fullName: 食蜂操祈
+  schoolId: other
+  variants:
+  - id: shokuhou-misaki
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds: []
+    ultraFavoriteGiftIds: []
+- name: 佐天涙子
+  fullName: 佐天涙子
+  schoolId: other
+  variants:
+  - id: saten-ruiko
+    name: ''
+    favoriteGiftIds: []
+    superFavoriteGiftIds: []
+    ultraFavoriteGiftIds: []
