@@ -11,15 +11,21 @@ import { Gift, GiftId, StudentVariant, StudentVariantId } from "@/types/master";
 import { useCallback, useMemo, useState } from "react";
 import { getEffectivity } from "@/utils/utils";
 import Link from "next/link";
+import { useLocalPersistence } from "@/hooks/persist";
+import { PersistData } from "@/types/persist";
+import CSR from "./components/CSR";
+
+const PERSIST_KEY = 'persist-data'
 
 export default function Home() {
   const { data: masterData, isLoading: masterDataIsLoading } = useMasterData()
   const { data: bondExpTable } = useBondExpTable()
-  const [giftCountMap, setGiftCountMap] = useState(new Map<GiftId, number>())
-  const [selectedStudent, setSelectedStudent] = useState(undefined as StudentVariantId | undefined)
+  const [persistData, setPersistData] = useLocalPersistence<PersistData>(PERSIST_KEY)
+  const [giftCountMap, setGiftCountMap] = useState(new Map<GiftId, number>(Object.entries(persistData?.giftCountMap ?? [])))
+  const [selectedStudent, setSelectedStudent] = useState(persistData?.selectedStudentId)
   /** 絆レベル入力のエラー */
   const [errorMessage, setErrorMessage] = useState("")
-  const [currentBondLevel, setCurrentBondLevel] = useState(1)
+  const [currentBondLevel, setCurrentBondLevel] = useState(persistData?.currentBondLevel ?? 1)
 
   /** 経験値テーブルマップ (Level => Exp) */
   const bondExpMap = useMemo(() => {
@@ -68,15 +74,19 @@ export default function Home() {
     return "normal"
   }, [studentMap, selectedStudent, giftMap])
 
+  /** 贈り物の数が更新された時 */
   function onGiftCountChange(id: GiftId, newValue: number) {
     giftCountMap.set(id, isNaN(newValue) ? 0 : newValue)
-    setGiftCountMap(new Map(giftCountMap)) // hookのdeps更新検知のためMapを再作成
-    // console.log(id, newValue)
+    const newMap = new Map(giftCountMap)
+    setGiftCountMap(newMap) // hookのdeps更新検知のためMapを再作成
+    console.log(id, newMap)
+    setPersistData({ giftCountMap: Object.fromEntries(newMap), currentBondLevel: currentBondLevel, selectedStudentId: selectedStudent })
   }
 
   function onSelectedStudentChange(id?: StudentVariantId) {
     // console.log("selected student:", id, studentMap.get(id ?? "")?.name)
     setSelectedStudent(id)
+    setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentBondLevel, selectedStudentId: id })
   }
 
   const totalExp = useMemo(() =>
@@ -102,6 +112,7 @@ export default function Home() {
     } else {
       setErrorMessage("")
       setCurrentBondLevel(currentLevel)
+      setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentLevel, selectedStudentId: selectedStudent })
     }
   }
 
@@ -122,66 +133,73 @@ export default function Home() {
   }, [bondExpMap, bondExpTable, currentBondLevel, totalExp])
 
   return (
-    <div className="flex items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-16 bg-white dark:bg-black sm:items-start">
-        <h1 className="text-xl mb-4 pb-1 border-b-2 border-red-200 w-full">ブルアカ 絆レベル計算機</h1>
-        <p>
-          所有している贈り物・製造用アイテムの数から到達できる絆レベルを計算します。
-        </p>
-        {/* 生徒の選択 */}
-        <div id="student-selector" className="my-2">
-          生徒を選択: <StudentSelector students={masterData?.students ?? []} onChange={onSelectedStudentChange} />
-        </div>
-        {/* 贈り物の数を入力するフォーム */}
-        {/* grid-cols-5 gap-2 */}
-        <div id="gift-count-form" className="grid grid-cols-10 gap-2">
-          {masterData?.gifts.map((gift) =>
-            <GiftCountForm key={`gift-form-${gift.id}`} gift={gift} effectivity={getStudentEffectivity(gift)} onChange={onGiftCountChange} />
-          )}
-        </div>
-        <div id="gift-total-score" className="my-4 text-sm">
-          贈り物で得られる絆経験値: {totalExp}
-        </div>
-        {/* 現在の絆レベルと、アイテムで到達できる絆レベルを表示 */}
-        <div id="bond-level-indicator" className="flex items-baseline gap-8 w-full justify-center">
-          <TextField variant="standard" label="現在の絆レベル" className="w-32" type="number"
-            defaultValue={currentBondLevel}
-            onChange={(e) => onChangeCurrentBondLevel(e.target.value)}
-            slotProps={{
-              /* テキストボックスの頭にハートマーク */
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FavoriteIcon className="text-red-300" />
-                  </InputAdornment>
-                )
-              }
-            }} />
-          <KeyboardDoubleArrowRightIcon className="block" />
-          <TextField variant="standard" label="到達できる絆レベル" disabled className="w-32"
-            value={(errorMessage || !calcExpectedBondLevel) && "-" || calcExpectedBondLevel}
-            slotProps={{
-              /* テキストボックスの頭にハートマーク */
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FavoriteIcon className="text-red-300" />
-                  </InputAdornment>
-                )
-              }
-            }} />
-        </div>
-        {errorMessage && <div className="my-4 p-4 border-2 border-red-200 rounded-lg bg-red-50 text-red-600">
-          {errorMessage}
-        </div>}
-        <div className="mt-8 pt-4 border-t-2 border-red-200 w-full">
-          Contact: @zeroichi
-          &nbsp;
-          <Link className="text-blue-600" href="https://x.com/zeroichi">X (Twitter)</Link>
-          &nbsp;/&nbsp;
-          <Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc">GitHub</Link>
-        </div>
-      </main>
-    </div>
+    <CSR>
+      <div className="flex items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+        <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-16 bg-white dark:bg-black sm:items-start">
+          <h1 className="text-xl mb-4 pb-1 border-b-2 border-red-200 w-full">ブルアカ 絆レベル計算機</h1>
+          <p>
+            所有している贈り物・製造用アイテムの数から到達できる絆レベルを計算します。
+          </p>
+          {/* 生徒の選択 */}
+          <div id="student-selector" className="my-2">
+            生徒を選択: <StudentSelector students={masterData?.students ?? []} onChange={onSelectedStudentChange} initialValue={persistData?.selectedStudentId} />
+          </div>
+          {/* 贈り物の数を入力するフォーム */}
+          {/* grid-cols-5 gap-2 */}
+          <div id="gift-count-form" className="grid grid-cols-10 gap-2">
+            {masterData?.gifts.map((gift) =>
+              <GiftCountForm key={`gift-form-${gift.id}`} gift={gift} effectivity={getStudentEffectivity(gift)} onChange={onGiftCountChange} initialValue={giftCountMap.get(gift.id)} />
+            )}
+          </div>
+          <div id="gift-total-score" className="my-4 text-sm">
+            現在の絆レベルの経験値 {bondExpMap.get(currentBondLevel) ?? "-"}
+            &nbsp;&nbsp;+&nbsp;&nbsp;
+            贈り物で得られる絆経験値 {totalExp}
+            &nbsp;&nbsp;=&nbsp;&nbsp;
+            総絆経験値 {bondExpMap.get(currentBondLevel) != undefined ? ((bondExpMap.get(currentBondLevel) ?? 0) + totalExp) : "-"} 
+          </div>
+          {/* 現在の絆レベルと、アイテムで到達できる絆レベルを表示 */}
+          <div id="bond-level-indicator" className="flex items-baseline gap-8 w-full justify-center">
+            <TextField variant="standard" label="現在の絆レベル" className="w-32" type="number"
+              defaultValue={currentBondLevel}
+              onChange={(e) => onChangeCurrentBondLevel(e.target.value)}
+              slotProps={{
+                /* テキストボックスの頭にハートマーク */
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <FavoriteIcon className="text-red-300" />
+                    </InputAdornment>
+                  )
+                }
+              }} />
+            <KeyboardDoubleArrowRightIcon className="block" />
+            <TextField variant="standard" label="到達できる絆レベル" disabled className="w-32"
+              value={(errorMessage || !calcExpectedBondLevel) && "-" || calcExpectedBondLevel}
+              slotProps={{
+                /* テキストボックスの頭にハートマーク */
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <FavoriteIcon className="text-red-300" />
+                    </InputAdornment>
+                  )
+                }
+              }} />
+          </div>
+          {errorMessage && <div className="my-4 p-4 border-2 border-red-200 rounded-lg bg-red-50 text-red-600">
+            {errorMessage}
+          </div>}
+          <div className="mt-8 pt-4 border-t-2 border-red-200 w-full">
+            ※ブラウザにのみデータを保存しています。ブラウザのキャッシュ等をクリアすると値は初期化されます。<br />
+            Contact: @zeroichi
+            &nbsp;
+            <Link className="text-blue-600" href="https://x.com/zeroichi">X (Twitter)</Link>
+            &nbsp;/&nbsp;
+            <Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc">GitHub</Link>
+          </div>
+        </main>
+      </div>
+    </CSR>
   );
 }

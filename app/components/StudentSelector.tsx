@@ -1,12 +1,13 @@
 'use client'
 
 import { Student, StudentVariantId } from "@/types/master"
-import { ReactNode, useCallback, useMemo } from "react"
-import Select, { SingleValue } from "react-select"
+import { ReactNode, useMemo, useState } from "react"
+import Select from "react-select"
 
 export interface StudentSelectorProps {
   students: Student[]
   onChange?: (newId?: StudentVariantId) => void
+  initialValue?: StudentVariantId
 }
 
 interface StudentSelectorOption {
@@ -15,6 +16,7 @@ interface StudentSelectorOption {
 }
 
 export const StudentSelector = (props: StudentSelectorProps) => {
+  const [value, setValue] = useState(props.initialValue)
   /** 選択肢 */
   const options = useMemo(() => {
     return props.students.flatMap(student => {
@@ -25,6 +27,10 @@ export const StudentSelector = (props: StudentSelectorProps) => {
     })
   }, [props.students])
   return <>
-    <Select className="w-64 inline-block" options={options} isSearchable onChange={(v) => props.onChange?.(v?.value)}></Select>
+    <Select className="w-64 inline-block" value={options.findLast(o => o.value === value)} options={options} isSearchable onChange={(v) => {
+      console.log("onChange:", v)
+      props.onChange?.(v?.value)
+      setValue(v?.value)
+    }}></Select>
   </>
 }
