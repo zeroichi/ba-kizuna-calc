@@ -3,16 +3,19 @@
 import { useState } from "react"
 
 const getFromLocalStorage = <T>(key: string) => {
-  if(typeof window?.localStorage == undefined) return undefined
-  const item = localStorage.getItem(key) ?? "null"
-  console.log("got from localStorage:", item)
-  return JSON.parse(item) as T ?? undefined
+  if (typeof window !== 'undefined') {
+    const item = localStorage.getItem(key) ?? "null"
+    console.log("got from localStorage:", item)
+    return JSON.parse(item) as T ?? undefined
+  }
 }
 
 const setToLocalStorage = <T>(key: string, object: T) => {
-  const jsonStr = JSON.stringify(object)
-  console.log("set to localStorage:", jsonStr)
-  localStorage.setItem(key, jsonStr)
+  if (typeof window !== 'undefined') {
+    const jsonStr = JSON.stringify(object)
+    console.log("set to localStorage:", jsonStr)
+    localStorage.setItem(key, jsonStr)
+  }
 }
 
 export const useLocalPersistence = <T>(key: string) => {
