@@ -191,7 +191,8 @@ gifts:
     type: high-all
   - id: gift-select-box
     name: 贈り物選択ボックス
-    type: normal-all
+    # 通常贈り物の最大値に合わせる。実装はgetStudentEffectivity参照
+    type: normal
 
 # 生徒
 students:

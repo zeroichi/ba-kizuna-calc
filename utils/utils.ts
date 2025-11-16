@@ -5,13 +5,7 @@ export function getEffectivity(gift: Gift, effectivity?: GiftEffectivity): [stri
   if (gift.type == "high-all") {
     return ["特大", 240]
   } else if (gift.type == "normal-all") {
-    if (gift.id == "gift-select-box" && effectivity == "ultra") {
-      // 水着ハナコ・正月ムツキのみ効果特大の通常贈り物があるため、
-      // 贈り物選択ボックスも特大扱いできるようにする
-      return ["特大", 80]
-    } else {
-      return ["大", 60]
-    }
+    return ["大", 60]
   } else if (gift.type == "high") {
     switch (effectivity) {
       case "super":
