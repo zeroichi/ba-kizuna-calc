@@ -134,7 +134,7 @@ export default function Home() {
 
   return (
     <div className="flex items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-16 bg-white dark:bg-black sm:items-start">
+      <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-4 sm:px-16 bg-white dark:bg-black sm:items-start">
         <h1 className="text-xl mb-4 pb-1 border-b-2 border-red-200 w-full">ブルアカ 絆ランクシミュレータ</h1>
         <p>
           所有している贈り物・製造用アイテムの数から到達できる絆ランクを計算します。
@@ -145,7 +145,7 @@ export default function Home() {
         </div>
         {/* 贈り物の数を入力するフォーム */}
         {/* grid-cols-5 gap-2 */}
-        <div id="gift-count-form" className="grid grid-cols-10 gap-2">
+        <div id="gift-count-form" className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-10 gap-2">
           {masterData?.gifts.map((gift) =>
             <GiftCountForm key={`gift-form-${gift.id}`} gift={gift} effectivity={getStudentEffectivity(gift)} onChange={onGiftCountChange} initialValue={giftCountMap.get(gift.id)} />
           )}
