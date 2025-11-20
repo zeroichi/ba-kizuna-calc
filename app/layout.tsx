@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ブルアカ 絆レベル計算機",
-  description: "所有している贈り物・製造用アイテムの数から到達できる絆レベルを計算します。",
+  title: "ブルアカ 絆ランクシミュレータ",
+  description: "所有している贈り物・製造用アイテムの数から到達できる絆ランクを計算します。",
 };
 
 export default function RootLayout({

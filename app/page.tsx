@@ -23,7 +23,7 @@ export default function Home() {
   const [persistData, setPersistData] = useLocalPersistence<PersistData>(PERSIST_KEY)
   const [giftCountMap, setGiftCountMap] = useState(new Map<GiftId, number>(Object.entries(persistData?.giftCountMap ?? [])))
   const [selectedStudent, setSelectedStudent] = useState(persistData?.selectedStudentId)
-  /** 絆レベル入力のエラー */
+  /** 絆ランク入力のエラー */
   const [errorMessage, setErrorMessage] = useState("")
   const [currentBondLevel, setCurrentBondLevel] = useState(persistData?.currentBondLevel ?? 1)
 
@@ -103,12 +103,12 @@ export default function Home() {
     }).reduce((sum, each) => sum + each, 0)
     , [getStudentEffectivity, giftCountMap, giftMap])
 
-  /** 現在の絆レベルが変更された時のイベントハンドラ */
+  /** 現在の絆ランクが変更された時のイベントハンドラ */
   const onChangeCurrentBondLevel = (currentLevelStr: string) => {
     // console.log("onChangeCurrentBondLevel", currentLevelStr)
     const currentLevel = parseInt(currentLevelStr)
     if (isNaN(currentLevel) || currentLevel < 1 || currentLevel > 100) {
-      setErrorMessage("絆レベルは1以上100以下の整数を入力してください")
+      setErrorMessage("絆ランクは1以上100以下の整数を入力してください")
     } else {
       setErrorMessage("")
       setCurrentBondLevel(currentLevel)
@@ -116,9 +116,9 @@ export default function Home() {
     }
   }
 
-  /** 絆レベルの期待値を再計算する */
+  /** 絆ランクの期待値を再計算する */
   const calcExpectedBondLevel = useMemo(() => {
-    // console.log("現在の絆レベル:", currentBondLevel)
+    // console.log("現在の絆ランク:", currentBondLevel)
     if (isNaN(currentBondLevel)) return undefined
 
     const currentExp = bondExpMap.get(currentBondLevel)
@@ -135,9 +135,9 @@ export default function Home() {
   return (
     <div className="flex items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-16 bg-white dark:bg-black sm:items-start">
-        <h1 className="text-xl mb-4 pb-1 border-b-2 border-red-200 w-full">ブルアカ 絆レベル計算機</h1>
+        <h1 className="text-xl mb-4 pb-1 border-b-2 border-red-200 w-full">ブルアカ 絆ランクシミュレータ</h1>
         <p>
-          所有している贈り物・製造用アイテムの数から到達できる絆レベルを計算します。
+          所有している贈り物・製造用アイテムの数から到達できる絆ランクを計算します。
         </p>
         {/* 生徒の選択 */}
         <div id="student-selector" className="my-2">
@@ -151,15 +151,15 @@ export default function Home() {
           )}
         </div>
         <div id="gift-total-score" className="my-4 text-sm">
-          現在の絆レベルの経験値 {bondExpMap.get(currentBondLevel) ?? "-"}
+          現在の絆ランクの経験値 {bondExpMap.get(currentBondLevel) ?? "-"}
           &nbsp;&nbsp;+&nbsp;&nbsp;
           贈り物で得られる絆経験値 {totalExp}
           &nbsp;&nbsp;=&nbsp;&nbsp;
           総絆経験値 {bondExpMap.get(currentBondLevel) != undefined ? ((bondExpMap.get(currentBondLevel) ?? 0) + totalExp) : "-"}
         </div>
-        {/* 現在の絆レベルと、アイテムで到達できる絆レベルを表示 */}
+        {/* 現在の絆ランクと、アイテムで到達できる絆ランクを表示 */}
         <div id="bond-level-indicator" className="flex items-baseline gap-8 w-full justify-center">
-          <TextField variant="standard" label="現在の絆レベル" className="w-32" type="number"
+          <TextField variant="standard" label="現在の絆ランク" className="w-32" type="number"
             defaultValue={currentBondLevel}
             onChange={(e) => onChangeCurrentBondLevel(e.target.value)}
             slotProps={{
@@ -173,7 +173,7 @@ export default function Home() {
               }
             }} />
           <KeyboardDoubleArrowRightIcon className="block" />
-          <TextField variant="standard" label="到達できる絆レベル" disabled className="w-32"
+          <TextField variant="standard" label="到達できる絆ランク" disabled className="w-32"
             value={(errorMessage || !calcExpectedBondLevel) && "-" || calcExpectedBondLevel}
             slotProps={{
               /* テキストボックスの頭にハートマーク */
