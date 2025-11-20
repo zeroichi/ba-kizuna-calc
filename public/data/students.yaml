@@ -1623,6 +1623,24 @@ students:
     - vitamin-jelly
     ultraFavoriteGiftIds:
     - lace-pillow
+- name: タカネ
+  fullName: 三善タカネ
+  schoolId: redwinter
+  variants:
+  - id: takane
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-detective
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-gun
+    - book-poetry
+    - handkerchief
+    - book-street
+    ultraFavoriteGiftIds:
+    - music-ticket
 - name: チアキ
   fullName: チアキ
   schoolId: gehenna
@@ -3042,6 +3060,27 @@ students:
     - lace-pillow
     ultraFavoriteGiftIds:
     - board-game
+- name: ヤクモ
+  fullName: 荒槇ヤクモ
+  schoolId: redwinter
+  variants:
+  - id: yakumo
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - book-gun
+    - book-detective
+    - treasure-map
+    - puzzle-box
+    - book-poetry
+    - music-box
+    - encyclopedia
+    superFavoriteGiftIds:
+    - high-pot
+    - book-street
+    ultraFavoriteGiftIds:
+    - egg-craft
 - name: ユウカ
   fullName: ユウカ
   schoolId: millennium
