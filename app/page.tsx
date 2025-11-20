@@ -197,6 +197,23 @@ export default function Home() {
           &nbsp;/&nbsp;
           <Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc">GitHub</Link>
         </div>
+        <div className="mt-8 pt-4 border-t-4 border-gray-200 w-full">
+          <h2>更新履歴</h2>
+          <ul className="list-disc ml-6">
+            <li>2025/11/20
+              <ul>
+                <li>新規実装生徒「タカネ」「ヤクモ」追加</li>
+                <li>&quot;絆ランク&quot;に用語を統一</li>
+                <li>高級贈り物と通常贈り物の違いが分かるように背景色を変更</li>
+              </ul>
+            </li>
+            <li>2025/11/16
+              <ul>
+                <li>初版公開</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </main>
     </div>
   );
