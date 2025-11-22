@@ -5,7 +5,7 @@ import { useState } from "react"
 const getFromLocalStorage = <T>(key: string) => {
   if (typeof window !== 'undefined') {
     const item = localStorage.getItem(key) ?? "null"
-    console.log("got from localStorage:", item)
+    // console.log("got from localStorage:", item)
     return JSON.parse(item) as T ?? undefined
   }
 }
@@ -13,7 +13,7 @@ const getFromLocalStorage = <T>(key: string) => {
 const setToLocalStorage = <T>(key: string, object: T) => {
   if (typeof window !== 'undefined') {
     const jsonStr = JSON.stringify(object)
-    console.log("set to localStorage:", jsonStr)
+    // console.log("set to localStorage:", jsonStr)
     localStorage.setItem(key, jsonStr)
   }
 }

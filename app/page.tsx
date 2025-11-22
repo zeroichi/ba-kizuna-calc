@@ -5,18 +5,37 @@ import { GiftCountForm } from "./components/GiftCountForm";
 import { StudentSelector } from "./components/StudentSelector";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import TextField from '@mui/material/TextField';
-import { InputAdornment } from "@mui/material";
+import { InputAdornment, Tooltip } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { Gift, GiftId, StudentVariant, StudentVariantId } from "@/types/master";
-import { useCallback, useMemo, useState } from "react";
+import { ChangeEventHandler, useCallback, useMemo, useState } from "react";
 import { getEffectivity } from "@/utils/utils";
 import Link from "next/link";
 import { useLocalPersistence } from "@/hooks/persist";
 import { PersistData } from "@/types/persist";
 import { ExpConverter } from "./components/ExpConverter";
+import Image from 'next/image'
+import { AppConfig } from "@/config/config";
+import HelpIcon from '@mui/icons-material/Help';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const PERSIST_KEY = 'persist-data'
-const INITIAL_PERSIST_DATA: PersistData = { giftCountMap: {}, currentBondLevel: 1, goalBondLevel: 100 }
+const INITIAL_PERSIST_DATA: PersistData = { giftCountMap: {}, currentBondLevel: 1, goalBondLevel: 100, tailorStoneCount: 0 }
+
+function getExpFromEffectivity(effectivity: 'normal' | 'favorite' | 'super' | 'ultra') {
+  switch (effectivity) {
+    case 'normal':
+      return 20
+    case 'favorite':
+      return 40
+    case 'super':
+      return 60
+    case 'ultra':
+      return 80
+    default:
+      return 0
+  }
+}
 
 export default function Home() {
   const { data: masterData, isLoading: masterDataIsLoading } = useMasterData()
@@ -30,6 +49,8 @@ export default function Home() {
   const [currentBondLevel, setCurrentBondLevel] = useState(persistData?.currentBondLevel ?? 1)
   /** 目標の絆ランク TODO:生徒ごとに変えられるようにする */
   const [goalBondLevel, setGoalBondLevel] = useState(persistData?.goalBondLevel ?? 100)
+  /** 上級テイラーストーン所持数 */
+  const [tailorStoneCount, setTailorStoneCount] = useState(persistData?.tailorStoneCount ?? 0)
 
   /** 経験値テーブルマップ (Level => Exp) */
   const bondExpMap = useMemo(() => {
@@ -41,12 +62,29 @@ export default function Home() {
     return new Map<GiftId, Gift>(masterData?.gifts.map(g => [g.id, g]))
   }, [masterData?.gifts])
 
-  /** StudentVariantId => StudentVariant のマップ */
+  /** StudentVariantId => StudentVariant + displayName のマップ */
   const studentMap = useMemo(() => {
-    return new Map<StudentVariantId, StudentVariant>(
-      masterData?.students.flatMap(student => student.variants.map(variant => [variant.id, variant]))
+    return new Map<StudentVariantId, StudentVariant & { displayName: string }>(
+      masterData?.students.flatMap(student =>
+        student.variants.map(variant =>
+          [variant.id, { ...variant, displayName: student.name + (variant.name && `（${variant.name}）`) }]))
     )
   }, [masterData?.students])
+
+  /** 該当生徒の通常贈り物反応のうち、一番大きいものの効果量 */
+  const maxNormalGiftEffectivity = useMemo(() => {
+    const student = studentMap.get(selectedStudent ?? "")
+    if (student == undefined) {
+      return "normal"
+    } else if ((student.ultraFavoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
+      return "ultra"
+    } else if ((student.superFavoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
+      return "super"
+    } else if ((student.favoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
+      return "favorite"
+    }
+    return "normal"
+  }, [giftMap, selectedStudent, studentMap])
 
   /** 贈り物に対する生徒の効果(反応)を得る */
   const getStudentEffectivity = useCallback((gift: Gift) => {
@@ -56,14 +94,7 @@ export default function Home() {
     }
     if (gift.id == "gift-select-box") {
       // 贈り物選択ボックスの場合、該当生徒の通常贈り物反応のうち、一番大きいものに合わせる
-      if ((student.ultraFavoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
-        return "ultra"
-      } else if ((student.superFavoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
-        return "super"
-      } else if ((student.favoriteGiftIds ?? []).filter((giftId) => giftMap.get(giftId)?.type == "normal").length > 0) {
-        return "favorite"
-      }
-      return "normal"
+      return maxNormalGiftEffectivity
     }
     if ((student.ultraFavoriteGiftIds ?? []).includes(gift.id)) {
       // console.log(`${gift.id} => ultra`)
@@ -76,36 +107,23 @@ export default function Home() {
       return "favorite"
     }
     return "normal"
-  }, [studentMap, selectedStudent, giftMap])
+  }, [studentMap, selectedStudent, maxNormalGiftEffectivity])
 
   /** 贈り物の数が更新された時 */
   function onGiftCountChange(id: GiftId, newValue: number) {
     giftCountMap.set(id, isNaN(newValue) ? 0 : newValue)
     const newMap = new Map(giftCountMap)
     setGiftCountMap(newMap) // hookのdeps更新検知のためMapを再作成
-    console.log(id, newMap)
-    setPersistData({ giftCountMap: Object.fromEntries(newMap), currentBondLevel: currentBondLevel, selectedStudentId: selectedStudent })
+    // console.log(id, newMap)
+    setPersistData({ ...persistData ?? INITIAL_PERSIST_DATA, giftCountMap: Object.fromEntries(newMap) })
   }
 
+  /** 生徒の選択が変更された時 */
   function onSelectedStudentChange(id?: StudentVariantId) {
     // console.log("selected student:", id, studentMap.get(id ?? "")?.name)
     setSelectedStudent(id)
-    setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentBondLevel, selectedStudentId: id })
+    setPersistData({ ...persistData ?? INITIAL_PERSIST_DATA, selectedStudentId: id })
   }
-
-  const totalExp = useMemo(() =>
-    giftCountMap.keys().map((giftId) => {
-      const gift = giftMap.get(giftId)
-      if (gift == undefined) {
-        console.warn("Unknown gift id:", giftId)
-        return 0;
-      }
-      const effectivity = getStudentEffectivity(gift)
-      const [reaction, exp] = getEffectivity(gift, effectivity)
-      // console.log(`${gift.name} 効果${reaction} exp:${exp}`)
-      return exp * (giftCountMap.get(giftId) ?? 0)
-    }).reduce((sum, each) => sum + each, 0)
-    , [getStudentEffectivity, giftCountMap, giftMap])
 
   /** 現在の絆ランクが変更された時のイベントハンドラ */
   const onChangeCurrentBondLevel = (currentLevelStr: string) => {
@@ -131,13 +149,60 @@ export default function Home() {
     }
   }
 
+  const onChangeTailorStoneCount: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = useCallback((e) => {
+    const newValue = parseInt(e.target.value)
+    if (isNaN(newValue)) {
+      // TODO: エラー処理
+    } else {
+      setTailorStoneCount(newValue)
+      setPersistData({ ...persistData ?? INITIAL_PERSIST_DATA, tailorStoneCount: newValue })
+    }
+  }, [persistData, setPersistData])
+
+  /** 効果小の贈り物の数 */
+  const numOfNormalEffectiveGifts = useMemo(() => {
+    return masterData?.gifts
+      // 通常贈り物(選択ボックス以外)で、生徒反応が効果小のものを抽出
+      .filter((gift) => gift.type === 'normal' && gift.id !== 'gift-select-box' && getStudentEffectivity(gift) === 'normal')
+      // 所持数の総和を求める
+      .reduce((accumulator: number, current: Gift) => {
+        return accumulator + (giftCountMap.get(current.id) ?? 0)
+      }, 0) ?? 0
+  }, [getStudentEffectivity, giftCountMap, masterData?.gifts])
+
+  /** 製造可能な贈り物選択ボックスの数 */
+  const numOfSelectBox = useMemo(() => Math.min(tailorStoneCount, Math.floor(numOfNormalEffectiveGifts / 2)),
+    [numOfNormalEffectiveGifts, tailorStoneCount])
+
+  /** 差引で得られる経験値 */
+  const expByOptimization = useMemo(() => {
+    const convertExp = getExpFromEffectivity(maxNormalGiftEffectivity)
+    const extraExp = convertExp * numOfSelectBox - 20 * numOfSelectBox * 2
+    return extraExp > 0 ? extraExp : 0
+  }, [maxNormalGiftEffectivity, numOfSelectBox])
+
+  /** 贈り物で得られる総経験値 */
+  const totalExp = useMemo(() =>
+    giftCountMap.keys().map((giftId) => {
+      const gift = giftMap.get(giftId)
+      if (gift == undefined) {
+        console.warn("Unknown gift id:", giftId)
+        return 0;
+      }
+      const effectivity = getStudentEffectivity(gift)
+      const [reaction, exp] = getEffectivity(gift, effectivity)
+      // console.log(`${gift.name} 効果${reaction} exp:${exp}`)
+      return exp * (giftCountMap.get(giftId) ?? 0)
+    }).reduce((sum, each) => sum + each, 0)
+    , [getStudentEffectivity, giftCountMap, giftMap])
+
   /** 現在の絆ランクから贈り物経験値を合計した絆経験値 */
   const expectedExp = useMemo(() => {
     if (isNaN(currentBondLevel)) return undefined
     const currentExp = bondExpMap.get(currentBondLevel)
     if (currentExp == undefined) return undefined
-    return currentExp + totalExp
-  }, [bondExpMap, currentBondLevel, totalExp])
+    return currentExp + totalExp + expByOptimization
+  }, [bondExpMap, currentBondLevel, expByOptimization, totalExp])
 
   /** 絆ランクの期待値 */
   const calcExpectedBondLevel = useMemo(() => {
@@ -188,12 +253,56 @@ export default function Home() {
             <GiftCountForm key={`gift-form-${gift.id}`} gift={gift} effectivity={getStudentEffectivity(gift)} onChange={onGiftCountChange} initialValue={giftCountMap.get(gift.id)} />
           )}
         </div>
+        {/* 上級テイラーストーンを入力するフォーム */}
+        <div className="border-2 border-gray-200 w-full rounded-lg p-2 mt-2 text-sm">
+          <p>
+            贈り物選択ボックス変換
+            &nbsp;
+            <Tooltip title="効果小の贈り物×２と上級テイラーストーンを使ってテイラーメイドから贈り物選択ボックスを製造し、効果大の贈り物に変換することで獲得できる絆経験値をアップするテクニックです。" arrow placement="right"><HelpIcon fontSize="small" className="align-bottom text-gray-500" /></Tooltip>
+          </p>
+          {selectedStudent && (maxNormalGiftEffectivity == "normal" || maxNormalGiftEffectivity == "favorite") ?
+            <div className="mt-2 text-red-600">
+              「{studentMap.get(selectedStudent)?.displayName}」は選択ボックスで交換できる贈り物で効果大以上のものがないため、変換の効果がありません
+            </div>
+            :
+            <div className="mt-2 flex items-center gap-2">
+              <TextField variant="standard" label="上級テイラーストーン数" className="w-36" type="number"
+                defaultValue={persistData?.tailorStoneCount ?? 0}
+                onChange={onChangeTailorStoneCount}
+                slotProps={{
+                  input: {
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Image width={36} height={36} src={`${AppConfig.assetBaseUrl}/other/tailor-stone.png`} alt="上級テイラーストーン" />
+                      </InputAdornment>
+                    )
+                  }
+                }} />
+              <AddCircleOutlineIcon className="block" />
+              <div>
+                効果小の贈り物数: {numOfSelectBox * 2}
+              </div>
+              <KeyboardDoubleArrowRightIcon className="block" />
+              <div>
+                製造できる<Image className="inline-block" width={30} height={30} src={`${AppConfig.assetBaseUrl}/gift/gift-select-box.png`} alt="贈り物選択ボックス" />数: {numOfSelectBox}
+              </div>
+              <KeyboardDoubleArrowRightIcon className="block" />
+              <div>
+                差引で得られる経験値: {expByOptimization}
+              </div>
+            </div>
+          }
+        </div>
         <div id="gift-total-score" className="my-4 text-sm">
           現在の絆ランクの経験値 {bondExpMap.get(currentBondLevel) ?? "-"}
           &nbsp;&nbsp;+&nbsp;&nbsp;
           贈り物で得られる絆経験値 {totalExp}
+          {expByOptimization > 0 && <>
+            &nbsp;&nbsp;+&nbsp;&nbsp;
+            選択ボックス変換で得られる追加経験値 {expByOptimization}
+          </>}
           &nbsp;&nbsp;=&nbsp;&nbsp;
-          総絆経験値 {bondExpMap.get(currentBondLevel) != undefined ? ((bondExpMap.get(currentBondLevel) ?? 0) + totalExp) : "-"}
+          総絆経験値 {bondExpMap.get(currentBondLevel) != undefined ? ((bondExpMap.get(currentBondLevel) ?? 0) + totalExp + (expectedExp ?? 0)) : "-"}
         </div>
         {/* 現在の絆ランクと、アイテムで到達できる絆ランクを表示 */}
         <div id="bond-level-indicator" className="flex items-baseline gap-2 w-full justify-center">
