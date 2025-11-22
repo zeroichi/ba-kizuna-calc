@@ -13,6 +13,7 @@ import { getEffectivity } from "@/utils/utils";
 import Link from "next/link";
 import { useLocalPersistence } from "@/hooks/persist";
 import { PersistData } from "@/types/persist";
+import { ExpConverter } from "./components/ExpConverter";
 
 const PERSIST_KEY = 'persist-data'
 const INITIAL_PERSIST_DATA: PersistData = { giftCountMap: {}, currentBondLevel: 1, goalBondLevel: 100 }
@@ -178,7 +179,7 @@ export default function Home() {
           生徒を選択: <StudentSelector students={masterData?.students ?? []} onChange={onSelectedStudentChange} initialValue={persistData?.selectedStudentId} />
         </div>
         <p className="text-xs">
-          ゲーム内の「アイテム」→フィルター「贈り物」→ソート「デフォルト」で所持している贈り物数を調べられます。PCではTabキーで入力欄を移動できます。
+          ゲーム内のメニュー「アイテム」→フィルター「贈り物」→ソート「デフォルト」で所持している贈り物数を調べられます。PCではTabキーで入力欄を移動できます。
         </p>
         {/* 贈り物の数を入力するフォーム */}
         {/* grid-cols-5 gap-2 */}
@@ -242,20 +243,20 @@ export default function Home() {
         </div>}
         {requiredExpToNextLevel &&
           <div className="mt-4 text-sm">
-            次のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{requiredExpToNextLevel[0]} までに必要な経験値: {requiredExpToNextLevel[1]}
+            次のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{requiredExpToNextLevel[0]} までに必要な経験値(=絆ポイント): <ExpConverter exp={requiredExpToNextLevel[1]} />
           </div>
         }
         {requiredExpToGoalLevel &&
           <div className="mt-2 text-sm">
-            目標のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{goalBondLevel} までに必要な経験値: {requiredExpToGoalLevel}
+            目標のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{goalBondLevel} までに必要な経験値(=絆ポイント): <ExpConverter exp={requiredExpToGoalLevel} />
           </div>
         }        <div className="mt-8 pt-4 border-t-2 border-red-200 w-full">
           ※ブラウザにのみデータを保存しています。ブラウザのキャッシュ等をクリアすると値は初期化されます。<br />
           Contact: @zeroichi
           &nbsp;
-          <Link className="text-blue-600" href="https://x.com/zeroichi">X (Twitter)</Link>
+          <Link className="text-blue-600" href="https://x.com/zeroichi" target="_blank" rel="noopener">X (Twitter)</Link>
           &nbsp;/&nbsp;
-          <Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc">GitHub</Link>
+          <Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc" target="_blank" rel="noopener">GitHub</Link>
         </div>
         <div className="mt-8 pt-4 border-t-4 border-gray-200 w-full">
           <h2>更新履歴</h2>
@@ -264,6 +265,7 @@ export default function Home() {
               <ul>
                 <li>次の絆ランク経験値の表示機能を追加</li>
                 <li>目標の絆ランク入力と、目標ランクまでの経験値の表示機能を追加</li>
+                <li>経験値のカフェタッチ回数などへの換算表示機能を追加</li>
               </ul>
             </li>
             <li>2025/11/20
