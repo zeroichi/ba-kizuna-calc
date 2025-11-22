@@ -5,4 +5,5 @@ export interface PersistData {
   currentBondLevel: number
   goalBondLevel?: number
   selectedStudentId?: StudentVariantId
+  tailorStoneCount?: number
 }
