@@ -370,6 +370,11 @@ export default function Home() {
         <div className="mt-8 pt-4 border-t-4 border-gray-200 w-full">
           <h2>更新履歴</h2>
           <ul className="list-disc ml-6">
+            <li>2025/11/23
+              <ul>
+                <li>テイラーメイドでの贈り物選択ボックス製造による追加経験値計算機能を追加</li>
+              </ul>
+            </li>
             <li>2025/11/22
               <ul>
                 <li>次の絆ランク経験値の表示機能を追加</li>
