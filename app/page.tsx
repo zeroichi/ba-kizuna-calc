@@ -280,7 +280,8 @@ export default function Home() {
                 }} />
               <AddCircleOutlineIcon className="block" />
               <div>
-                効果小の贈り物数: {numOfSelectBox * 2}
+                消費する贈り物(効果小)数: {numOfSelectBox * 2}<br />
+                (所持数: {numOfNormalEffectiveGifts})
               </div>
               <KeyboardDoubleArrowRightIcon className="block" />
               <div>
