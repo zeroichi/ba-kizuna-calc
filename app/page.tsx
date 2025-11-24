@@ -360,15 +360,18 @@ export default function Home() {
           <div className="mt-2 text-sm">
             目標のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{goalBondLevel} までに必要な経験値(=絆ポイント): <ExpConverter exp={requiredExpToGoalLevel} />
           </div>
-        }        <div className="mt-8 pt-4 border-t-2 border-red-200 w-full">
+        }
+        <div className="mt-4 pt-4 border-t-2 border-red-200 w-full text-sm">
           ※ブラウザにのみデータを保存しています。ブラウザのキャッシュ等をクリアすると値は初期化されます。<br />
-          Contact: @zeroichi
+          Contact(バグ報告などはこちらへ): @zeroichi
           &nbsp;
           <Link className="text-blue-600" href="https://x.com/zeroichi" target="_blank" rel="noopener">X (Twitter)</Link>
           &nbsp;/&nbsp;
           <Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc" target="_blank" rel="noopener">GitHub</Link>
+          &nbsp;
+          (<Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc/issues" target="_blank" rel="noopener">対応予定Issue</Link>)
         </div>
-        <div className="mt-8 pt-4 border-t-4 border-gray-200 w-full">
+        <div className="mt-4 pt-4 border-t-4 border-gray-200 w-full text-sm text-gray-600">
           <h2>更新履歴</h2>
           <ul className="list-disc ml-6">
             <li>2025/11/23
