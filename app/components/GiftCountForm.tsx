@@ -35,9 +35,9 @@ export const GiftCountForm = (props: GiftCountFormProps) => {
   const isHighGift = props.gift.type == 'high' || props.gift.type == 'high-all'
 
   return <div className={`border-1 border-gray-400 rounded-lg p-2 text-sm ${isHighGift ? 'bg-purple-100' : 'bg-gray-50'}`}>
-    <div className="flex flex-row">
+    <div className="flex flex-row relative">
       <Tooltip title={props.gift.name} arrow placement="top">
-        <Image width={48} height={48} src={`${AppConfig.assetBaseUrl}/gift/${props.gift.id}.png`} alt={props.gift.name} />
+        <Image width={48} height={33} src={`${AppConfig.assetBaseUrl}/gift/${props.gift.id}.png`} alt={props.gift.name} />
       </Tooltip>
       <div className="flex flex-col space-x-2">
         <Image width={20} height={20} src={`${AppConfig.assetBaseUrl}/reaction/${getEffectivityId(effectivity)}.png`} alt={props.gift.name} />
