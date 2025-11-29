@@ -4,22 +4,28 @@ import { useState } from "react"
 
 const getFromLocalStorage = <T>(key: string) => {
   if (typeof window !== 'undefined') {
+    // for Client (Browser)
     const item = localStorage.getItem(key) ?? "null"
-    // console.log("got from localStorage:", item)
     return JSON.parse(item) as T ?? undefined
+  } else {
+    // for Server
+    return undefined
   }
 }
 
 const setToLocalStorage = <T>(key: string, object: T) => {
+  const jsonStr = JSON.stringify(object)
   if (typeof window !== 'undefined') {
-    const jsonStr = JSON.stringify(object)
-    // console.log("set to localStorage:", jsonStr)
+    // for Client (Browser)
     localStorage.setItem(key, jsonStr)
+  } else {
+    // for Server
+    return undefined
   }
 }
 
-export const useLocalPersistence = <T>(key: string) => {
-  const state = useState(getFromLocalStorage(key) as T | undefined)
+export const useLocalPersistence = <T>(key: string, initialData: T) => {
+  const state = useState(getFromLocalStorage(key) as T ?? initialData)
   const dispatcher = (object: T) => {
     setToLocalStorage(key, object)
   }
