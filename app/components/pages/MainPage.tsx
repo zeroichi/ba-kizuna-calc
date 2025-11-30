@@ -16,6 +16,7 @@ import { ChangeEventHandler, useCallback, useMemo, useState } from "react";
 import { ExpConverter } from "../../components/ExpConverter";
 import { GiftCountForm } from "../../components/GiftCountForm";
 import { StudentSelector } from "../../components/StudentSelector";
+import { GoalSimulator } from "../organisms/GoalSimulator";
 
 function getExpFromEffectivity(effectivity: 'normal' | 'favorite' | 'super' | 'ultra') {
   switch (effectivity) {
@@ -40,19 +41,20 @@ export interface MainPageProps {
 }
 
 export default function MainPage(props: MainPageProps) {
-  const {masterData, bondExpTable, persistData, onPersistData: setPersistData} = props
+  const { masterData, bondExpTable, persistData, onPersistData: setPersistData } = props
   const [giftCountMap, setGiftCountMap] = useState(new Map<GiftId, number>(Object.entries(persistData.giftCountMap)))
+  /** 選択中の生徒ID */
   const [selectedStudent, setSelectedStudent] = useState(persistData.selectedStudentId)
   /** 絆ランク入力のエラー */
   const [errorMessage, setErrorMessage] = useState("")
   /** 現在の絆ランク TODO:生徒ごとに変えられるようにする */
-  const [currentBondLevel, setCurrentBondLevel] = useState(persistData.currentBondLevel ?? 1)
+  const [currentBondRank, setCurrentBondRank] = useState(persistData.currentBondLevel ?? 1)
   /** 目標の絆ランク TODO:生徒ごとに変えられるようにする */
-  const [goalBondLevel, setGoalBondLevel] = useState(persistData.goalBondLevel ?? 100)
+  const [goalBondRank, setGoalBondRank] = useState(persistData.goalBondLevel ?? 100)
   /** 上級テイラーストーン所持数 */
   const [tailorStoneCount, setTailorStoneCount] = useState(persistData.tailorStoneCount ?? 0)
 
-  /** 経験値テーブルマップ (Level => Exp) */
+  /** 経験値テーブルマップ (Rank => Exp) */
   const bondExpMap = useMemo(() => {
     return new Map<number, number>(bondExpTable.bondExpTable.map((v, i) => [i + 1, v]))
   }, [bondExpTable.bondExpTable])
@@ -126,26 +128,26 @@ export default function MainPage(props: MainPageProps) {
   }
 
   /** 現在の絆ランクが変更された時のイベントハンドラ */
-  const onChangeCurrentBondLevel = (currentLevelStr: string) => {
-    const currentLevel = parseInt(currentLevelStr)
-    if (isNaN(currentLevel) || currentLevel < 1 || currentLevel > 100) {
+  const onChangeCurrentBondRank = (currentLevelStr: string) => {
+    const currentRank = parseInt(currentLevelStr)
+    if (isNaN(currentRank) || currentRank < 1 || currentRank > 100) {
       setErrorMessage("絆ランクは1以上100以下の整数を入力してください")
     } else {
       setErrorMessage("")
-      setCurrentBondLevel(currentLevel)
-      setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentLevel, selectedStudentId: selectedStudent })
+      setCurrentBondRank(currentRank)
+      setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentRank, selectedStudentId: selectedStudent })
     }
   }
 
   /** 目標の絆ランクが変更された時のイベントハンドラ */
-  const onChangeGoalBondLevel = (goalLevelStr: string) => {
-    const goalLevel = parseInt(goalLevelStr)
-    if (isNaN(goalLevel) || goalLevel < 1 || goalLevel > 100) {
+  const onChangeGoalBondRank = (goalRankStr: string) => {
+    const goalRank = parseInt(goalRankStr)
+    if (isNaN(goalRank) || goalRank < 1 || goalRank > 100) {
       setErrorMessage("絆ランクは1以上100以下の整数を入力してください")
     } else {
       setErrorMessage("")
-      setGoalBondLevel(goalLevel)
-      setPersistData({ ...persistData, goalBondLevel: goalLevel })
+      setGoalBondRank(goalRank)
+      setPersistData({ ...persistData, goalBondLevel: goalRank })
     }
   }
 
@@ -182,7 +184,7 @@ export default function MainPage(props: MainPageProps) {
   }, [maxNormalGiftEffectivity, numOfSelectBox])
 
   /** 贈り物で得られる総経験値 */
-  const totalExp = useMemo(() =>
+  const expByGifts = useMemo(() =>
     giftCountMap.keys().map((giftId) => {
       const gift = giftMap.get(giftId)
       if (gift == undefined) {
@@ -197,40 +199,40 @@ export default function MainPage(props: MainPageProps) {
     , [getStudentEffectivity, giftCountMap, giftMap])
 
   /** 現在の絆ランクから贈り物経験値を合計した絆経験値 */
-  const expectedExp = useMemo(() => {
-    if (isNaN(currentBondLevel)) return undefined
-    const currentExp = bondExpMap.get(currentBondLevel)
-    if (currentExp == undefined) return undefined
-    return currentExp + totalExp + expByOptimization
-  }, [bondExpMap, currentBondLevel, expByOptimization, totalExp])
+  const expTotal = useMemo(() => {
+    if (isNaN(currentBondRank)) return undefined
+    const expCurrentRank = bondExpMap.get(currentBondRank)
+    if (expCurrentRank == undefined) return undefined
+    return expCurrentRank + expByGifts + expByOptimization
+  }, [bondExpMap, currentBondRank, expByOptimization, expByGifts])
 
   /** 絆ランクの期待値 */
-  const calcExpectedBondLevel = useMemo(() => {
-    if (expectedExp == undefined || bondExpTable.bondExpTable == undefined) return undefined
+  const calcExpectedBondRank = useMemo(() => {
+    if (expTotal == undefined || bondExpTable.bondExpTable == undefined) return undefined
 
-    return bondExpTable.bondExpTable.findLastIndex((v) => v <= expectedExp) + 1
-  }, [bondExpTable.bondExpTable, expectedExp])
+    return bondExpTable.bondExpTable.findLastIndex((v) => v <= expTotal) + 1
+  }, [bondExpTable.bondExpTable, expTotal])
 
   /** 次のランクまで必要な経験値 */
-  const requiredExpToNextLevel = useMemo<[number, number] | undefined>(() => {
-    if (calcExpectedBondLevel == undefined
-      || expectedExp == undefined
-      || calcExpectedBondLevel < 1
-      || calcExpectedBondLevel >= 100
-      || calcExpectedBondLevel >= goalBondLevel) return undefined
-    const nextLevelExp = bondExpTable.bondExpTable[calcExpectedBondLevel]
+  const requiredExpToNextRank = useMemo<[number, number] | undefined>(() => {
+    if (calcExpectedBondRank == undefined
+      || expTotal == undefined
+      || calcExpectedBondRank < 1
+      || calcExpectedBondRank >= 100
+      || calcExpectedBondRank >= goalBondRank) return undefined
+    const nextLevelExp = bondExpTable.bondExpTable[calcExpectedBondRank]
     if (nextLevelExp == undefined) return undefined
-    return [calcExpectedBondLevel + 1, nextLevelExp - expectedExp]
-  }, [calcExpectedBondLevel, expectedExp, goalBondLevel, bondExpTable.bondExpTable])
+    return [calcExpectedBondRank + 1, nextLevelExp - expTotal]
+  }, [calcExpectedBondRank, expTotal, goalBondRank, bondExpTable.bondExpTable])
 
   /** 目標のランクまで必要な経験値 */
-  const requiredExpToGoalLevel = useMemo(() => {
-    if (expectedExp == undefined) return undefined
-    const goalLevelExp = bondExpTable.bondExpTable[goalBondLevel - 1]
+  const requiredExpToGoalRank = useMemo(() => {
+    if (expTotal == undefined) return undefined
+    const goalLevelExp = bondExpTable.bondExpTable[goalBondRank - 1]
     if (goalLevelExp == undefined) return undefined
-    const requiredExp = goalLevelExp - expectedExp
+    const requiredExp = goalLevelExp - expTotal
     return requiredExp <= 0 ? undefined : requiredExp
-  }, [expectedExp, goalBondLevel, bondExpTable.bondExpTable])
+  }, [expTotal, goalBondRank, bondExpTable.bondExpTable])
 
   return (
     <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-4 sm:px-16 bg-white dark:bg-black sm:items-start">
@@ -294,21 +296,21 @@ export default function MainPage(props: MainPageProps) {
         }
       </div>
       <div id="gift-total-score" className="my-4 text-sm">
-        現在の絆ランクの経験値 {bondExpMap.get(currentBondLevel) ?? "-"}
+        現在の絆ランクの経験値 {bondExpMap.get(currentBondRank) ?? "-"}
         &nbsp;&nbsp;+&nbsp;&nbsp;
-        贈り物で得られる絆経験値 {totalExp}
+        贈り物で得られる絆経験値 {expByGifts}
         {expByOptimization > 0 && <>
           &nbsp;&nbsp;+&nbsp;&nbsp;
           選択ボックス変換で得られる追加経験値 {expByOptimization}
         </>}
         &nbsp;&nbsp;=&nbsp;&nbsp;
-        総絆経験値 {bondExpMap.get(currentBondLevel) != undefined ? ((bondExpMap.get(currentBondLevel) ?? 0) + totalExp + (expectedExp ?? 0)) : "-"}
+        総絆経験値 {expTotal ?? "-"}
       </div>
       {/* 現在の絆ランクと、アイテムで到達できる絆ランクを表示 */}
       <div id="bond-level-indicator" className="flex items-baseline gap-2 w-full justify-center">
         <TextField variant="standard" label="現在の絆ランク" className="w-30" type="number"
-          defaultValue={currentBondLevel}
-          onChange={(e) => onChangeCurrentBondLevel(e.target.value)}
+          defaultValue={currentBondRank}
+          onChange={(e) => onChangeCurrentBondRank(e.target.value)}
           slotProps={{
             /* テキストボックスの頭にハートマーク */
             input: {
@@ -321,7 +323,7 @@ export default function MainPage(props: MainPageProps) {
           }} />
         <KeyboardDoubleArrowRightIcon className="block" />
         <TextField variant="standard" label="到達できる絆ランク" disabled className="w-30"
-          value={(errorMessage || !calcExpectedBondLevel) && "-" || calcExpectedBondLevel}
+          value={(errorMessage || !calcExpectedBondRank) && "-" || calcExpectedBondRank}
           slotProps={{
             /* テキストボックスの頭にハートマーク */
             input: {
@@ -334,8 +336,8 @@ export default function MainPage(props: MainPageProps) {
           }} />
         <KeyboardDoubleArrowRightIcon className="block" />
         <TextField variant="standard" label="目標の絆ランク" className="w-30" type="number"
-          defaultValue={goalBondLevel}
-          onChange={(e) => onChangeGoalBondLevel(e.target.value)}
+          defaultValue={goalBondRank}
+          onChange={(e) => onChangeGoalBondRank(e.target.value)}
           slotProps={{
             /* テキストボックスの頭にハートマーク */
             input: {
@@ -350,16 +352,22 @@ export default function MainPage(props: MainPageProps) {
       {errorMessage && <div className="my-4 p-4 border-2 border-red-200 rounded-lg bg-red-50 text-red-600">
         {errorMessage}
       </div>}
-      {requiredExpToNextLevel &&
+      {requiredExpToNextRank &&
         <div className="mt-4 text-sm">
-          次のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{requiredExpToNextLevel[0]} までに必要な経験値(=絆ポイント): <ExpConverter exp={requiredExpToNextLevel[1]} />
+          次のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{requiredExpToNextRank[0]} までに必要な経験値(=絆ポイント): <ExpConverter exp={requiredExpToNextRank[1]} />
         </div>
       }
-      {requiredExpToGoalLevel &&
+      {requiredExpToGoalRank &&
         <div className="mt-2 text-sm">
-          目標のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{goalBondLevel} までに必要な経験値(=絆ポイント): <ExpConverter exp={requiredExpToGoalLevel} />
+          目標のランク<FavoriteIcon className="text-red-300" fontSize="inherit" />{goalBondRank} までに必要な経験値(=絆ポイント): <ExpConverter exp={requiredExpToGoalRank} />
         </div>
       }
+
+      {requiredExpToGoalRank && expTotal != undefined ?
+        <GoalSimulator currentExp={expTotal} goalRank={goalBondRank} bondExpTable={bondExpTable.bondExpTable} maxNormalGiftExp={getExpFromEffectivity(maxNormalGiftEffectivity)} />
+        : undefined
+      }
+
       <div className="mt-4 pt-4 border-t-2 border-red-200 w-full text-sm">
         ※ブラウザにのみデータを保存しています。ブラウザのキャッシュ等をクリアすると値は初期化されます。<br />
         Contact(バグ報告などはこちらへ): @zeroichi
