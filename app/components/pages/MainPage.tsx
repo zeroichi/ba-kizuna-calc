@@ -381,6 +381,11 @@ export default function MainPage(props: MainPageProps) {
       <div className="mt-4 pt-4 border-t-4 border-gray-200 w-full text-sm text-gray-600">
         <h2>更新履歴</h2>
         <ul className="list-disc ml-6">
+          <li>2025/11/30
+            <ul>
+              <li>カフェタッチ・贈り物製造などで目標絆ランクまで何日かかるかシミュレーションする機能を追加 (β版です。今後改善予定)</li>
+            </ul>
+          </li>
           <li>2025/11/23
             <ul>
               <li>テイラーメイドでの贈り物選択ボックス製造による追加経験値計算機能を追加</li>
