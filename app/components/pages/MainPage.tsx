@@ -135,7 +135,7 @@ export default function MainPage(props: MainPageProps) {
     } else {
       setErrorMessage("")
       setCurrentBondRank(currentRank)
-      setPersistData({ giftCountMap: Object.fromEntries(giftCountMap), currentBondLevel: currentRank, selectedStudentId: selectedStudent })
+      setPersistData({ ...persistData, currentBondLevel: currentRank })
     }
   }
 
@@ -381,6 +381,11 @@ export default function MainPage(props: MainPageProps) {
       <div className="mt-4 pt-4 border-t-4 border-gray-200 w-full text-sm text-gray-600">
         <h2>更新履歴</h2>
         <ul className="list-disc ml-6">
+          <li>2025/12/02
+            <ul>
+              <li>現在の絆ランクを変更するとリロード後に上級テイラーストーンの数が0になるバグを修正</li>
+            </ul>
+          </li>
           <li>2025/11/30
             <ul>
               <li>カフェタッチ・贈り物製造などで目標絆ランクまで何日かかるかシミュレーションする機能を追加 (β版です。今後改善予定)</li>
