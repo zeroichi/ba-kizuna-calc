@@ -383,7 +383,9 @@ export default function MainPage(props: MainPageProps) {
         <ul className="list-disc ml-6">
           <li>2025/12/02
             <ul>
+              <li>達成日シミュレーションに「製造用月一PKG」を追加 (贈り物選択ボックス 15個分換算)</li>
               <li>現在の絆ランクを変更するとリロード後に上級テイラーストーンの数が0になるバグを修正</li>
+              <li>リロード時に「贈り物セット月一PKG」のチェックが復元されないバグを修正</li>
             </ul>
           </li>
           <li>2025/11/30
