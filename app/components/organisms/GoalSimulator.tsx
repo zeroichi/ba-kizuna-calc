@@ -82,7 +82,7 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
   const [notifyMessage, setNotifyMessage] = useState<string>()
   const [simulrationResult, setSimulrationResult] = useState<SimulatedDay[]>([])
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<SimulationParams>({
+  const { register, handleSubmit, reset, formState: { errors, isDirty } } = useForm<SimulationParams>({
     defaultValues: savedData
   })
 
@@ -226,9 +226,15 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
         // TODO: 生徒に合わせて修正
         const e = 20 * 10 + props.maxNormalGiftExp * 5 + 120
         expGot += e
-        events.push(`贈り物セット月一パッケージ 贈り物ボックスx10(200}P)`)
-        events.push(`贈り物セット月一パッケージ 贈り物選択ボックスx5(${props.maxNormalGiftExp * 5}}P)`)
-        events.push(`贈り物セット月一パッケージ 高級贈り物ボックスx1(120}P)`)
+        events.push(`贈り物セット月一パッケージ 贈り物ボックスx10(200P)`)
+        events.push(`贈り物セット月一パッケージ 贈り物選択ボックスx5(${props.maxNormalGiftExp * 5}P)`)
+        events.push(`贈り物セット月一パッケージ 高級贈り物ボックスx1(120P)`)
+      }
+      // 月一製造PKG
+      if (params.payProducePackage && currentDay.get('date') == params.dayOfProducePackage) {
+        const e = props.maxNormalGiftExp * 15
+        expGot += e
+        events.push(`製造用月一パッケージ 贈り物選択ボックスx15(${e}P)`)
       }
       currentExp += expGot
       result.push({
@@ -250,6 +256,7 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
   const onSave: SubmitHandler<SimulationParams> = (params) => {
     setSavedData(params)
     setNotifyMessage("設定をブラウザに保存しました")
+    reset(params)
   }
 
   return <>
@@ -436,7 +443,7 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
               【課金】贈り物セット月一PKG
             </th>
             <td>
-              <Checkbox {...register("payGiftPackage")} />
+              <Checkbox {...register("payGiftPackage")} defaultChecked={savedData.payGiftPackage} />
             </td>
             <th>
               購入(使用)日
@@ -454,12 +461,12 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
               />
             </td>
           </tr>
-          {/* <tr>
+          <tr>
             <th>
               【課金】製造用月一PKG
             </th>
             <td>
-              <Checkbox {...register("payProducePackage")} />
+              <Checkbox {...register("payProducePackage")} defaultChecked={savedData.payProducePackage} />
             </td>
             <th>
               購入(使用)日
@@ -476,7 +483,7 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
                 {...register("dayOfProducePackage")}
               />
             </td>
-          </tr> */}
+          </tr>
         </tbody>
       </table>
       <div>
@@ -494,7 +501,7 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
       <div className="mt-2">
         <Button variant="contained" onClick={handleSubmit(onSubmit)}>シミュレーション実行</Button>
         &nbsp;
-        <Button variant="contained" onClick={handleSubmit(onSave)} color="secondary">設定保存</Button>
+        <Button variant="contained" onClick={handleSubmit(onSave)} color="secondary" disabled={!isDirty}>設定保存</Button>
       </div>
       {simulrationResult && simulrationResult.length > 0 &&
         <div className="mt-2">
