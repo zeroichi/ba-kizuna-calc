@@ -235,7 +235,7 @@ export default function MainPage(props: MainPageProps) {
   }, [expTotal, goalBondRank, bondExpTable.bondExpTable])
 
   return (
-    <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-4 sm:px-16 bg-white dark:bg-black sm:items-start">
+    <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-4 sm:px-16 bg-white sm:items-start">
       <h1 className="text-xl mb-4 pb-1 border-b-2 border-red-200 w-full">ブルアカ 絆ランクシミュレータ</h1>
       <p>
         所有している贈り物・製造用アイテムの数から到達できる絆ランクを計算します。
@@ -381,6 +381,12 @@ export default function MainPage(props: MainPageProps) {
       <div className="mt-4 pt-4 border-t-4 border-gray-200 w-full text-sm text-gray-600">
         <h2>更新履歴</h2>
         <ul className="list-disc ml-6">
+          <li>2025/12/06
+            <ul>
+              <li>OS/ブラウザでダークテーマに設定されている場合に見辛くなる問題を修正しました。<br />
+              ※一旦ライトに固定しています。ダークテーマは別途対応予定です。</li>
+            </ul>
+          </li>
           <li>2025/12/02
             <ul>
               <li>達成日シミュレーションに「製造用月一PKG」を追加 (贈り物選択ボックス 15個分換算)</li>
