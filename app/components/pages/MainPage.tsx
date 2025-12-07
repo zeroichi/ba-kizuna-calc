@@ -1,13 +1,13 @@
 'use client'
 
 import { AppConfig } from "@/config/config";
-import { BondExpTable, Gift, GiftId, MasterData, StudentVariant, StudentVariantId } from "@/types/master";
+import { BondExpTable, Gift, GiftId, MasterData, Notifications, StudentVariant, StudentVariantId } from "@/types/MasterData";
 import { getEffectivity } from "@/utils/utils";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HelpIcon from '@mui/icons-material/Help';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import { InputAdornment, Tooltip } from "@mui/material";
+import { Alert, InputAdornment, Tooltip } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import Image from 'next/image';
 import Link from "next/link";
@@ -40,6 +40,7 @@ function getExpFromEffectivity(effectivity: 'normal' | 'favorite' | 'super' | 'u
 export interface MainPageProps {
   masterData: MasterData
   bondExpTable: BondExpTable
+  notifications: Notifications
 }
 
 const giftFormSchema = z.object({
@@ -69,7 +70,7 @@ export default function MainPage(props: MainPageProps) {
   const setCurrentBondRank = useCallback((newRank: number) => {
     if (selectedStudent && userStudentSchema.shape.currentBondRank.safeParse(newRank)) {
       const current: UserStudentData = userData.students.get(selectedStudent) ?? INITIAL_STUDENT_DATA
-      const newMap = new Map(userData.students).set(selectedStudent, {...current, currentBondRank: newRank})
+      const newMap = new Map(userData.students).set(selectedStudent, { ...current, currentBondRank: newRank })
       saveUserData({ ...userData, students: newMap })
     }
   }, [saveUserData, selectedStudent, userData])
@@ -78,7 +79,7 @@ export default function MainPage(props: MainPageProps) {
   const setGoalBondRank = useCallback((newRank: number) => {
     if (selectedStudent && userStudentSchema.shape.goalBondRank.safeParse(newRank)) {
       const current: UserStudentData = userData.students.get(selectedStudent) ?? INITIAL_STUDENT_DATA
-      const newMap = new Map(userData.students).set(selectedStudent, {...current, goalBondRank: newRank})
+      const newMap = new Map(userData.students).set(selectedStudent, { ...current, goalBondRank: newRank })
       saveUserData({ ...userData, students: newMap })
     }
   }, [saveUserData, selectedStudent, userData])
@@ -268,12 +269,31 @@ export default function MainPage(props: MainPageProps) {
     return requiredExp <= 0 ? undefined : requiredExp
   }, [expTotal, goalBondRank, bondExpTable.bondExpTable])
 
+  /** 未読のお知らせリスト */
+  const unreadNotifications = useMemo(() => {
+    return props.notifications.filter(n => n.index > userData.lastReadNotification)
+  }, [props.notifications, userData.lastReadNotification])
+
+  /** お知らせを既読にする */
+  const markReadNotification = useCallback(() => {
+    saveUserData({ ...userData, lastReadNotification: Math.max(...unreadNotifications.map(n => n.index)) })
+  }, [saveUserData, unreadNotifications, userData])
+
   return (
     <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-4 sm:px-16 bg-white sm:items-start">
       <h1 className="text-xl mb-4 pb-1 border-b-2 border-red-200 w-full">ブルアカ 絆ランクシミュレータ</h1>
       <p>
         所有している贈り物・製造用アイテムの数から到達できる絆ランクを計算します。
       </p>
+      {unreadNotifications.length > 0 ? (
+        <Alert severity="info" onClose={markReadNotification} className="w-full">
+          {unreadNotifications.map((n) => {
+            return <p key={`notification-${n.index}`}>
+              {n.publishDate}: {n.message}
+            </p>
+          })}
+        </Alert>
+      ) : undefined}
       {/* 生徒の選択 */}
       <div id="student-selector" className="my-2">
         生徒を選択: <StudentSelector students={masterData.students ?? []} onChange={onSelectedStudentChange} initialValue={userData.selectedStudentId} />

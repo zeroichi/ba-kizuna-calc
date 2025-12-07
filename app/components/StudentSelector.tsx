@@ -1,6 +1,6 @@
 'use client'
 
-import { Student, StudentVariantId } from "@/types/master"
+import { Student, StudentVariantId } from "@/types/MasterData"
 import { ReactNode, useMemo, useState } from "react"
 import Select from "react-select"
 

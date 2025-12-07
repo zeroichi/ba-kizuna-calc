@@ -1,6 +1,6 @@
 'use client'
 
-import { useBondExpTable, useMasterData } from "@/hooks/useMasterData";
+import { useBondExpTable, useMasterData, useNotifications } from "@/hooks/useMasterData";
 import MainPage from "./components/pages/MainPage";
 import { SoftwareApplicationJsonLd } from "next-seo";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
@@ -8,6 +8,7 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 export default function Home() {
   const masterData = useMasterData()
   const bondExpTable = useBondExpTable()
+  const notifications = useNotifications()
 
   const theme = createTheme({
     palette: {
@@ -51,8 +52,8 @@ export default function Home() {
         <CssBaseline />
         <div className="flex items-center justify-center bg-zinc-50 font-sans">
           {
-            masterData.data && bondExpTable.data
-              ? <MainPage masterData={masterData.data} bondExpTable={bondExpTable.data} />
+            masterData.data && bondExpTable.data && notifications.data
+              ? <MainPage masterData={masterData.data} bondExpTable={bondExpTable.data} notifications={notifications.data} />
               : <div className="h-screen w-screen flex justify-center items-center">データをロード中...</div>
           }
         </div>

@@ -1,4 +1,5 @@
 import z from "zod"
+import { notificationsSchema } from "./MasterData"
 
 /** ストレージ保存時のキー */
 export const USER_DATA_PERSIST_KEY = 'persist-data'
@@ -31,6 +32,8 @@ export const userDataSchema = z.object({
   selectedStudentId: z.string().optional(),
   /** 上級ストーン数 */
   tailorStoneCount: z.int().min(0),
+  /** 既読のお知らせメッセージバージョン */
+  lastReadNotification: notificationsSchema.element.shape.index,
 })
 
 /** ユーザーデータ */
@@ -42,6 +45,7 @@ export const INITIAL_USER_DATA: UserData = {
   students: new Map(),
   selectedStudentId: undefined,
   tailorStoneCount: 0,
+  lastReadNotification: 0,
 }
 
 /** UserData型をJSONにするシリアライザ */

@@ -1,4 +1,4 @@
-import { Gift, GiftEffectivity } from "@/types/master"
+import { Gift, GiftEffectivity } from "@/types/MasterData"
 
 /** 贈り物と生徒への効果(反応)から、効果量を表す文字列と1つあたり絆経験値を得る */
 export function getEffectivity(gift: Gift, effectivity?: GiftEffectivity): [string, number] {

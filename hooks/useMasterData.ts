@@ -1,5 +1,5 @@
 import nextConfig from "@/next.config";
-import { BondExpTable, MasterData } from "@/types/master";
+import { BondExpTable, MasterData, Notifications } from "@/types/MasterData";
 import axios from "axios";
 import useSWR from "swr";
 import { load } from "js-yaml"
@@ -13,3 +13,6 @@ export const useMasterData = () => useSWR(basePath + '/data/students.yaml', yaml
 
 /** 経験値テーブルを取得する */
 export const useBondExpTable = () => useSWR(basePath + '/data/bondTable.yaml', yamlFetcher<BondExpTable>)
+
+/** ユーザーへのお知らせ一覧を取得する */
+export const useNotifications = () => useSWR(basePath + '/data/notifications.yaml', yamlFetcher<Notifications>)
