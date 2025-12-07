@@ -197,7 +197,7 @@ gifts:
 # 生徒
 students:
 - name: アイリ
-  fullName: アイリ
+  fullName: 栗村アイリ
   schoolId: trinity
   variants:
   - id: airi
@@ -222,7 +222,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: アオバ
-  fullName: アオバ
+  fullName: 内海アオバ
   schoolId: highlander
   variants:
   - id: aoba
@@ -238,7 +238,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: アカネ
-  fullName: アカネ
+  fullName: 室笠アカネ
   schoolId: millennium
   variants:
   - id: akane
@@ -256,7 +256,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: アカリ
-  fullName: アカリ
+  fullName: 鰐渕アカリ
   schoolId: gehenna
   variants:
   - id: akari
@@ -276,7 +276,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: アコ
-  fullName: アコ
+  fullName: 天雨アコ
   schoolId: gehenna
   variants:
   - id: ako
@@ -306,7 +306,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: アズサ
-  fullName: アズサ
+  fullName: 白洲アズサ
   schoolId: trinity
   variants:
   - id: azusa
@@ -330,7 +330,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: アスナ
-  fullName: アスナ
+  fullName: 一之瀬アスナ
   schoolId: millennium
   variants:
   - id: asuna
@@ -364,7 +364,7 @@ students:
     ultraFavoriteGiftIds:
     - perfume
 - name: アツコ
-  fullName: アツコ
+  fullName: 秤アツコ
   schoolId: arius
   variants:
   - id: atsuko
@@ -394,7 +394,7 @@ students:
     ultraFavoriteGiftIds:
     - board-game
 - name: アヤネ
-  fullName: アヤネ
+  fullName: 奥空アヤネ
   schoolId: abydos
   variants:
   - id: ayane
@@ -424,7 +424,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: アリス
-  fullName: アリス
+  fullName: 天童アリス
   schoolId: millennium
   variants:
   - id: arisu
@@ -453,7 +453,7 @@ students:
     - comb
     - board-game
 - name: アル
-  fullName: アル
+  fullName: 陸八魔アル
   schoolId: gehenna
   variants:
   - id: aru
@@ -487,7 +487,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: イオリ
-  fullName: イオリ
+  fullName: 銀鏡イオリ
   schoolId: gehenna
   variants:
   - id: iori
@@ -514,7 +514,7 @@ students:
     - parfait
     ultraFavoriteGiftIds: []
 - name: イズナ
-  fullName: イズナ
+  fullName: 久田イズナ
   schoolId: hyakkiyako
   variants:
   - id: izuna
@@ -533,7 +533,7 @@ students:
     - comb
     ultraFavoriteGiftIds: []
 - name: イズミ
-  fullName: イズミ
+  fullName: 獅子堂イズミ
   schoolId: gehenna
   variants:
   - id: izumi
@@ -568,7 +568,7 @@ students:
     - parfait
     ultraFavoriteGiftIds: []
 - name: イチカ
-  fullName: イチカ
+  fullName: 仲正イチカ
   schoolId: trinity
   variants:
   - id: ichika
@@ -599,7 +599,7 @@ students:
     ultraFavoriteGiftIds:
     - perfume
 - name: イブキ
-  fullName: イブキ
+  fullName: 丹花イブキ
   schoolId: gehenna
   variants:
   - id: ibuki
@@ -619,7 +619,7 @@ students:
     - parfait
     - board-game
 - name: イロハ
-  fullName: イロハ
+  fullName: 棗イロハ
   schoolId: gehenna
   variants:
   - id: iroha
@@ -637,7 +637,7 @@ students:
     - book-street
     ultraFavoriteGiftIds: []
 - name: ウイ
-  fullName: ウイ
+  fullName: 古関ウイ
   schoolId: trinity
   variants:
   - id: ui
@@ -668,7 +668,7 @@ students:
     ultraFavoriteGiftIds:
     - book-street
 - name: ウタハ
-  fullName: ウタハ
+  fullName: 白石ウタハ
   schoolId: millennium
   variants:
   - id: utaha
@@ -688,7 +688,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: ウミカ
-  fullName: ウミカ
+  fullName: 里浜ウミカ
   schoolId: hyakkiyako
   variants:
   - id: umika
@@ -705,7 +705,7 @@ students:
     ultraFavoriteGiftIds:
     - board-game
 - name: エイミ
-  fullName: エイミ
+  fullName: 和泉元エイミ
   schoolId: millennium
   variants:
   - id: eimi
@@ -732,7 +732,7 @@ students:
     - egg-craft
     ultraFavoriteGiftIds: []
 - name: エリ
-  fullName: エリ
+  fullName: 白尾エリ
   schoolId: wildhunt
   variants:
   - id: eri
@@ -747,7 +747,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: カエデ
-  fullName: カエデ
+  fullName: 勇美カエデ
   schoolId: hyakkiyako
   variants:
   - id: kaede
@@ -767,7 +767,7 @@ students:
     - board-game
     ultraFavoriteGiftIds: []
 - name: カズサ
-  fullName: カズサ
+  fullName: 杏山カズサ
   schoolId: trinity
   variants:
   - id: kazusa
@@ -794,7 +794,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: カスミ
-  fullName: カスミ
+  fullName: 鬼怒川カスミ
   schoolId: gehenna
   variants:
   - id: kasumi
@@ -807,7 +807,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: カノエ
-  fullName: カノエ
+  fullName: 板垣カノエ
   schoolId: wildhunt
   variants:
   - id: kanoe
@@ -825,7 +825,7 @@ students:
     ultraFavoriteGiftIds:
     - perfume
 - name: カホ
-  fullName: カホ
+  fullName: 桑上カホ
   schoolId: hyakkiyako
   variants:
   - id: kaho
@@ -841,7 +841,7 @@ students:
     ultraFavoriteGiftIds:
     - book-street
 - name: カヨコ
-  fullName: カヨコ
+  fullName: 鬼方カヨコ
   schoolId: gehenna
   variants:
   - id: kayoko
@@ -875,7 +875,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: カリン
-  fullName: カリン
+  fullName: 角楯カリン
   schoolId: millennium
   variants:
   - id: karin
@@ -902,7 +902,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: カンナ
-  fullName: カンナ
+  fullName: 尾刃カンナ
   schoolId: valkyrie
   variants:
   - id: kanna
@@ -927,7 +927,7 @@ students:
     ultraFavoriteGiftIds:
     - book-street
 - name: キキョウ
-  fullName: キキョウ
+  fullName: 桐生キキョウ
   schoolId: hyakkiyako
   variants:
   - id: kikyou
@@ -958,7 +958,7 @@ students:
     ultraFavoriteGiftIds:
     - book-street
 - name: キサキ
-  fullName: キサキ
+  fullName: 竜華キサキ
   schoolId: shanhaijing
   variants:
   - id: kisaki
@@ -979,7 +979,7 @@ students:
     ultraFavoriteGiftIds:
     - bonsai
 - name: キララ
-  fullName: キララ
+  fullName: 夜桜キララ
   schoolId: gehenna
   variants:
   - id: kirara
@@ -993,7 +993,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: キリノ
-  fullName: キリノ
+  fullName: 中務キリノ
   schoolId: valkyrie
   variants:
   - id: kirino
@@ -1015,7 +1015,7 @@ students:
     ultraFavoriteGiftIds:
     - dumbbell
 - name: ココナ
-  fullName: ココナ
+  fullName: 春原ココナ
   schoolId: shanhaijing
   variants:
   - id: kokona
@@ -1029,7 +1029,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: コタマ
-  fullName: コタマ
+  fullName: 音瀬コタマ
   schoolId: millennium
   variants:
   - id: kotama
@@ -1056,7 +1056,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: コトリ
-  fullName: コトリ
+  fullName: 豊見コトリ
   schoolId: millennium
   variants:
   - id: kotori
@@ -1085,7 +1085,7 @@ students:
     ultraFavoriteGiftIds:
     - dumbbell
 - name: コハル
-  fullName: コハル
+  fullName: 下江コハル
   schoolId: trinity
   variants:
   - id: koharu
@@ -1109,7 +1109,7 @@ students:
     ultraFavoriteGiftIds:
     - perfume
 - name: コユキ
-  fullName: コユキ
+  fullName: 黒崎コユキ
   schoolId: millennium
   variants:
   - id: koyuki
@@ -1125,7 +1125,7 @@ students:
     ultraFavoriteGiftIds:
     - board-game
 - name: サオリ
-  fullName: サオリ
+  fullName: 錠前サオリ
   schoolId: arius
   variants:
   - id: saori
@@ -1161,7 +1161,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: サキ
-  fullName: サキ
+  fullName: 空井サキ
   schoolId: srt
   variants:
   - id: saki
@@ -1195,7 +1195,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: サクラコ
-  fullName: サクラコ
+  fullName: 歌住サクラコ
   schoolId: trinity
   variants:
   - id: sakurako
@@ -1227,7 +1227,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: サツキ
-  fullName: サツキ
+  fullName: 京極サツキ
   schoolId: gehenna
   variants:
   - id: satsuki
@@ -1246,7 +1246,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: サヤ
-  fullName: サヤ
+  fullName: 薬子サヤ
   schoolId: shanhaijing
   variants:
   - id: saya
@@ -1268,7 +1268,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: シグレ
-  fullName: シグレ
+  fullName: 間宵シグレ
   schoolId: redwinter
   variants:
   - id: shigure
@@ -1288,7 +1288,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: シズコ
-  fullName: シズコ
+  fullName: 河和シズコ
   schoolId: hyakkiyako
   variants:
   - id: shizuko
@@ -1307,7 +1307,7 @@ students:
     - vitamin-jelly
     ultraFavoriteGiftIds: []
 - name: シミコ
-  fullName: シミコ
+  fullName: 円堂シミコ
   schoolId: trinity
   variants:
   - id: shimiko
@@ -1323,7 +1323,7 @@ students:
     - book-street
     ultraFavoriteGiftIds: []
 - name: ジュリ
-  fullName: ジュリ
+  fullName: 牛牧ジュリ
   schoolId: gehenna
   variants:
   - id: juri
@@ -1343,7 +1343,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: シュン
-  fullName: シュン
+  fullName: 春原シュン
   schoolId: shanhaijing
   variants:
   - id: shun
@@ -1367,7 +1367,7 @@ students:
     - parfait
     ultraFavoriteGiftIds: []
 - name: ジュンコ
-  fullName: ジュンコ
+  fullName: 赤司ジュンコ
   schoolId: gehenna
   variants:
   - id: junko
@@ -1391,7 +1391,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: シロコ
-  fullName: シロコ
+  fullName: 砂狼シロコ
   schoolId: abydos
   variants:
   - id: shiroko
@@ -1421,7 +1421,7 @@ students:
     ultraFavoriteGiftIds:
     - dumbbell
 - name: シロコ＊テラー
-  fullName: シロコ＊テラー
+  fullName: 砂狼シロコ
   schoolId: abydos
   variants:
   - id: shiroko-terror
@@ -1433,7 +1433,7 @@ students:
     - dumbbell
     ultraFavoriteGiftIds: []
 - name: スズミ
-  fullName: スズミ
+  fullName: 守月スズミ
   schoolId: trinity
   variants:
   - id: suzumi
@@ -1461,7 +1461,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: スバル
-  fullName: スバル
+  fullName: 梯スバル
   schoolId: arius
   variants:
   - id: subaru
@@ -1481,7 +1481,7 @@ students:
     ultraFavoriteGiftIds:
     - music-ticket
 - name: スミレ
-  fullName: スミレ
+  fullName: 乙花スミレ
   schoolId: millennium
   variants:
   - id: sumire
@@ -1503,7 +1503,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: セイア
-  fullName: セイア
+  fullName: 百合園セイア
   schoolId: trinity
   variants:
   - id: seia
@@ -1540,7 +1540,7 @@ students:
     ultraFavoriteGiftIds:
     - board-game
 - name: セナ
-  fullName: セナ
+  fullName: 氷室セナ
   schoolId: gehenna
   variants:
   - id: sena
@@ -1566,7 +1566,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: セリカ
-  fullName: セリカ
+  fullName: 黒見セリカ
   schoolId: abydos
   variants:
   - id: serika
@@ -1602,7 +1602,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: セリナ
-  fullName: セリナ
+  fullName: 鷲見セリナ
   schoolId: trinity
   variants:
   - id: serina
@@ -1642,7 +1642,7 @@ students:
     ultraFavoriteGiftIds:
     - music-ticket
 - name: チアキ
-  fullName: チアキ
+  fullName: 元宮チアキ
   schoolId: gehenna
   variants:
   - id: chiaki
@@ -1660,7 +1660,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: チェリノ
-  fullName: チェリノ
+  fullName: 連河チェリノ
   schoolId: redwinter
   variants:
   - id: cherino
@@ -1687,7 +1687,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: チセ
-  fullName: チセ
+  fullName: 和楽チセ
   schoolId: hyakkiyako
   variants:
   - id: chise
@@ -1716,7 +1716,7 @@ students:
     - book-street
     ultraFavoriteGiftIds: []
 - name: チナツ
-  fullName: チナツ
+  fullName: 火宮チナツ
   schoolId: gehenna
   variants:
   - id: chinatsu
@@ -1750,7 +1750,7 @@ students:
     - egg-craft
     ultraFavoriteGiftIds: []
 - name: チヒロ
-  fullName: チヒロ
+  fullName: 各務チヒロ
   schoolId: millennium
   variants:
   - id: chihiro
@@ -1763,7 +1763,7 @@ students:
     - aeebook
     ultraFavoriteGiftIds: []
 - name: ツクヨ
-  fullName: ツクヨ
+  fullName: 大野ツクヨ
   schoolId: hyakkiyako
   variants:
   - id: tsukuyo
@@ -1776,7 +1776,7 @@ students:
     - bonsai
     ultraFavoriteGiftIds: []
 - name: ツバキ
-  fullName: ツバキ
+  fullName: 春日ツバキ
   schoolId: hyakkiyako
   variants:
   - id: tsubaki
@@ -1804,7 +1804,7 @@ students:
     ultraFavoriteGiftIds:
     - lace-pillow
 - name: ツルギ
-  fullName: ツルギ
+  fullName: 剣先ツルギ
   schoolId: trinity
   variants:
   - id: tsurugi
@@ -1823,7 +1823,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: トキ
-  fullName: トキ
+  fullName: 飛鳥馬トキ
   schoolId: millennium
   variants:
   - id: toki
@@ -1848,7 +1848,7 @@ students:
     - sewing-set
     - dumbbell
 - name: トモエ
-  fullName: トモエ
+  fullName: 佐城トモエ
   schoolId: redwinter
   variants:
   - id: tomoe
@@ -1875,7 +1875,7 @@ students:
     ultraFavoriteGiftIds:
     - perfume
 - name: ナギサ
-  fullName: ナギサ
+  fullName: 桐藤ナギサ
   schoolId: trinity
   variants:
   - id: nagisa
@@ -1903,7 +1903,7 @@ students:
     ultraFavoriteGiftIds:
     - lace-pillow
 - name: ナグサ
-  fullName: ナグサ
+  fullName: 御稜ナグサ
   schoolId: trinity
   variants:
   - id: nagusa
@@ -1921,7 +1921,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: ナツ
-  fullName: ナツ
+  fullName: 柚鳥ナツ
   schoolId: trinity
   variants:
   - id: natsu
@@ -1947,7 +1947,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: ニヤ
-  fullName: ニヤ
+  fullName: 天地ニヤ
   schoolId: hyakkiyako
   variants:
   - id: niya
@@ -1970,7 +1970,7 @@ students:
     ultraFavoriteGiftIds:
     - bonsai
 - name: ネル
-  fullName: ネル
+  fullName: 美甘ネル
   schoolId: millennium
   variants:
   - id: neru
@@ -2010,7 +2010,7 @@ students:
     ultraFavoriteGiftIds:
     - board-game
 - name: ノア
-  fullName: ノア
+  fullName: 生塩ノア
   schoolId: millennium
   variants:
   - id: noa
@@ -2045,7 +2045,7 @@ students:
     ultraFavoriteGiftIds:
     - lace-pillow
 - name: ノゾミ
-  fullName: ノゾミ
+  fullName: 橘ノゾミ
   schoolId: highlander
   variants:
   - id: nozomi
@@ -2065,7 +2065,7 @@ students:
     ultraFavoriteGiftIds:
     - board-game
 - name: ノドカ
-  fullName: ノドカ
+  fullName: 天見ノドカ
   schoolId: redwinter
   variants:
   - id: nodoka
@@ -2094,7 +2094,7 @@ students:
     - music-ticket
     ultraFavoriteGiftIds: []
 - name: ノノミ
-  fullName: ノノミ
+  fullName: 十六夜ノノミ
   schoolId: abydos
   variants:
   - id: nonomi
@@ -2117,7 +2117,7 @@ students:
     - perfume
     ultraFavoriteGiftIds: []
 - name: ハスミ
-  fullName: ハスミ
+  fullName: 羽川ハスミ
   schoolId: trinity
   variants:
   - id: hasumi
@@ -2155,7 +2155,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: ハナエ
-  fullName: ハナエ
+  fullName: 朝顔ハナエ
   schoolId: trinity
   variants:
   - id: hanae
@@ -2178,7 +2178,7 @@ students:
     ultraFavoriteGiftIds:
     - dumbbell
 - name: ハナコ
-  fullName: ハナコ
+  fullName: 浦和ハナコ
   schoolId: trinity
   variants:
   - id: hanako
@@ -2207,7 +2207,7 @@ students:
     - bb-cream
     - comb
 - name: ハルカ
-  fullName: ハルカ
+  fullName: 伊草ハルカ
   schoolId: gehenna
   variants:
   - id: haruka
@@ -2229,7 +2229,7 @@ students:
     ultraFavoriteGiftIds:
     - bonsai
 - name: ハルナ
-  fullName: ハルナ
+  fullName: 黒舘ハルナ
   schoolId: gehenna
   variants:
   - id: haruna
@@ -2261,7 +2261,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: ハレ
-  fullName: ハレ
+  fullName: 小鈎ハレ
   schoolId: millennium
   variants:
   - id: hare
@@ -2283,7 +2283,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: ヒカリ
-  fullName: ヒカリ
+  fullName: 橘ヒカリ
   schoolId: highlander
   variants:
   - id: hikari
@@ -2300,7 +2300,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: ヒナ
-  fullName: ヒナ
+  fullName: 空崎ヒナ
   schoolId: gehenna
   variants:
   - id: hina
@@ -2328,7 +2328,7 @@ students:
     ultraFavoriteGiftIds:
     - music-ticket
 - name: ヒナタ
-  fullName: ヒナタ
+  fullName: 若葉ヒナタ
   schoolId: trinity
   variants:
   - id: hinata
@@ -2350,7 +2350,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: ヒビキ
-  fullName: ヒビキ
+  fullName: 猫塚ヒビキ
   schoolId: millennium
   variants:
   - id: hibiki
@@ -2373,7 +2373,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: ヒフミ
-  fullName: ヒフミ
+  fullName: 阿慈谷ヒフミ
   schoolId: trinity
   variants:
   - id: hifumi
@@ -2394,7 +2394,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: ヒマリ
-  fullName: ヒマリ
+  fullName: 明星ヒマリ
   schoolId: millennium
   variants:
   - id: himari
@@ -2408,7 +2408,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: ヒヨリ
-  fullName: ヒヨリ
+  fullName: 槌永ヒヨリ
   schoolId: arius
   variants:
   - id: hiyori
@@ -2432,7 +2432,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: フィーナ
-  fullName: フィーナ
+  fullName: 朝比奈フィーナ
   schoolId: hyakkiyako
   variants:
   - id: fina
@@ -2458,7 +2458,7 @@ students:
     ultraFavoriteGiftIds:
     - book-street
 - name: フウカ
-  fullName: フウカ
+  fullName: 愛清フウカ
   schoolId: gehenna
   variants:
   - id: fuuka
@@ -2478,7 +2478,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: フブキ
-  fullName: フブキ
+  fullName: 合歓垣フブキ
   schoolId: valkyrie
   variants:
   - id: fubuki
@@ -2506,7 +2506,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: フユ
-  fullName: フユ
+  fullName: 若狭フユ
   schoolId: wildhunt
   variants:
   - id: fuyu
@@ -2520,7 +2520,7 @@ students:
     ultraFavoriteGiftIds:
     - perfume
 - name: ホシノ
-  fullName: ホシノ
+  fullName: 小鳥遊ホシノ
   schoolId: abydos
   variants:
   - id: hoshino
@@ -2554,7 +2554,7 @@ students:
     ultraFavoriteGiftIds:
     - lace-pillow
 - name: マキ
-  fullName: マキ
+  fullName: 小塗マキ
   schoolId: millennium
   variants:
   - id: maki
@@ -2581,7 +2581,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: マコト
-  fullName: マコト
+  fullName: 羽沼マコト
   schoolId: gehenna
   variants:
   - id: makoto
@@ -2597,7 +2597,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: マシロ
-  fullName: マシロ
+  fullName: 静山マシロ
   schoolId: trinity
   variants:
   - id: mashiro
@@ -2618,7 +2618,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: マリー
-  fullName: マリー
+  fullName: 伊落マリー
   schoolId: trinity
   variants:
   - id: marie
@@ -2647,7 +2647,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: マリナ
-  fullName: マリナ
+  fullName: 池倉マリナ
   schoolId: redwinter
   variants:
   - id: marina
@@ -2679,7 +2679,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: ミカ
-  fullName: ミカ
+  fullName: 聖園ミカ
   schoolId: trinity
   variants:
   - id: mika
@@ -2708,7 +2708,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: ミサキ
-  fullName: ミサキ
+  fullName: 戒野ミサキ
   schoolId: arius
   variants:
   - id: misaki
@@ -2728,7 +2728,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: ミチル
-  fullName: ミチル
+  fullName: 千鳥ミチル
   schoolId: hyakkiyako
   variants:
   - id: michiru
@@ -2742,7 +2742,7 @@ students:
     - egg-craft
     ultraFavoriteGiftIds: []
 - name: ミドリ
-  fullName: ミドリ
+  fullName: 才羽ミドリ
   schoolId: millennium
   variants:
   - id: midori
@@ -2763,7 +2763,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: ミナ
-  fullName: ミナ
+  fullName: 近衛ミナ
   schoolId: shanhaijing
   variants:
   - id: mina
@@ -2779,7 +2779,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: ミネ
-  fullName: ミネ
+  fullName: 蒼森ミネ
   schoolId: trinity
   variants:
   - id: mine
@@ -2805,7 +2805,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: ミノリ
-  fullName: ミノリ
+  fullName: 安守ミノリ
   schoolId: redwinter
   variants:
   - id: minori
@@ -2823,7 +2823,7 @@ students:
     ultraFavoriteGiftIds:
     - vitamin-jelly
 - name: ミモリ
-  fullName: ミモリ
+  fullName: 水羽ミモリ
   schoolId: hyakkiyako
   variants:
   - id: mimori
@@ -2855,7 +2855,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: ミヤコ
-  fullName: ミヤコ
+  fullName: 月雪ミヤコ
   schoolId: srt
   variants:
   - id: miyako
@@ -2878,7 +2878,7 @@ students:
     ultraFavoriteGiftIds:
     - lace-pillow
 - name: ミユ
-  fullName: ミユ
+  fullName: 霞沢ミユ
   schoolId: srt
   variants:
   - id: miyu
@@ -2901,7 +2901,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: ミヨ
-  fullName: ミヨ
+  fullName: 桜井ミヨ
   schoolId: wildhunt
   variants:
   - id: miyo
@@ -2922,7 +2922,7 @@ students:
     ultraFavoriteGiftIds:
     - book-street
 - name: ムツキ
-  fullName: ムツキ
+  fullName: 浅黄ムツキ
   schoolId: gehenna
   variants:
   - id: mutsuki
@@ -2952,7 +2952,7 @@ students:
     - board-game
     ultraFavoriteGiftIds: []
 - name: メグ
-  fullName: メグ
+  fullName: 下倉メグ
   schoolId: gehenna
   variants:
   - id: megu
@@ -2969,7 +2969,7 @@ students:
     ultraFavoriteGiftIds:
     - board-game
 - name: メル
-  fullName: メル
+  fullName: 姫木メル
   schoolId: redwinter
   variants:
   - id: meru
@@ -2991,7 +2991,7 @@ students:
     ultraFavoriteGiftIds:
     - board-game
 - name: モエ
-  fullName: モエ
+  fullName: 風倉モエ
   schoolId: srt
   variants:
   - id: moe
@@ -3019,7 +3019,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: モミジ
-  fullName: モミジ
+  fullName: 秋泉モミジ
   schoolId: redwinter
   variants:
   - id: momiji
@@ -3036,7 +3036,7 @@ students:
     ultraFavoriteGiftIds:
     - book-street
 - name: モモイ
-  fullName: モモイ
+  fullName: 才羽モモイ
   schoolId: millennium
   variants:
   - id: momoi
@@ -3082,7 +3082,7 @@ students:
     ultraFavoriteGiftIds:
     - egg-craft
 - name: ユウカ
-  fullName: ユウカ
+  fullName: 早瀬ユウカ
   schoolId: millennium
   variants:
   - id: yuuka
@@ -3115,7 +3115,7 @@ students:
     ultraFavoriteGiftIds:
     - lace-pillow
 - name: ユカリ
-  fullName: ユカリ
+  fullName: 勘解由小路ユカリ
   schoolId: hyakkiyako
   variants:
   - id: yukari
@@ -3144,7 +3144,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: ユズ
-  fullName: ユズ
+  fullName: 花岡ユズ
   schoolId: millennium
   variants:
   - id: yuzu
@@ -3168,7 +3168,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: ヨシミ
-  fullName: ヨシミ
+  fullName: 伊原木ヨシミ
   schoolId: trinity
   variants:
   - id: yoshimi
@@ -3193,7 +3193,7 @@ students:
     ultraFavoriteGiftIds:
     - parfait
 - name: ラブ
-  fullName: ラブ
+  fullName: 河駒風ラブ
   schoolId: trinity
   variants:
   - id: rabu
@@ -3215,7 +3215,7 @@ students:
     ultraFavoriteGiftIds:
     - dumbbell
 - name: リオ
-  fullName: リオ
+  fullName: 調月リオ
   schoolId: millennium
   variants:
   - id: rio
@@ -3231,7 +3231,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: リツ
-  fullName: リツ
+  fullName: 薄葉リツ
   schoolId: wildhunt
   variants:
   - id: ritsu
@@ -3249,7 +3249,7 @@ students:
     ultraFavoriteGiftIds:
     - bonsai
 - name: ルミ
-  fullName: ルミ
+  fullName: 朱城ルミ
   schoolId: shanhaijing
   variants:
   - id: rumi
@@ -3261,7 +3261,7 @@ students:
     ultraFavoriteGiftIds:
     - comb
 - name: レイ
-  fullName: レイ
+  fullName: 野正レイ
   schoolId: millennium
   variants:
   - id: rei
@@ -3274,7 +3274,7 @@ students:
     ultraFavoriteGiftIds:
     - aeebook
 - name: レイサ
-  fullName: レイサ
+  fullName: 宇沢レイサ
   schoolId: trinity
   variants:
   - id: reisa
@@ -3317,7 +3317,7 @@ students:
     ultraFavoriteGiftIds:
     - book-street
 - name: レイジョ
-  fullName: レイジョ
+  fullName: 鹿山レイジョ
   schoolId: shanhaijing
   variants:
   - id: reijo
@@ -3331,7 +3331,7 @@ students:
     ultraFavoriteGiftIds:
     - dumbbell
 - name: レンゲ
-  fullName: レンゲ
+  fullName: 不破レンゲ
   schoolId: hyakkiyako
   variants:
   - id: renge
@@ -3361,7 +3361,7 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
 - name: ワカモ
-  fullName: ワカモ
+  fullName: 狐坂ワカモ
   schoolId: hyakkiyako
   variants:
   - id: wakamo
