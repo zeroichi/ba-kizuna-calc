@@ -1,14 +1,13 @@
 'use client'
 
 import { AppConfig } from "@/config/config";
-import { BondExpTable, Gift, GiftId, MasterData, StudentVariant, StudentVariantId } from "@/types/master";
-import { PersistData } from "@/types/persist";
+import { BondExpTable, Gift, GiftId, MasterData, Notifications, StudentVariant, StudentVariantId } from "@/types/MasterData";
 import { getEffectivity } from "@/utils/utils";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HelpIcon from '@mui/icons-material/Help';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import { InputAdornment, Tooltip } from "@mui/material";
+import { Alert, InputAdornment, Tooltip } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import Image from 'next/image';
 import Link from "next/link";
@@ -17,6 +16,11 @@ import { ExpConverter } from "../../components/ExpConverter";
 import { GiftCountForm } from "../../components/GiftCountForm";
 import { StudentSelector } from "../../components/StudentSelector";
 import { GoalSimulator } from "../organisms/GoalSimulator";
+import { INITIAL_STUDENT_DATA, INITIAL_USER_DATA, USER_DATA_PERSIST_KEY, userDataDeserializer, userDataSchema, userDataSerializer, UserStudentData, userStudentSchema } from "@/types/UserData";
+import { useLocalStorage } from 'usehooks-ts'
+import z from "zod";
+import { useForm } from "react-hook-form";
+import ReleaseNotes from "../organisms/ReleaseNotes";
 
 function getExpFromEffectivity(effectivity: 'normal' | 'favorite' | 'super' | 'ultra') {
   switch (effectivity) {
@@ -36,23 +40,54 @@ function getExpFromEffectivity(effectivity: 'normal' | 'favorite' | 'super' | 'u
 export interface MainPageProps {
   masterData: MasterData
   bondExpTable: BondExpTable
-  persistData: PersistData
-  onPersistData: (data: PersistData) => void
+  notifications: Notifications
 }
 
+const giftFormSchema = z.object({
+  currentBondRank: userStudentSchema.shape.currentBondRank,
+  goalBondRank: userStudentSchema.shape.goalBondRank,
+  tailorStoneCount: userDataSchema.shape.tailorStoneCount,
+})
+
+type GiftForm = z.infer<typeof giftFormSchema>
+
 export default function MainPage(props: MainPageProps) {
-  const { masterData, bondExpTable, persistData, onPersistData: setPersistData } = props
-  const [giftCountMap, setGiftCountMap] = useState(new Map<GiftId, number>(Object.entries(persistData.giftCountMap)))
+  // console.log("render")
+  const { masterData, bondExpTable } = props
+  /** ユーザーデータの保存 */
+  const [userData, saveUserData, resetUserData] = useLocalStorage(
+    USER_DATA_PERSIST_KEY,
+    INITIAL_USER_DATA,
+    { serializer: userDataSerializer, deserializer: userDataDeserializer })
+
+  const [giftCountMap, setGiftCountMap] = useState(userData.giftCountMap)
   /** 選択中の生徒ID */
-  const [selectedStudent, setSelectedStudent] = useState(persistData.selectedStudentId)
+  const [selectedStudent, setSelectedStudent] = useState(userData.selectedStudentId)
   /** 絆ランク入力のエラー */
   const [errorMessage, setErrorMessage] = useState("")
-  /** 現在の絆ランク TODO:生徒ごとに変えられるようにする */
-  const [currentBondRank, setCurrentBondRank] = useState(persistData.currentBondLevel ?? 1)
-  /** 目標の絆ランク TODO:生徒ごとに変えられるようにする */
-  const [goalBondRank, setGoalBondRank] = useState(persistData.goalBondLevel ?? 100)
+  /** 選択中の生徒の現在の絆ランク */
+  const currentBondRank = userData.students.get(selectedStudent ?? '')?.currentBondRank ?? 1
+  const setCurrentBondRank = useCallback((newRank: number) => {
+    if (selectedStudent && userStudentSchema.shape.currentBondRank.safeParse(newRank)) {
+      const current: UserStudentData = userData.students.get(selectedStudent) ?? INITIAL_STUDENT_DATA
+      const newMap = new Map(userData.students).set(selectedStudent, { ...current, currentBondRank: newRank })
+      saveUserData({ ...userData, students: newMap })
+    }
+  }, [saveUserData, selectedStudent, userData])
+  /** 選択中の生徒の目標絆ランク */
+  const goalBondRank = userData.students.get(selectedStudent ?? '')?.goalBondRank ?? 100
+  const setGoalBondRank = useCallback((newRank: number) => {
+    if (selectedStudent && userStudentSchema.shape.goalBondRank.safeParse(newRank)) {
+      const current: UserStudentData = userData.students.get(selectedStudent) ?? INITIAL_STUDENT_DATA
+      const newMap = new Map(userData.students).set(selectedStudent, { ...current, goalBondRank: newRank })
+      saveUserData({ ...userData, students: newMap })
+    }
+  }, [saveUserData, selectedStudent, userData])
   /** 上級テイラーストーン所持数 */
-  const [tailorStoneCount, setTailorStoneCount] = useState(persistData.tailorStoneCount ?? 0)
+  const [tailorStoneCount, setTailorStoneCount] = useState(userData.tailorStoneCount ?? 0)
+
+  /** 入力データ管理フォーム */
+  const giftForm = useForm<GiftForm>({ values: { currentBondRank, goalBondRank, tailorStoneCount } })
 
   /** 経験値テーブルマップ (Rank => Exp) */
   const bondExpMap = useMemo(() => {
@@ -117,37 +152,37 @@ export default function MainPage(props: MainPageProps) {
     const newMap = new Map(giftCountMap)
     setGiftCountMap(newMap) // hookのdeps更新検知のためMapを再作成
     // console.log(id, newMap)
-    setPersistData({ ...persistData, giftCountMap: Object.fromEntries(newMap) })
+    saveUserData({ ...userData, giftCountMap: newMap })
   }
 
   /** 生徒の選択が変更された時 */
   function onSelectedStudentChange(id?: StudentVariantId) {
     // console.log("selected student:", id, studentMap.get(id ?? "")?.name)
     setSelectedStudent(id)
-    setPersistData({ ...persistData, selectedStudentId: id })
+    saveUserData({ ...userData, selectedStudentId: id })
   }
 
   /** 現在の絆ランクが変更された時のイベントハンドラ */
   const onChangeCurrentBondRank = (currentLevelStr: string) => {
+    // console.log("onChangeCurrentBondRank", currentLevelStr)
     const currentRank = parseInt(currentLevelStr)
     if (isNaN(currentRank) || currentRank < 1 || currentRank > 100) {
       setErrorMessage("絆ランクは1以上100以下の整数を入力してください")
     } else {
       setErrorMessage("")
       setCurrentBondRank(currentRank)
-      setPersistData({ ...persistData, currentBondLevel: currentRank })
     }
   }
 
   /** 目標の絆ランクが変更された時のイベントハンドラ */
   const onChangeGoalBondRank = (goalRankStr: string) => {
+    // console.log("onChangeGoalBondRank", goalRankStr)
     const goalRank = parseInt(goalRankStr)
     if (isNaN(goalRank) || goalRank < 1 || goalRank > 100) {
       setErrorMessage("絆ランクは1以上100以下の整数を入力してください")
     } else {
       setErrorMessage("")
       setGoalBondRank(goalRank)
-      setPersistData({ ...persistData, goalBondLevel: goalRank })
     }
   }
 
@@ -157,9 +192,9 @@ export default function MainPage(props: MainPageProps) {
       // TODO: エラー処理
     } else {
       setTailorStoneCount(newValue)
-      setPersistData({ ...persistData, tailorStoneCount: newValue })
+      saveUserData({ ...userData, tailorStoneCount: newValue })
     }
-  }, [persistData, setPersistData])
+  }, [userData, saveUserData])
 
   /** 効果小の贈り物の数 */
   const numOfNormalEffectiveGifts = useMemo(() => {
@@ -234,15 +269,34 @@ export default function MainPage(props: MainPageProps) {
     return requiredExp <= 0 ? undefined : requiredExp
   }, [expTotal, goalBondRank, bondExpTable.bondExpTable])
 
+  /** 未読のお知らせリスト */
+  const unreadNotifications = useMemo(() => {
+    return props.notifications.filter(n => n.index > userData.lastReadNotification)
+  }, [props.notifications, userData.lastReadNotification])
+
+  /** お知らせを既読にする */
+  const markReadNotification = useCallback(() => {
+    saveUserData({ ...userData, lastReadNotification: Math.max(...unreadNotifications.map(n => n.index)) })
+  }, [saveUserData, unreadNotifications, userData])
+
   return (
     <main className="flex w-full max-w-6xl flex-col items-center justify-between py-8 px-4 sm:px-16 bg-white sm:items-start">
       <h1 className="text-xl mb-4 pb-1 border-b-2 border-red-200 w-full">ブルアカ 絆ランクシミュレータ</h1>
       <p>
         所有している贈り物・製造用アイテムの数から到達できる絆ランクを計算します。
       </p>
+      {unreadNotifications.length > 0 ? (
+        <Alert severity="info" onClose={markReadNotification} className="w-full">
+          {unreadNotifications.map((n) => {
+            return <p key={`notification-${n.index}`}>
+              {n.publishDate}: {n.message}
+            </p>
+          })}
+        </Alert>
+      ) : undefined}
       {/* 生徒の選択 */}
       <div id="student-selector" className="my-2">
-        生徒を選択: <StudentSelector students={masterData.students ?? []} onChange={onSelectedStudentChange} initialValue={persistData.selectedStudentId} />
+        生徒を選択: <StudentSelector students={masterData.students ?? []} onChange={onSelectedStudentChange} initialValue={userData.selectedStudentId} />
       </div>
       <p className="text-xs">
         ゲーム内のメニュー「アイテム」→フィルター「贈り物」→ソート「デフォルト」で所持している贈り物数を調べられます。PCではTabキーで入力欄を移動できます。
@@ -268,8 +322,7 @@ export default function MainPage(props: MainPageProps) {
           :
           <div className="mt-2 flex items-center gap-2">
             <TextField variant="standard" label="上級テイラーストーン数" className="w-36" type="number"
-              defaultValue={persistData.tailorStoneCount ?? 0}
-              onChange={onChangeTailorStoneCount}
+              {...giftForm.register('tailorStoneCount', { onChange: onChangeTailorStoneCount })}
               slotProps={{
                 input: {
                   startAdornment: (
@@ -309,8 +362,7 @@ export default function MainPage(props: MainPageProps) {
       {/* 現在の絆ランクと、アイテムで到達できる絆ランクを表示 */}
       <div id="bond-level-indicator" className="flex items-baseline gap-2 w-full justify-center">
         <TextField variant="standard" label="現在の絆ランク" className="w-30" type="number"
-          defaultValue={currentBondRank}
-          onChange={(e) => onChangeCurrentBondRank(e.target.value)}
+          {...giftForm.register('currentBondRank', { onChange: (e) => onChangeCurrentBondRank(e.target.value) })}
           slotProps={{
             /* テキストボックスの頭にハートマーク */
             input: {
@@ -336,8 +388,7 @@ export default function MainPage(props: MainPageProps) {
           }} />
         <KeyboardDoubleArrowRightIcon className="block" />
         <TextField variant="standard" label="目標の絆ランク" className="w-30" type="number"
-          defaultValue={goalBondRank}
-          onChange={(e) => onChangeGoalBondRank(e.target.value)}
+          {...giftForm.register('goalBondRank', { onChange: (e) => onChangeGoalBondRank(e.target.value) })}
           slotProps={{
             /* テキストボックスの頭にハートマーク */
             input: {
@@ -378,54 +429,7 @@ export default function MainPage(props: MainPageProps) {
         &nbsp;
         (<Link className="text-blue-600" href="https://github.com/zeroichi/ba-kizuna-calc/issues" target="_blank" rel="noopener">対応予定Issue</Link>)
       </div>
-      <div className="mt-4 pt-4 border-t-4 border-gray-200 w-full text-sm text-gray-600">
-        <h2>更新履歴</h2>
-        <ul className="list-disc ml-6">
-          <li>2025/12/06
-            <ul>
-              <li>OS/ブラウザでダークテーマに設定されている場合に見辛くなる問題を修正しました。<br />
-              ※一旦ライトに固定しています。ダークテーマは別途対応予定です。</li>
-            </ul>
-          </li>
-          <li>2025/12/02
-            <ul>
-              <li>達成日シミュレーションに「製造用月一PKG」を追加 (贈り物選択ボックス 15個分換算)</li>
-              <li>現在の絆ランクを変更するとリロード後に上級テイラーストーンの数が0になるバグを修正</li>
-              <li>リロード時に「贈り物セット月一PKG」のチェックが復元されないバグを修正</li>
-            </ul>
-          </li>
-          <li>2025/11/30
-            <ul>
-              <li>カフェタッチ・贈り物製造などで目標絆ランクまで何日かかるかシミュレーションする機能を追加 (β版です。今後改善予定)</li>
-            </ul>
-          </li>
-          <li>2025/11/23
-            <ul>
-              <li>テイラーメイドでの贈り物選択ボックス製造による追加経験値計算機能を追加</li>
-            </ul>
-          </li>
-          <li>2025/11/22
-            <ul>
-              <li>次の絆ランク経験値の表示機能を追加</li>
-              <li>目標の絆ランク入力と、目標ランクまでの経験値の表示機能を追加</li>
-              <li>経験値のカフェタッチ回数などへの換算表示機能を追加</li>
-            </ul>
-          </li>
-          <li>2025/11/20
-            <ul>
-              <li>新規実装生徒「タカネ」「ヤクモ」追加</li>
-              <li>&quot;絆ランク&quot;に用語を統一</li>
-              <li>高級贈り物と通常贈り物の違いが分かるように背景色を変更</li>
-              <li>スマホ向けにレイアウト微調整(レスポンシブ対応)</li>
-            </ul>
-          </li>
-          <li>2025/11/16
-            <ul>
-              <li>初版公開</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <ReleaseNotes />
     </main>
   );
 }

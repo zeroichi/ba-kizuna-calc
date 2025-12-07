@@ -1,5 +1,5 @@
 import { AppConfig } from "@/config/config"
-import { Gift, GiftEffectivity, GiftId } from "@/types/master"
+import { Gift, GiftEffectivity, GiftId } from "@/types/MasterData"
 import { getEffectivity, getEffectivityId } from "@/utils/utils"
 import { Tooltip } from "@mui/material"
 import Image from 'next/image'

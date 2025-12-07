@@ -1,3 +1,4 @@
+import z from "zod"
 
 /** 学校 */
 export type SchoolId = string
@@ -56,3 +57,15 @@ export interface BondExpTable {
 
 /** 贈り物の効果(生徒の反応) 小・中・大・特大 */
 export type GiftEffectivity = "normal" | "favorite" | "super" | "ultra"
+
+/** お知らせ表示アイテムのスキーマ */
+export const notificationsSchema = z.array(
+  z.object({
+    index: z.int(),
+    publishDate: z.string(),
+    message: z.string(),
+  })
+)
+
+/** お知らせ表示アイテム */
+export type Notifications = z.infer<typeof notificationsSchema>
