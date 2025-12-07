@@ -296,7 +296,7 @@ export default function MainPage(props: MainPageProps) {
       ) : undefined}
       {/* 生徒の選択 */}
       <div id="student-selector" className="my-2">
-        生徒を選択: <StudentSelector students={masterData.students ?? []} onChange={onSelectedStudentChange} initialValue={userData.selectedStudentId} />
+        生徒を選択: <StudentSelector students={masterData.students ?? []} onChange={onSelectedStudentChange} initialValue={userData.selectedStudentId} userStatus={userData.students} />
       </div>
       <p className="text-xs">
         ゲーム内のメニュー「アイテム」→フィルター「贈り物」→ソート「デフォルト」で所持している贈り物数を調べられます。PCではTabキーで入力欄を移動できます。
