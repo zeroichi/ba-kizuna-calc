@@ -1,11 +1,11 @@
 /** カフェタッチやスケジュールなどを行い、何日後に目標絆ランクに達するかのシミュレータ */
 
-import { useLocalPersistence } from "@/hooks/persist"
 import { Button, Checkbox, Snackbar, TextField } from "@mui/material"
 import dayjs, { Dayjs } from "dayjs"
 import { useCallback, useState } from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useLocalStorage } from "usehooks-ts";
 
 export interface GoalSimulatorProps {
   currentExp: number
@@ -78,11 +78,11 @@ type SimulatedDay = {
 }
 
 export const GoalSimulator = (props: GoalSimulatorProps) => {
-  const [savedData, setSavedData] = useLocalPersistence(PERSIST_KEY, INITIAL_SIMULATION_PARAMS)
+  const [savedData, setSavedData] = useLocalStorage(PERSIST_KEY, INITIAL_SIMULATION_PARAMS)
   const [notifyMessage, setNotifyMessage] = useState<string>()
   const [simulrationResult, setSimulrationResult] = useState<SimulatedDay[]>([])
 
-  const { register, handleSubmit, reset, formState: { errors, isDirty } } = useForm<SimulationParams>({
+  const { register, handleSubmit, reset, formState: { isDirty } } = useForm<SimulationParams>({
     defaultValues: savedData
   })
 

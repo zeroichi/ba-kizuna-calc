@@ -16,7 +16,7 @@ interface StudentSelectorOption {
 }
 
 export const StudentSelector = (props: StudentSelectorProps) => {
-  const [value, setValue] = useState(props.initialValue)
+  const [selectedId, setSelectedId] = useState(props.initialValue)
   /** 選択肢 */
   const options = useMemo(() => {
     return props.students.flatMap(student => {
@@ -27,10 +27,12 @@ export const StudentSelector = (props: StudentSelectorProps) => {
     })
   }, [props.students])
   return <>
-    <Select className="w-64 inline-block" value={options.findLast(o => o.value === value)} options={options} isSearchable onChange={(v) => {
-      console.log("onChange:", v)
-      props.onChange?.(v?.value)
-      setValue(v?.value)
-    }}></Select>
+    <Select className="w-64 inline-block" value={options.findLast(o => o.value === selectedId)} options={options} isSearchable
+      onChange={(v) => {
+        // console.log("onChange:", v)
+        props.onChange?.(v?.value)
+        setSelectedId(v?.value)
+      }}>
+    </Select>
   </>
 }
