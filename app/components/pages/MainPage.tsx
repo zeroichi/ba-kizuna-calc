@@ -21,6 +21,7 @@ import { useLocalStorage } from 'usehooks-ts'
 import z from "zod";
 import { useForm } from "react-hook-form";
 import ReleaseNotes from "../organisms/ReleaseNotes";
+import dayjs from "dayjs";
 
 function getExpFromEffectivity(effectivity: 'normal' | 'favorite' | 'super' | 'ultra') {
   switch (effectivity) {
@@ -271,7 +272,9 @@ export default function MainPage(props: MainPageProps) {
 
   /** 未読のお知らせリスト */
   const unreadNotifications = useMemo(() => {
+    // 未読のもの、かつ、更新が今日から14日以内のもの
     return props.notifications.filter(n => n.index > userData.lastReadNotification)
+    .filter(n => dayjs(n.publishDate).isAfter(dayjs().subtract(14, 'd')))
   }, [props.notifications, userData.lastReadNotification])
 
   /** お知らせを既読にする */

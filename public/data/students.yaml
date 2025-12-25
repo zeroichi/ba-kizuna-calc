@@ -1775,6 +1775,20 @@ students:
     - plant-pot
     - bonsai
     ultraFavoriteGiftIds: []
+  - id: tsukuyo-dress
+    name: ドレス
+    favoriteGiftIds:
+    - gloss
+    - military-cream
+    - glasses
+    - handkerchief
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - comb
+    - bb-cream
+    ultraFavoriteGiftIds:
+    - perfume
 - name: ツバキ
   fullName: 春日ツバキ
   schoolId: hyakkiyako
@@ -2741,6 +2755,17 @@ students:
     - treasure-map
     - egg-craft
     ultraFavoriteGiftIds: []
+  - id: michiru-dress
+    name: ドレス
+    favoriteGiftIds:
+    - glasses
+    - handkerchief
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - treasure-map
+    ultraFavoriteGiftIds:
+    - comb
 - name: ミドリ
   fullName: 才羽ミドリ
   schoolId: millennium
