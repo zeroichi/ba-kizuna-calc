@@ -2,6 +2,12 @@ export const ReleaseNotes = () => {
   return <div className="mt-4 pt-4 border-t-4 border-gray-200 w-full text-sm text-gray-600">
     <h2>更新履歴</h2>
     <ul className="list-disc ml-6">
+      <li>2025/12/26
+        <ul>
+          <li>新規実装生徒「ツクヨ（ドレス）」「ミチル（ドレス）」追加<br />
+          ※一部高級贈り物の検証ができていないため、分かり次第更新します</li>
+        </ul>
+      </li>
       <li>2025/12/07
         <ul>
           <li>生徒ごとに現在の絆ランク・目標ランクを分けて保存するよう改善 (生徒切替時に反映されます)</li>
