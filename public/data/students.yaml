@@ -3255,6 +3255,19 @@ students:
     - telescope
     ultraFavoriteGiftIds:
     - aeebook
+  - id: rio-battle
+    name: '臨戦'
+    favoriteGiftIds:
+    - apod
+    - gamegirl-color
+    - glasses
+    - puzzle-box
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - telescope
+    ultraFavoriteGiftIds:
+    - aeebook
 - name: リツ
   fullName: 薄葉リツ
   schoolId: wildhunt
