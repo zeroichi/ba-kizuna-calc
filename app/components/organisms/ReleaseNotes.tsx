@@ -2,10 +2,15 @@ export const ReleaseNotes = () => {
   return <div className="mt-4 pt-4 border-t-4 border-gray-200 w-full text-sm text-gray-600">
     <h2>更新履歴</h2>
     <ul className="list-disc ml-6">
+      <li>2026/01/20
+        <ul>
+          <li>新規実装生徒「リオ（臨戦）」追加<br />
+          ※他生徒は情報分かり次第追って対応します</li>
+        </ul>
+      </li>
       <li>2025/12/26
         <ul>
-          <li>新規実装生徒「ツクヨ（ドレス）」「ミチル（ドレス）」追加<br />
-          ※一部高級贈り物の検証ができていないため、分かり次第更新します</li>
+          <li>新規実装生徒「ツクヨ（ドレス）」「ミチル（ドレス）」追加</li>
         </ul>
       </li>
       <li>2025/12/07
