@@ -38,14 +38,14 @@ export default function Home() {
           }
         }
         datePublished="2025-11-20T15:00:00+09:00"
-        dateModified="2026-01-20T22:10:00+09:00"
+        dateModified="2026-01-22T22:40:00+09:00"
         screenshot={{
           url: "https://public.ako.zeroichi.jp/ba-kizuna-calc.png",
           caption: "絆ランク 計算画面",
         }}
         featureList={[
-          "ブルアカ 絆ランク 計算",
-          "ブルアカ 絆ランク シミュレーション",
+          "ブルアカ 贈り物 絆ランク 計算",
+          "ブルアカ 贈り物 絆ランク シミュレーション",
         ]}
       />
       <ThemeProvider theme={theme}>
