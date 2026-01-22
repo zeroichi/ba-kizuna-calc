@@ -1861,6 +1861,21 @@ students:
     ultraFavoriteGiftIds:
     - sewing-set
     - dumbbell
+  - id: toki-battle
+    name: 臨戦
+    favoriteGiftIds:
+    - apod
+    - book-magazine
+    - o-fit
+    - glasses
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - aeebook
+    - gamegirl-color
+    - movie-ticket
+    ultraFavoriteGiftIds:
+    - board-game
 - name: トモエ
   fullName: 佐城トモエ
   schoolId: redwinter
@@ -2417,6 +2432,18 @@ students:
     - treasure-map
     - high-pot
     - music-box
+    superFavoriteGiftIds:
+    - puzzle-box
+    ultraFavoriteGiftIds:
+    - egg-craft
+  - id: himari-battle
+    name: 臨戦
+    favoriteGiftIds:
+    - treasure-map
+    - high-pot
+    - music-box
+    - encyclopedia
+    - supplement
     superFavoriteGiftIds:
     - puzzle-box
     ultraFavoriteGiftIds:
