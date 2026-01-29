@@ -452,6 +452,22 @@ students:
     ultraFavoriteGiftIds:
     - comb
     - board-game
+  - id: arisu-battle
+    name: 臨戦
+    favoriteGiftIds:
+    - o-fit
+    - telescope
+    - paints-set
+    - teddy-bear
+    - glasses
+    - handkerchief
+    - cube-puzzle
+    - book-magazine
+    superFavoriteGiftIds:
+    - comb
+    - gamegirl-color
+    ultraFavoriteGiftIds:
+    - board-game
 - name: アル
   fullName: 陸八魔アル
   schoolId: gehenna
@@ -1014,6 +1030,22 @@ students:
     - float-ring
     ultraFavoriteGiftIds:
     - dumbbell
+- name: ケイ
+  fullName: ケイ
+  schoolId: millennium
+  variants:
+  - id: key
+    name: ''
+    favoriteGiftIds:
+    - o-fit
+    - military-cream
+    - bb-cream
+    - book-magazine
+    superFavoriteGiftIds:
+    - gamegirl-color
+    - gloss
+    ultraFavoriteGiftIds:
+    - perfume
 - name: ココナ
   fullName: 春原ココナ
   schoolId: shanhaijing
