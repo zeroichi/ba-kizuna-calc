@@ -1,6 +1,6 @@
 /** カフェタッチやスケジュールなどを行い、何日後に目標絆ランクに達するかのシミュレータ */
 
-import { Button, Checkbox, Snackbar, TextField } from "@mui/material"
+import { Button, Snackbar, TextField } from "@mui/material"
 import dayjs, { Dayjs } from "dayjs"
 import { useCallback, useState } from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
@@ -38,12 +38,12 @@ type SimulationParams = {
   unrestrictedFloor: number
   /** 制約解除決戦 攻略日 */
   dayOfUnrestricted: number
-  /** 贈り物セット月一パッケージに課金するか */
-  payGiftPackage: boolean
+  /** 贈り物セット月一パッケージをいくつ購入するか */
+  numGiftPackage: number
   /** 贈り物セット月一パッケージ 購入(使用)日 */
   dayOfGiftPackage: number
-  /** 製造用月一パッケージに課金するか */
-  payProducePackage: boolean
+  /** 製造用月一パッケージをいくつ購入するか */
+  numProducePackage: number
   /** 製造用月一パッケージ 購入(使用)日 */
   dayOfProducePackage: number
 }
@@ -60,9 +60,9 @@ const INITIAL_SIMULATION_PARAMS: SimulationParams = {
   dayOfEvent2: 15,
   unrestrictedFloor: 75,
   dayOfUnrestricted: 15,
-  payGiftPackage: false,
+  numGiftPackage: 0,
   dayOfGiftPackage: 1,
-  payProducePackage: false,
+  numProducePackage: 0,
   dayOfProducePackage: 1,
 }
 
@@ -222,19 +222,19 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
         }
       }
       // 月一贈り物PKG
-      if (params.payGiftPackage && currentDay.get('date') == params.dayOfGiftPackage) {
+      if (params.numGiftPackage > 0 && currentDay.get('date') == params.dayOfGiftPackage) {
         // TODO: 生徒に合わせて修正
-        const e = 20 * 10 + props.maxNormalGiftExp * 5 + 120
+        const e = (20 * 10 + props.maxNormalGiftExp * 5 + 120) * params.numGiftPackage
         expGot += e
-        events.push(`贈り物セット月一パッケージ 贈り物ボックスx10(200P)`)
-        events.push(`贈り物セット月一パッケージ 贈り物選択ボックスx5(${props.maxNormalGiftExp * 5}P)`)
-        events.push(`贈り物セット月一パッケージ 高級贈り物ボックスx1(120P)`)
+        events.push(`贈り物セット月一パッケージ 贈り物ボックスx${10 * params.numGiftPackage} (${200 * params.numGiftPackage}P)`)
+        events.push(`贈り物セット月一パッケージ 贈り物選択ボックスx${5 * params.numGiftPackage} (${props.maxNormalGiftExp * 5 * params.numGiftPackage}P)`)
+        events.push(`贈り物セット月一パッケージ 高級贈り物ボックスx${1 * params.numGiftPackage} (${120 * params.numGiftPackage}P)`)
       }
       // 月一製造PKG
-      if (params.payProducePackage && currentDay.get('date') == params.dayOfProducePackage) {
-        const e = props.maxNormalGiftExp * 15
+      if (params.numProducePackage > 0 && currentDay.get('date') == params.dayOfProducePackage) {
+        const e = props.maxNormalGiftExp * 15 * params.numProducePackage
         expGot += e
-        events.push(`製造用月一パッケージ 贈り物選択ボックスx15(${e}P)`)
+        events.push(`製造用月一パッケージ 贈り物選択ボックスx${15 * params.numProducePackage}(${e}P)`)
       }
       currentExp += expGot
       result.push({
@@ -440,10 +440,20 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
           </tr>
           <tr>
             <th>
-              【課金】贈り物セット月一PKG
+              【課金】贈り物セット月一PKG<br />
+              (0は購入なし)
             </th>
             <td>
-              <Checkbox {...register("payGiftPackage")} defaultChecked={savedData.payGiftPackage} />
+              <TextField variant="standard" className="w-24 input-form"
+                slotProps={{
+                  input: {
+                    startAdornment: (<span className="text-nowrap text-sm">毎月</span>),
+                    endAdornment: (<span className="text-nowrap text-sm pl-1">回</span>),
+                    style: { textAlign: "right" }
+                  }
+                }}
+                {...register("numGiftPackage")}
+              />
             </td>
             <th>
               購入(使用)日
@@ -463,10 +473,20 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
           </tr>
           <tr>
             <th>
-              【課金】製造用月一PKG
+              【課金】製造用月一PKG<br />
+              (0は購入なし)
             </th>
             <td>
-              <Checkbox {...register("payProducePackage")} defaultChecked={savedData.payProducePackage} />
+              <TextField variant="standard" className="w-24 input-form"
+                slotProps={{
+                  input: {
+                    startAdornment: (<span className="text-nowrap text-sm">毎月</span>),
+                    endAdornment: (<span className="text-nowrap text-sm pl-1">回</span>),
+                    style: { textAlign: "right" }
+                  }
+                }}
+                {...register("numProducePackage")}
+              />
             </td>
             <th>
               購入(使用)日
@@ -496,6 +516,7 @@ export const GoalSimulator = (props: GoalSimulatorProps) => {
           <li>スケジュールは全ロケーションランクMAXが前提です(ベース絆ポイント25)。</li>
           <li>イベントは月2回開催を想定しています。イベント報酬を無効にするには開催日を「0」にしてください。</li>
           <li>シミュレーションは最大で2年先までです。目標絆ランクに達したらそこで終了します。</li>
+          <li>製造用月一PKGはテイラーストーン+製造用マテリアルで製造できる贈り物選択ボックスのみ考慮します。(キーストーンは考慮外)</li>
         </ul>
       </div>
       <div className="mt-2">
