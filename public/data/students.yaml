@@ -747,6 +747,17 @@ students:
     - float-ring
     - egg-craft
     ultraFavoriteGiftIds: []
+  - id: eimi-battle
+    name: 臨戦
+    favoriteGiftIds:
+    - book-magazine
+    - gamegirl-color
+    - o-fit
+    - treasure-map
+    superFavoriteGiftIds:
+    - book-love
+    ultraFavoriteGiftIds:
+    - vitamin-jelly
 - name: エリ
   fullName: 白尾エリ
   schoolId: wildhunt
@@ -3249,6 +3260,18 @@ students:
     - o-fit
     superFavoriteGiftIds:
     - gamegirl-color
+    ultraFavoriteGiftIds:
+    - aeebook
+  - id: yuzu-battle
+    name: 臨戦
+    favoriteGiftIds:
+    - gloss
+    - mx-ration
+    - bb-cream
+    superFavoriteGiftIds:
+    - perfume
+    - gamegirl-color
+    - military-cream
     ultraFavoriteGiftIds:
     - aeebook
 - name: ヨシミ
