@@ -38,7 +38,7 @@ export default function Home() {
           }
         }
         datePublished="2025-11-20T15:00:00+09:00"
-        dateModified="2026-02-12T22:05:00+09:00"
+        dateModified="2026-02-14T21:40:00+09:00"
         screenshot={{
           url: "https://public.ako.zeroichi.jp/ba-kizuna-calc.png",
           caption: "絆ランク 計算画面",
