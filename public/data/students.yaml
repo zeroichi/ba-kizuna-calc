@@ -1167,6 +1167,18 @@ students:
     - cube-puzzle
     ultraFavoriteGiftIds:
     - board-game
+  - id: koyuki-pajama
+    name: 'パジャマ'
+    favoriteGiftIds:
+    - pillow
+    - glasses
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - lace-pillow
+    - wavecat
+    ultraFavoriteGiftIds:
+    - board-game
 - name: サオリ
   fullName: 錠前サオリ
   schoolId: arius
