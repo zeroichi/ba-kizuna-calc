@@ -1127,6 +1127,28 @@ students:
     - encyclopedia
     ultraFavoriteGiftIds:
     - dumbbell
+- name: コノカ
+  fullName: 志真コノカ
+  schoolId: valkyrie
+  variants:
+  - id: konoka
+    name: ''
+    favoriteGiftIds:
+    - wavecat
+    - book-love
+    - book-magazine
+    - book-gun
+    - pillow
+    - book-detective
+    - o-fit
+    - book-poetry
+    - encyclopedia
+    superFavoriteGiftIds:
+    - peroro
+    - book-street
+    - lace-pillow
+    ultraFavoriteGiftIds:
+    - dumbbell
 - name: コハル
   fullName: 下江コハル
   schoolId: trinity
@@ -3462,6 +3484,23 @@ students:
     - supplement
     ultraFavoriteGiftIds:
     - dumbbell
+- name: レナ
+  fullName: 衣斐レナ
+  schoolId: wildhunt
+  variants:
+  - id: rena
+    name: ''
+    favoriteGiftIds:
+    - gloss
+    - bb-cream
+    - military-cream
+    superFavoriteGiftIds:
+    - perfume
+    - comb
+    - teddy-bear
+    - handkerchief
+    ultraFavoriteGiftIds:
+    - sewing-set
 - name: レンゲ
   fullName: 不破レンゲ
   schoolId: hyakkiyako
