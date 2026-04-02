@@ -4,6 +4,11 @@ export const ReleaseNotes = () => {
     <ul className="list-disc ml-6">
       <li>2026/03/18
         <ul>
+          <li>新規実装生徒「アカネ（制服）」追加</li>
+        </ul>
+      </li>
+      <li>2026/03/18
+        <ul>
           <li>新規実装生徒「コノカ」「レナ」追加</li>
         </ul>
       </li>
