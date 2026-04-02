@@ -255,6 +255,18 @@ students:
     - tableware
     ultraFavoriteGiftIds:
     - sewing-set
+  - id: akane-uniform
+    name: 制服
+    favoriteGiftIds:
+    - treasure-map
+    - puzzle-box
+    - high-pot
+    superFavoriteGiftIds:
+    - egg-craft
+    - tableware
+    - music-box
+    ultraFavoriteGiftIds:
+    - sewing-set
 - name: アカリ
   fullName: 鰐渕アカリ
   schoolId: gehenna
