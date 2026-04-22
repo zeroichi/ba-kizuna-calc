@@ -785,6 +785,22 @@ students:
     - paints-set
     ultraFavoriteGiftIds:
     - egg-craft
+- name: オトギ
+  fullName: 天神山オトギ
+  schoolId: srt
+  variants:
+  - id: otogi
+    name: ''
+    favoriteGiftIds:
+    - peroro
+    - military-cream
+    - mx-ration
+    - treasure-map
+    superFavoriteGiftIds:
+    - dumbbell
+    - o-fit
+    ultraFavoriteGiftIds:
+    - egg-craft
 - name: カエデ
   fullName: 勇美カエデ
   schoolId: hyakkiyako
@@ -1053,6 +1069,20 @@ students:
     - float-ring
     ultraFavoriteGiftIds:
     - dumbbell
+- name: クルミ
+  fullName: 高倉クルミ
+  schoolId: srt
+  variants:
+  - id: kurumi
+    name: ''
+    favoriteGiftIds:
+    - military-cream
+    - mx-ration
+    - teddy-bear
+    superFavoriteGiftIds:
+    - bb-cream
+    ultraFavoriteGiftIds:
+    - board-game
 - name: ケイ
   fullName: ケイ
   schoolId: millennium
@@ -2064,6 +2094,23 @@ students:
     - whole-cake
     ultraFavoriteGiftIds:
     - parfait
+- name: ニコ
+  fullName: 吉野ニコ
+  schoolId: srt
+  variants:
+  - id: niko
+    name: ''
+    favoriteGiftIds:
+    - military-cream
+    - cookie
+    - maccha-lemonade
+    - tableware
+    - whole-cake
+    superFavoriteGiftIds:
+    - parfait
+    - mx-ration
+    ultraFavoriteGiftIds:
+    - sewing-set
 - name: ニヤ
   fullName: 天地ニヤ
   schoolId: hyakkiyako
