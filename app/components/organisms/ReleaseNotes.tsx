@@ -2,6 +2,11 @@ export const ReleaseNotes = () => {
   return <div className="mt-4 pt-4 border-t-4 border-gray-200 w-full text-sm text-gray-600">
     <h2>更新履歴</h2>
     <ul className="list-disc ml-6">
+      <li>2026/05/22
+        <ul>
+          <li>新規実装生徒「エリカ」追加</li>
+        </ul>
+      </li>
       <li>2026/04/23
         <ul>
           <li>新規実装生徒「ニコ」「クルミ」「オトギ」追加</li>

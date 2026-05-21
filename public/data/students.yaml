@@ -785,6 +785,29 @@ students:
     - paints-set
     ultraFavoriteGiftIds:
     - egg-craft
+- name: エリカ
+  fullName: 旗見エリカ
+  schoolId: gehenna
+  variants:
+  - id: erika
+    name: ''
+    favoriteGiftIds:
+    - book-love
+    - book-magazine
+    - gloss
+    - bb-cream
+    - military-cream
+    - book-gun
+    - book-detective
+    - book-poetry
+    - handkerchief
+    - encyclopedia
+    superFavoriteGiftIds:
+    - book-street
+    - perfume
+    - teddy-bear
+    ultraFavoriteGiftIds:
+    - comb
 - name: オトギ
   fullName: 天神山オトギ
   schoolId: srt
