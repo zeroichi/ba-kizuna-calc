@@ -2416,6 +2416,24 @@ students:
     - plant-pot
     ultraFavoriteGiftIds:
     - bonsai
+  - id: haruka-dress
+    name: ドレス
+    favoriteGiftIds:
+    - telescope
+    - treasure-map
+    - glasses
+    - puzzle-box
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - high-pot
+    - music-box
+    superFavoriteGiftIds:
+    - egg-craft
+    - board-game
+    - plant-pot
+    ultraFavoriteGiftIds:
+    - bonsai
 - name: ハルナ
   fullName: 黒舘ハルナ
   schoolId: gehenna
@@ -3162,6 +3180,19 @@ students:
     - glasses
     - board-game
     ultraFavoriteGiftIds: []
+  - id: mutsuki-dress
+    name: ドレス
+    favoriteGiftIds:
+    - telescope
+    - teddy-bear
+    - paints-set
+    - cube-puzzle
+    - plant-pot
+    - high-pot
+    superFavoriteGiftIds:
+    - glasses
+    ultraFavoriteGiftIds:
+    - board-game
 - name: メグ
   fullName: 下倉メグ
   schoolId: gehenna
